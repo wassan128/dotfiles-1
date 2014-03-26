@@ -17,8 +17,6 @@ install --cocoa --srgb --with-gnutils --japanese emacs -v
 
 install autoconf
 install gdbm --force
-unlink jpeg
-link jpeg
 install libtool
 install osxfuse
 install pkg-config
@@ -35,21 +33,14 @@ install re2c
 install sqlite
 install xz
 install boot2docker
-install emacs
-install fuse4x-kext
 install git
 install libpng
-install ntfs-3g
 install python
 install readline
 install unixodbc
-unlink zlib
-link zlib
 install fontconfig
 install gd
 install httpd
-unlink libtiff
-link libtiff
 install phpenv
 install vim
 

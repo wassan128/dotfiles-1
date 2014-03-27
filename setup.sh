@@ -2,29 +2,30 @@
 
 files=.*
 ignores=(
-	"."
-	".."
-	".git"
-	".DS_Store"
-	".gitignore"
+  "."
+  ".."
+  ".git"
+  ".DS_Store"
+  ".gitignore"
 )
+
 
 for file in ${files}
 do
-   filepath="${PWD}/${file}"
-   homefile="${HOME}/${file}"
+  filepath="${PWD}/${file}"
+  homefile="${HOME}/${file}"
 
   # ignores は省略
   for ignore in ${ignores[@]}
   do
-	test $file == ${ignore} && continue 2
+    test $file == ${ignore} && continue 2
   done
 
   # .hogehogeが存在しなければ、シンボリックリンクを作成
   if [ ! -e "${homefile}" ]; then
-     echo "${file} not exis, make symbolic link to ${homefile}"
-     ln -s "${filepath}" "${homefile}"
+    echo "${file} not exis, make symbolic link to ${homefile}"
+    ln -s "${filepath}" "${homefile}"
   else
-     echo "${file} exist"
+    echo "${file} exist"
   fi
 done

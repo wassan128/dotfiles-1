@@ -1,8 +1,30 @@
-#! /bin/bash
-ln -s ~/dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/dotfiles/oh-my-zsh_custom ~/.oh-my-zsh/custom
-ln -s ~/dotfiles/.vim ~/.vim
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-ln -s ~/dotfiles/Brewfile ~/Brewfile
-ln -s ~/dotfiles/.emacs ~/.emacs
-ln -s ~/dotfiles/.emacs.d ~/.emacs.d
+#!/bin/bash
+
+files=.*
+ignores=(
+	"."
+	".."
+	".git"
+	".DS_Store"
+	".gitignore"
+)
+
+for file in ${files}
+do
+   filepath="${PWD}/${file}"
+   homefile="${HOME}/${file}"
+
+  # ignores は省略
+  for ignore in ${ignores[@]}
+  do
+	test $file == ${ignore} && continue 2
+  done
+
+  # .hogehogeが存在しなければ、シンボリックリンクを作成
+  if [ ! -e "${homefile}" ]; then
+     echo "${file} not exis, make symbolic link to ${homefile}"
+     ln -s "${filepath}" "${homefile}"
+  else
+     echo "${file} exist"
+  fi
+done

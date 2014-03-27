@@ -20,7 +20,6 @@ install gdbm --force
 install libtool
 install osxfuse
 install pkg-config
-install rbenv
 install automake
 install docker
 install freetype

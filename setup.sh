@@ -7,6 +7,7 @@ ignores=(
   ".git"
   ".DS_Store"
   ".gitignore"
+  ".gitmodules"
 )
 
 
@@ -29,3 +30,6 @@ do
     echo "${file} exist"
   fi
 done
+
+git submodule init
+git submodule update

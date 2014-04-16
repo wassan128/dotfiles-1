@@ -18,7 +18,6 @@ install --cocoa --srgb --with-gnutils --japanese emacs -v
 install autoconf
 install gdbm --force
 install libtool
-install osxfuse
 install pkg-config
 install automake
 install docker
@@ -29,17 +28,15 @@ install mcrypt
 install pcre
 install pypy
 install re2c
-install sqlite
-install xz
+# install sqlite
 install boot2docker
 install git
-install libpng
-install python
-install readline
-install unixodbc
-install fontconfig
-install gd
-install httpd
+install libpng --force
+# install readline
+# install unixodbc
+# install fontconfig
+install gd --force
+# install httpd
 install phpenv
 install vim
 
@@ -51,14 +48,14 @@ cask install alfred
 cask alfred link
 cask install virtualbox
 cask install vagrant
-cask install android-studio-bundle
+# cask install android-studio-bundle
 # cask install intellij-idea-ultimate-eap
-cask install phpstorm-eap
+# cask install phpstorm-eap
 # cask install kobito
 cask install firefox-aurora
 cask install google-chrome
 cask install google-chrome-canary
-cask install cyberduck
+# cask install cyberduck
 cask install dash
 cask install dropbox
 cask install iterm2-nightly

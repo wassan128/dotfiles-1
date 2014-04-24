@@ -4,6 +4,7 @@
 [core]
 	autocrlf = input
 	excludesfile = /Users/kori/.gitignore_global
+	editor = vim -c \"set fenc=utf-8\"
 [push]
 	default = simple
 [difftool "sourcetree"]

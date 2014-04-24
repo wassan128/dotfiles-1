@@ -43,6 +43,7 @@ NeoBundle 'hotchpotch/perldoc-vim'
 " シンタックス系プラグインをバンドル
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle "Shougo/neosnippet-snippets"
 " 実行プラグインをバンドル
 NeoBundle 'thinca/vim-quickrun'
 " 編集履歴管理

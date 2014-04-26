@@ -75,3 +75,5 @@ cask install font-inconsolata-dz-for-powerline
 # install oh-my-zsh
 # install nodebrew
 # link dotfiles
+
+brew install php55 --with-apxs --with-homebrew-curl --with-homebrew-libxslt --with-homebrew-openssl

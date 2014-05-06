@@ -6,6 +6,7 @@
 	excludesfile = /Users/kori/.gitignore_global
 	editor = vim -c \"set fenc=utf-8\"
 	precomposeunicode = true
+	pager = lv
 [push]
 	default = simple
 [difftool "sourcetree"]
@@ -14,5 +15,8 @@
 [mergetool "sourcetree"]
 	cmd = /opt/homebrew-cask/Caskroom/sourcetree/1.8.1/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[merge]
+[color]
+	ui = auto
 [merge]
 	ff = false

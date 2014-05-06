@@ -1,5 +1,8 @@
 #!/bin/bash
 
+git submodule init
+git submodule update
+
 files=.*
 ignores=(
   "."
@@ -24,12 +27,14 @@ do
 
   # .hogehogeが存在しなければ、シンボリックリンクを作成
   if [ ! -e "${homefile}" ]; then
-    echo "${file} not exis, make symbolic link to ${homefile}"
+    echo "${file} not exist, make symbolic link to ${homefile}"
     ln -s "${filepath}" "${homefile}"
   else
     echo "${file} exist"
   fi
 done
 
-git submodule init
-git submodule update
+# oh-my-zsh-*/を.oh-my-zsh/以下にシンボリックリンク
+ln -s oh-my-zsh_custom/* ~/.oh-my-zsh/custom/
+ln -s oh-my-zsh_themes/* ~/.oh-my-zsh/themes/
+

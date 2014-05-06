@@ -1,6 +1,7 @@
 #!/bin/bash
 
 git submodule init
+git submodule foreach 'git checkout master; git pull'
 git submodule update
 
 files=.*
@@ -37,4 +38,3 @@ done
 # oh-my-zsh-*/を.oh-my-zsh/以下にシンボリックリンク
 ln -s oh-my-zsh_custom/* ~/.oh-my-zsh/custom/
 ln -s oh-my-zsh_themes/* ~/.oh-my-zsh/themes/
-

@@ -3,7 +3,7 @@
 	email = kori@aucfan.com
 [core]
 	autocrlf = input
-	excludesfile = /Users/K/.gitignore_global
+	excludesfile = /Users/kori/.gitignore_global
 	editor = vim -c \"set fenc=utf-8\"
 	precomposeunicode = true
 	pager = lv
@@ -18,3 +18,4 @@
 [color]
 	ui = auto
 [merge]
+    ff = false

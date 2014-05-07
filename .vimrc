@@ -28,15 +28,10 @@ NeoBundle 'ruby-matchit'
 NeoBundle 'vim-scripts/dbext.vim'
 NeoBundle 'taichouchou2/vim-rsense'
 NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'taichouchou2/vim-rails'
-NeoBundle 'romanvbabenko/rails.vim'
-NeoBundle 'ujihisa/unite-rake'
-NeoBundle 'basyura/unite-rails'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'taichouchou2/vim-ref-ri'
-NeoBundle 'taq/vim-rspec'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Lokaltog/powerline'
+NeoBundle 'alpaca-tc/alpaca_powertabline'
+NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 " Perl関連プラグインをバンドル
 NeoBundle 'petdance/vim-perl'
 NeoBundle 'hotchpotch/perldoc-vim'
@@ -62,6 +57,14 @@ noremap :ur :Unite register -buffer-name=register
 noremap :ub :Unite buffer -buffer-name=buffer
 nnoremap <C-u>m  :Unite file_mru<CR>
 " 環境設定系
+" インデントに空白を使用(タブキー入力はC-v <TAB>)
+set expandtab
+" タブを表示するときの幅
+set tabstop=4
+" タブを挿入するときの幅
+set shiftwidth=4
+" タブキーでの幅、0=tabstop値
+set softtabstop=0
 " シンタックスハイライト
 syntax on
 " エンコード
@@ -372,3 +375,4 @@ if has('syntax')
   augroup END
   call ZenkakuSpace()
 endif
+

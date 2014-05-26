@@ -297,6 +297,12 @@ let g:neocomplcache_skip_input_time = '0.5'
 " Perl用設定
 autocmd BufNewFile,BufRead *.psgi   set filetype=perl
 autocmd BufNewFile,BufRead *.t      set filetype=perl
+" coffee-script設定
+" vimにcoffeeファイルタイプを認識させる
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+" インデントを設定
+autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
+
 " Enable snipMate compatibility feature.↲
 let g:neosnippet#enable_snipmate_compatibility = 1
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)

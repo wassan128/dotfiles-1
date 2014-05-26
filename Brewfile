@@ -65,6 +65,7 @@ cask install emacs-nightly
 cask install imageoptim
 cask install freemind
 cask install cd-to
+cask install lightpaper
 
 tap caskroom/fonts
 

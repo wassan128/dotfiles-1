@@ -32,6 +32,8 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+" coffee-script syntax + 自動compile
+NeoBundle 'kchmck/vim-coffee-script'
 " Perl関連プラグインをバンドル
 NeoBundle 'petdance/vim-perl'
 NeoBundle 'hotchpotch/perldoc-vim'
@@ -45,6 +47,8 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle "sjl/gundo.vim"
 " カラースキーム
 NeoBundle 'tomasr/molokai'
+" indentの深さに色を付ける
+NeoBundle 'nathanaelkane/vim-indent-guides'
 set t_Co=256
 " ファイラー関連
 nnoremap <Leader>e :VimFilerExplorer<CR>

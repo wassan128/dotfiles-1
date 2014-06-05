@@ -1,5 +1,5 @@
 [user]
-	name = Kei Kori
+	name = 2k0ri
 	email = esc13245@gmail.com
 [core]
 	autocrlf = input
@@ -18,4 +18,6 @@
 [color]
 	ui = true
 [merge]
-	ff = false
+    ff = false
+[rerere]
+	enabled = true

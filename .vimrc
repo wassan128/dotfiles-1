@@ -30,7 +30,7 @@ NeoBundle 'taichouchou2/vim-rsense'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 " coffee-script syntax + 自動compile
 NeoBundle 'kchmck/vim-coffee-script'
@@ -49,7 +49,6 @@ NeoBundle "sjl/gundo.vim"
 NeoBundle 'tomasr/molokai'
 " indentの深さに色を付ける
 NeoBundle 'nathanaelkane/vim-indent-guides'
-set t_Co=256
 " ファイラー関連
 nnoremap <Leader>e :VimFilerExplorer<CR>
 nnoremap <Leader>g :GundoToggle<CR>
@@ -139,7 +138,94 @@ set mouse=a
 set ttymouse=xterm2
 " コマンドを画面最下部に表示する
 set showcmd
+" lightline.vim
+let g:lightline = {
+        \ 'colorscheme': 'wombat',
+        \ 'mode_map': {'c': 'NORMAL'},
+        \ 'active': {
+        \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+        \   'right': [ [ 'syntastic', 'lineinfo' ],
+        \              [ 'percent' ],
+        \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+        \ },
+        \ 'component_expand': {
+        \   'syntastic': 'SyntasticStatuslineFlag'
+        \ },
+        \ 'component_type': {
+        \   'syntastic': 'error'
+        \ },
+        \ 'component_function': {
+        \   'modified': 'MyModified',
+        \   'readonly': 'MyReadonly',
+        \   'fugitive': 'MyFugitive',
+        \   'filename': 'MyFilename',
+        \   'fileformat': 'MyFileformat',
+        \   'filetype': 'MyFiletype',
+        \   'fileencoding': 'MyFileencoding',
+        \   'mode': 'MyMode'
+        \ },
+        \ 'component': {
+        \   'readonly': '%{&readonly?"\u2b64":""}',
+        \ },
+        \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
+        \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" },
+        \ }
 
+function! MyModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+endfunction
+
+function! MyFilename()
+  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \  &ft == 'unite' ? unite#get_status_string() :
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+  try
+    if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+      return fugitive#head()
+    endif
+  catch
+  endtry
+  return ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! MyFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! MyMode()
+  return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+let g:syntastic_mode_map = { 'mode': 'passive' }
+augroup AutoSyntastic
+  autocmd!
+  autocmd BufWritePost *.c,*.cpp call s:syntastic()
+augroup END
+function! s:syntastic()
+  SyntasticCheck
+  call lightline#update()
+endfunction
+set laststatus=2
+
+" カラー設定
+set t_Co=256
 
 " w!! でスーパーユーザーとして保存（sudoが使える環境限定）
 cmap w!! w !sudo tee > /dev/null %

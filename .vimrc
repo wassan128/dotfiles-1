@@ -12,7 +12,7 @@ NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc'
-NeoBundle 'VimClojure'
+" NeoBundle 'VimClojure'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'scrooloose/syntastic'
@@ -30,8 +30,8 @@ NeoBundle 'taichouchou2/vim-rsense'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+NeoBundle 'alpaca-tc/alpaca_powertabline'
 " coffee-script syntax + 自動compile
 NeoBundle 'kchmck/vim-coffee-script'
 " Perl関連プラグインをバンドル

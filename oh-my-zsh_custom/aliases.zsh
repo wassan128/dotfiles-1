@@ -13,17 +13,17 @@
 # alias l=' ls -CF'
 # alias sl=' ls' # often screw this up
 
-case "${OSTYPE}" in
-darwin*)
-  alias ls=' ls -FG' #regular ls
-  alias l.=' ls -dFG .[a-zA-Z0-9]*' #only show dotfiles
-  alias ll=' ls -lhFG' #long listing
-  alias lsa=' ls -lahG'
-  alias la=' ls -AG'
-  alias l=' ls -CFG'
-  alias sl=' ls' # often screw this up
-  ;;
-linux*)
+# case "${OSTYPE}" in
+# darwin*)
+#   alias ls=' ls -FG' #regular ls
+#   alias l.=' ls -dFG .[a-zA-Z0-9]*' #only show dotfiles
+#   alias ll=' ls -lhFG' #long listing
+#   alias lsa=' ls -lahG'
+#   alias la=' ls -AG'
+#   alias l=' ls -CFG'
+#   alias sl=' ls' # often screw this up
+#   ;;
+# linux*)
   alias ls=' ls -F --color=tty' #regular ls
   alias l.=' ls -dF .[a-zA-Z0-9]* --color=tty' #only show dotfiles
   alias ll=' ls -lhF --color=tty' #long listing
@@ -31,5 +31,5 @@ linux*)
   alias la=' ls -A --color=tty'
   alias l=' ls -CF --color=tty'
   alias sl=' ls' # often screw this up
-  ;;
-esac
+#   ;;
+# esac

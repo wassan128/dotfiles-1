@@ -40,14 +40,14 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'rhysd/clever-f'
+NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'gcmt/wildfire.vim'
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'bbatsov/rubocop'
 " coffee-script syntax + 自動compile
 NeoBundle 'kchmck/vim-coffee-script'
-" Perl関連プラグインをバンドル
-NeoBundle 'petdance/vim-perl'
-NeoBundle 'hotchpotch/perldoc-vim'
 " シンタックス系プラグインをバンドル
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'

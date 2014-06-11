@@ -1,1 +1,3 @@
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if [ -d ${HOME}/.rbenv ]; then
+  eval "$(rbenv init -)"
+fi

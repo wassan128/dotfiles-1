@@ -40,7 +40,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'rhysd/clever-f'
+NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'gcmt/wildfire.vim'
 " Ruby

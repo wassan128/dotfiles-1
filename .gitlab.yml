@@ -1,0 +1,11 @@
+---
+:gitlab_url: https://gitlab.aucfan.com
+
+# Found in My Profile -> Account -> Private token
+:private_token: xpWBWx3MkFEzgdR9V4XK
+
+# Whether or not to display potentially lengthy
+# results in the system pager (i.e. 'less').
+# Default: false (to maintain original behavior)
+# Recommended setting: true
+:display_results_in_pager: false

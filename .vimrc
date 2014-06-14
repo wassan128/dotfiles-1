@@ -11,8 +11,15 @@ NeoBundle 'Shougo/neobundle.vim'
 " 以下のプラグインをバンドル
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/vimproc'
-" NeoBundle 'VimClojure'
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+    \ 'windows' : 'make -f make_mingw32.mak',
+    \ 'cygwin' : 'make -f make_cygwin.mak',
+    \ 'mac' : 'make -f make_mac.mak',
+    \ 'unix' : 'make -f make_unix.mak',
+  \ },
+\ }
+NeoBundle 'VimClojure'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'scrooloose/syntastic'
@@ -32,11 +39,15 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'alpaca-tc/alpaca_powertabline'
+NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'rhysd/clever-f.vim'
+NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'gcmt/wildfire.vim'
+" Ruby
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'bbatsov/rubocop'
 " coffee-script syntax + 自動compile
 NeoBundle 'kchmck/vim-coffee-script'
-" Perl関連プラグインをバンドル
-NeoBundle 'petdance/vim-perl'
-NeoBundle 'hotchpotch/perldoc-vim'
 " シンタックス系プラグインをバンドル
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'

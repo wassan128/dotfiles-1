@@ -10,6 +10,7 @@ call neobundle#rc(expand('~/.vim/bundle'))
 NeoBundle 'Shougo/neobundle.vim'
 " 以下のプラグインをバンドル
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -43,15 +44,20 @@ NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'gcmt/wildfire.vim'
+" PHP
+NeoBundle 'tobyS/pdv'
+NeoBundle 'pasela/unite-fuel'
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'bbatsov/rubocop'
 " coffee-script syntax + 自動compile
 NeoBundle 'kchmck/vim-coffee-script'
 " シンタックス系プラグインをバンドル
-NeoBundle 'Shougo/neocomplcache'
+" NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'violetyk/neocomplete-php.vim'
 NeoBundle 'Shougo/neosnippet'
-NeoBundle "Shougo/neosnippet-snippets"
+NeoBundle 'Shougo/neosnippet-snippets'
 " 実行プラグインをバンドル
 NeoBundle 'thinca/vim-quickrun'
 " 編集履歴管理
@@ -66,10 +72,18 @@ nnoremap <Leader>g :GundoToggle<CR>
 let g:vimfiler_enable_auto_cd = 1
 let g:vimfiler_as_default_explorer = 1
 "mru,reg,buf
-noremap :um :Unite file_mru -buffer-name=file_mru
-noremap :ur :Unite register -buffer-name=register
-noremap :ub :Unite buffer -buffer-name=buffer
-nnoremap <C-u>m  :Unite file_mru<CR>
+" noremap :um :Unite file_mru -buffer-name=file_mru
+" noremap :ur :Unite register -buffer-name=register
+" noremap :ub :Unite buffer -buffer-name=buffer
+" nnoremap <C-u>m  :Unite file_mru<CR>
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 " 環境設定系
 " インデントに空白を使用(タブキー入力はC-v <TAB>)
 set expandtab
@@ -375,21 +389,34 @@ highlight Pmenu ctermbg=4
 highlight PmenuSel ctermbg=1
 highlight PMenuSbar ctermbg=4
 
-" neocomplcacheを起動時に有効化する
-let g:neocomplcache_enable_at_startup = 1
-" 大文字を区切りとしたワイルドカードのように振る舞う機能
-let g:neocomplcache_enable_camel_case_completion = 1
-" _区切りの補完を有効化
-let g:neocomplcache_enable_underbar_completion = 1
-" 大文字が入力されるまで大文字小文字の区別を無視する
-let g:neocomplcache_smart_case = 1
-" シンタックスをキャッシュするときの最小文字長を3に
-let g:neocomplcache_min_syntax_length = 3
-"手動補完時に補完を行う入力数を制御
-let g:neocomplcache_manual_completion_start_length = 0
-let g:neocomplcache_caching_percent_in_statusline = 1
-let g:neocomplcache_enable_skip_completion = 1
-let g:neocomplcache_skip_input_time = '0.5'
+" " neocomplcacheを起動時に有効化する
+" let g:neocomplcache_enable_at_startup = 1
+" " 大文字を区切りとしたワイルドカードのように振る舞う機能
+" let g:neocomplcache_enable_camel_case_completion = 1
+" " _区切りの補完を有効化
+" let g:neocomplcache_enable_underbar_completion = 1
+" " 大文字が入力されるまで大文字小文字の区別を無視する
+" let g:neocomplcache_smart_case = 1
+" " シンタックスをキャッシュするときの最小文字長を3に
+" let g:neocomplcache_min_syntax_length = 3
+" "手動補完時に補完を行う入力数を制御
+" let g:neocomplcache_manual_completion_start_length = 0
+" let g:neocomplcache_caching_percent_in_statusline = 1
+" let g:neocomplcache_enable_skip_completion = 1
+" let g:neocomplcache_skip_input_time = '0.5'
+
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" for neocomplete-php
+let g:neocomplete_php_locale = 'ja'
 
 " Perl用設定
 autocmd BufNewFile,BufRead *.psgi   set filetype=perl

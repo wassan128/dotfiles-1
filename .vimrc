@@ -46,6 +46,8 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'gcmt/wildfire.vim'
 " PHP
 NeoBundle 'tobyS/pdv'
+NeoBundle 'tobyS/vmustache'
+NeoBundle 'SirVer/ultisnips'
 NeoBundle 'pasela/unite-fuel'
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
@@ -63,7 +65,17 @@ NeoBundle 'thinca/vim-quickrun'
 " 編集履歴管理
 NeoBundle "sjl/gundo.vim"
 " カラースキーム
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'vim-scripts/twilight'
+NeoBundle 'jonathanfilip/vim-lucius'
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'tomasr/molokai'
+NeoBundle 'vim-scripts/rdark'
+let g:hybrid_use_iTerm_colors = 1
+colorscheme hybrid
 " indentの深さに色を付ける
 NeoBundle 'nathanaelkane/vim-indent-guides'
 " ファイラー関連

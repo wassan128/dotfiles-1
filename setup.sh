@@ -29,11 +29,14 @@ do
   if [ ! -e "${homefile}" ]; then
     echo "${file} not exist, make symbolic link to ${homefile}"
     ln -s "${filepath}" "${homefile}"
-  else
-    echo "${file} exist"
   fi
 done
 
 # oh-my-zsh-*/を.oh-my-zsh/以下にシンボリックリンク
-ln -s ${PWD}/oh-my-zsh_custom/* ~/.oh-my-zsh/custom
-ln -s ${PWD}/oh-my-zsh_themes/* ~/.oh-my-zsh/themes
+ln -s ${PWD}/oh-my-zsh_custom/* ~/.oh-my-zsh/custom 2> /dev/null
+ln -s ${PWD}/oh-my-zsh_themes/* ~/.oh-my-zsh/themes 2> /dev/null
+# リンク切れのシンボリックリンクを削除
+for file in `find -L ~/.oh-my-zsh/custom ~/.oh-my-zsh/themes -type l`
+do
+  unlink $file
+done

@@ -3,19 +3,34 @@
 	email = kori@aucfan.com
 [core]
 	autocrlf = input
-	excludesfile = /Users/kori/.gitignore_global
+	excludesfile = /Users/kori/.gitignore
 	editor = vim -c \"set fenc=utf-8\"
 	precomposeunicode = true
 	pager = lv
 [push]
-	default = simple
+	default = current
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	cmd = /opt/homebrew-cask/Caskroom/diffmerge/4.2.0.697/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/sourcetree/1.9.4/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /opt/homebrew-cask/Caskroom/diffmerge/4.2.0.697/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 	trustExitCode = true
 [color]
 	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	grep = auto
 [merge]
     ff = false
+[alias]
+	st = status
+	co = checkout
+	ci = commit -v
+	di = diff
+	br = branch
+	puhs = push
+	psuh = push
+	pus = push
+	puh = push
+	pl = !git pull && git submodule update --init

@@ -44,11 +44,30 @@ NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'gcmt/wildfire.vim'
+NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'vim-submode'
 " PHP
+NeoBundle 'pasela/unite-fuel'
+" NeoBundle 'PDV--phpDocumentor-for-Vim'
 NeoBundle 'tobyS/pdv'
+let g:pdv_template_dir = $HOME."/.vim/bundle/pdv/templates"
+"nnoremap <C-p> :call pdv#DocumentCurrentLine()<CR>
+nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
+" inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
+" nnoremap <C-P> :call PhpDocSingle()<CR>
+" vnoremap <C-P> :call PhpDocRange()<CR>
 NeoBundle 'tobyS/vmustache'
 NeoBundle 'SirVer/ultisnips'
-NeoBundle 'pasela/unite-fuel'
+
+" UltiSnips
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
+
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'bbatsov/rubocop'
@@ -96,7 +115,56 @@ nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+
+" タブ関連 http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+nnoremap sn gt
+nnoremap sp gT
+nnoremap sr <C-w>r
+nnoremap s= <C-w>=
+nnoremap sw <C-w>w
+nnoremap so <C-w>_<C-w>|
+nnoremap sO <C-w>=
+nnoremap sN :<C-u>bn<CR>
+nnoremap sP :<C-u>bp<CR>
+nnoremap st :<C-u>tabnew<CR>
+nnoremap sT :<C-u>Unite tab<CR>
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap sq :<C-u>q<CR>
+nnoremap sQ :<C-u>bd<CR>
+nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
+nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
+call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+call submode#map('bufmove', 'n', '', '<', '<C-w><')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
+" コロンとセミコロンを入れ替え
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
 " 環境設定系
+" オートインデント
+set autoindent
+" インデントのタイミング
+set indentkeys=!^F,o,O,0<Bar>,0=where
+" Shift+Tabでアンインデント
+imap <S-Tab> <C-o><<
 " インデントに空白を使用(タブキー入力はC-v <TAB>)
 set expandtab
 " タブを表示するときの幅
@@ -401,22 +469,6 @@ highlight Pmenu ctermbg=4
 highlight PmenuSel ctermbg=1
 highlight PMenuSbar ctermbg=4
 
-" " neocomplcacheを起動時に有効化する
-" let g:neocomplcache_enable_at_startup = 1
-" " 大文字を区切りとしたワイルドカードのように振る舞う機能
-" let g:neocomplcache_enable_camel_case_completion = 1
-" " _区切りの補完を有効化
-" let g:neocomplcache_enable_underbar_completion = 1
-" " 大文字が入力されるまで大文字小文字の区別を無視する
-" let g:neocomplcache_smart_case = 1
-" " シンタックスをキャッシュするときの最小文字長を3に
-" let g:neocomplcache_min_syntax_length = 3
-" "手動補完時に補完を行う入力数を制御
-" let g:neocomplcache_manual_completion_start_length = 0
-" let g:neocomplcache_caching_percent_in_statusline = 1
-" let g:neocomplcache_enable_skip_completion = 1
-" let g:neocomplcache_skip_input_time = '0.5'
-
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplete.
@@ -426,6 +478,20 @@ let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'perl' : $HOME . '/.vim/dict/perl.dict',
+    \ 'php' : $HOME . '/.vim/dict/php.dict'
+\ }
 
 " for neocomplete-php
 let g:neocomplete_php_locale = 'ja'
@@ -458,8 +524,6 @@ if has('conceal')
 endif
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/snippets/snippets'
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = { 'default'    : '', 'perl'       : $HOME . '/.vim/dict/perl.dict' }
 
 " Java用設定
 "SQLのJava文字リテラルへの整形(:Sqltoj, :Sqlfromj)
@@ -481,6 +545,7 @@ endfunction
 command! Sqlfromj :call SQLFromJava()
 
 " Ruby用設定
+autocmd FileType ruby     setlocal sw=2 sts=2 ts=2 et
 " :makeでRuby構文チェック
 au FileType ruby setlocal makeprg=ruby\ -c\ %
 au FileType ruby setlocal errorformat=%m\ in\ %f\ on\ line\ %l
@@ -494,14 +559,14 @@ augroup END
 autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 
 " 行末、行の最初への移動のキーマップ設定
-:map! <C-e> <Esc>$a
-:map! <C-a> <Esc>^a
-:map <C-e> <Esc>$a
-:map <C-a> <Esc>^a
+nmap <C-a> 0
+nmap <C-e> $
+imap <C-a> <C-o>0
+imap <C-e> <C-o>$
 
 " Ctrl+dで$、Ctrl+aで@
-inoremap <C-d> $
-inoremap <C-a> @
+" inoremap <C-d> $
+" inoremap <C-a> @
 
 " \ + rでスクリプト実行
 nmap <Leader>r <plug>(quickrun)

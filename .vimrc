@@ -117,36 +117,36 @@ nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 
 " タブ関連 http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
-nnoremap s <Nop>
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap sh <C-w>h
-nnoremap sJ <C-w>J
-nnoremap sK <C-w>K
-nnoremap sL <C-w>L
-nnoremap sH <C-w>H
-nnoremap sn gt
-nnoremap sp gT
-nnoremap sr <C-w>r
-nnoremap s= <C-w>=
-nnoremap sw <C-w>w
-nnoremap so <C-w>_<C-w>|
-nnoremap sO <C-w>=
-nnoremap sN :<C-u>bn<CR>
-nnoremap sP :<C-u>bp<CR>
-nnoremap st :<C-u>tabnew<CR>
-nnoremap sT :<C-u>Unite tab<CR>
-nnoremap ss :<C-u>sp<CR>
-nnoremap sv :<C-u>vs<CR>
-nnoremap sq :<C-u>q<CR>
-nnoremap sQ :<C-u>bd<CR>
-nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
-nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
-call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+nnoremap t <Nop>
+nnoremap tj <C-w>j
+nnoremap tk <C-w>k
+nnoremap tl <C-w>l
+nnoremap th <C-w>h
+nnoremap tJ <C-w>J
+nnoremap tK <C-w>K
+nnoremap tL <C-w>L
+nnoremap tH <C-w>H
+nnoremap tn gt
+nnoremap tp gT
+nnoremap tr <C-w>r
+nnoremap t= <C-w>=
+nnoremap tw <C-w>w
+nnoremap to <C-w>_<C-w>|
+nnoremap tO <C-w>=
+nnoremap tN :<C-u>bn<CR>
+nnoremap tP :<C-u>bp<CR>
+nnoremap tt :<C-u>tabnew<CR>
+nnoremap tT :<C-u>Unite tab<CR>
+nnoremap ts :<C-u>sp<CR>
+nnoremap tv :<C-u>vs<CR>
+nnoremap tq :<C-u>q<CR>
+nnoremap tQ :<C-u>bd<CR>
+nnoremap tb :<C-u>Unite buffer_tab -buffer-name=file<CR>
+nnoremap tB :<C-u>Unite buffer -buffer-name=file<CR>
+call submode#enter_with('bufmove', 'n', '', 't>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', 't<', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', 't+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', 't-', '<C-w>-')
 call submode#map('bufmove', 'n', '', '>', '<C-w>>')
 call submode#map('bufmove', 'n', '', '<', '<C-w><')
 call submode#map('bufmove', 'n', '', '+', '<C-w>+')

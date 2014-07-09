@@ -46,7 +46,7 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'gcmt/wildfire.vim'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'mattn/emmet-vim'
-NeoBundle 'vim-submode'
+NeoBundle 'kana/vim-submode'
 " PHP
 NeoBundle 'pasela/unite-fuel'
 " NeoBundle 'PDV--phpDocumentor-for-Vim'

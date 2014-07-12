@@ -94,7 +94,7 @@ NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/rdark'
 let g:hybrid_use_iTerm_colors = 1
-colorscheme hybrid
+colorscheme jellybeans
 " indentの深さに色を付ける
 NeoBundle 'nathanaelkane/vim-indent-guides'
 " ファイラー関連

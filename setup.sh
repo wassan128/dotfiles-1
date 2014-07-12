@@ -1,7 +1,7 @@
 #!/bin/bash
 
 git submodule update --init
-git submodule foreach 'git pull --rebase origin master'
+git submodule foreach 'git checkout master && git pull origin master'
 
 files=.*
 ignores=(

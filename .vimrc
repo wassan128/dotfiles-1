@@ -136,7 +136,7 @@ nnoremap tZ <C-w>=
 nnoremap tN :<C-u>bn<CR>
 nnoremap tP :<C-u>bp<CR>
 nnoremap tc :<C-u>tabnew<CR>
-nnoremap tT :<C-u>Unite tab<CR>
+nnoremap tt :<C-u>Unite tab<CR>
 nnoremap t" :<C-u>sp<CR>
 nnoremap t<Bar> :<C-u>vs<CR>
 nnoremap tm :<C-u>q<CR>
@@ -188,7 +188,7 @@ set nowritebackup
 " バックアップをしない
 set nobackup
 " バックスペースで各種消せるようにする
-set backspace=indent,eol,start
+set backspace=eol,start
 " ビープ音を消す
 set vb t_vb=
 set novisualbell
@@ -222,7 +222,7 @@ set shiftround
 " 補完の際の大文字小文字の区別しない
 set infercase
 " 文字がない場所にもカーソルを移動できるようにする
-set virtualedit=all
+" set virtualedit=all
 " 変更中のファイルでも、保存しないで他のファイルを表示
 set hidden
 " 新しく開く代わりにすでに開いてあるバッファを開く
@@ -495,6 +495,25 @@ let g:neocomplete#sources#dictionary#dictionaries = {
 
 " for neocomplete-php
 let g:neocomplete_php_locale = 'ja'
+
+" Neosnippet設定
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 
 " Perl用設定
 autocmd BufNewFile,BufRead *.psgi   set filetype=perl

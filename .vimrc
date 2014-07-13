@@ -131,16 +131,16 @@ nnoremap tp gT
 nnoremap tr <C-w>r
 nnoremap t= <C-w>=
 nnoremap tw <C-w>w
-nnoremap to <C-w>_<C-w>|
-nnoremap tO <C-w>=
+nnoremap tz <C-w>_<C-w>|
+nnoremap tZ <C-w>=
 nnoremap tN :<C-u>bn<CR>
 nnoremap tP :<C-u>bp<CR>
-nnoremap tt :<C-u>tabnew<CR>
+nnoremap tc :<C-u>tabnew<CR>
 nnoremap tT :<C-u>Unite tab<CR>
-nnoremap ts :<C-u>sp<CR>
-nnoremap tv :<C-u>vs<CR>
-nnoremap tq :<C-u>q<CR>
-nnoremap tQ :<C-u>bd<CR>
+nnoremap t" :<C-u>sp<CR>
+nnoremap t<Bar> :<C-u>vs<CR>
+nnoremap tm :<C-u>q<CR>
+nnoremap tX :<C-u>bd<CR>
 nnoremap tb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap tB :<C-u>Unite buffer -buffer-name=file<CR>
 call submode#enter_with('bufmove', 'n', '', 't>', '<C-w>>')

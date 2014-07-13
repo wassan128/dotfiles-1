@@ -2,9 +2,7 @@ alias brew-cask-upgrade='for c in `brew cask list`; do ! brew cask info $c | gre
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
-docker-attach()
-{
-  id=`sudo docker ps -q --no-trunc $1`
-  root=/var/lib/docker/execdriver/native/$id
-  sudo sh -c "cd $root && $GOPATH/bin/nsinit exec $2"
-}
+
+unset DYLD_INSERT_LIBRARIES
+alias dsh='boot2docker ssh -t ". /home/docker/.profile; sudo docker-enter"'
+

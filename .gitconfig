@@ -1,7 +1,6 @@
 [user]
 [core]
 	autocrlf = input
-	excludesfile = $HOME/.gitignore
 	editor = vim -c \"set fenc=utf-8\"
 	precomposeunicode = true
 	pager = lv

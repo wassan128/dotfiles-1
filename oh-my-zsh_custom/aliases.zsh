@@ -7,3 +7,4 @@ alias cp='cp -i'
 unset DYLD_INSERT_LIBRARIES
 alias dsh='ssh boot2docker -t ". /home/docker/.profile; sudo docker-enter"'
 
+alias dps='docker ps'

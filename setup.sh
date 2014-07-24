@@ -33,10 +33,10 @@ do
 done
 
 # oh-my-zsh-*/を.oh-my-zsh/以下にシンボリックリンク
-ln -s ${PWD}/oh-my-zsh_custom/* ~/.oh-my-zsh/custom 2> /dev/null
-ln -s ${PWD}/oh-my-zsh_themes/* ~/.oh-my-zsh/themes 2> /dev/null
+ln -s ${PWD}/oh-my-zsh_custom/* "${HOME}"/.oh-my-zsh/custom 2> /dev/null
+ln -s ${PWD}/oh-my-zsh_themes/* "${HOME}"/.oh-my-zsh/themes 2> /dev/null
 # リンク切れのシンボリックリンクを削除
-for file in `find -L ~/.oh-my-zsh/custom ~/.oh-my-zsh/themes -type l`
+for file in `find -L "${HOME}"/.oh-my-zsh/custom "${HOME}"/.oh-my-zsh/themes -type l`
 do
   unlink $file
 done

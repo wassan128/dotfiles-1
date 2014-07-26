@@ -1,1 +1,1 @@
-set guifont=RictyDiscord-RegularForPowerline:h25
+set guifont=RictyDiscord-RegularForPowerline:h19

@@ -72,10 +72,11 @@ NeoBundle 'SirVer/ultisnips'
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'bbatsov/rubocop'
+" Scala
+NeoBundle 'derekwyatt/vim-scala'
 " coffee-script syntax + 自動compile
 NeoBundle 'kchmck/vim-coffee-script'
 " シンタックス系プラグインをバンドル
-" NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'violetyk/neocomplete-php.vim'
 NeoBundle 'Shougo/neosnippet'
@@ -491,7 +492,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
     \ 'perl' : $HOME . '/.vim/dict/perl.dict',
-    \ 'php' : $HOME . '/.vim/dict/php.dict'
+    \ 'php' : $HOME . '/.vim/dict/php.dict',
+    \ 'scala' : $HOME . '/.vim/dict/scala.dict'
 \ }
 
 " for neocomplete-php

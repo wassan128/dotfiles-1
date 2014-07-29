@@ -48,6 +48,7 @@ NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'kana/vim-submode'
 NeoBundle 'chase/vim-ansible-yaml'
+NeoBundle 'glidenote/serverspec-snippets'
 " PHP
 NeoBundle 'pasela/unite-fuel'
 " NeoBundle 'PDV--phpDocumentor-for-Vim'

@@ -11,7 +11,6 @@ NeoBundle 'Shougo/neobundle.vim'
 " 以下のプラグインをバンドル
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -37,7 +36,6 @@ NeoBundle 'vim-scripts/dbext.vim'
 NeoBundle 'taichouchou2/vim-rsense'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'osyo-manga/vim-over'
@@ -61,14 +59,6 @@ nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
 " vnoremap <C-P> :call PhpDocRange()<CR>
 NeoBundle 'tobyS/vmustache'
 NeoBundle 'SirVer/ultisnips'
-
-" UltiSnips
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
 
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
@@ -101,15 +91,6 @@ colorscheme jellybeans
 " indentの深さに色を付ける
 NeoBundle 'nathanaelkane/vim-indent-guides'
 " ファイラー関連
-nnoremap <Leader>e :VimFilerExplorer<CR>
-nnoremap <Leader>g :GundoToggle<CR>
-let g:vimfiler_enable_auto_cd = 1
-let g:vimfiler_as_default_explorer = 1
-"mru,reg,buf
-" noremap :um :Unite file_mru -buffer-name=file_mru
-" noremap :ur :Unite register -buffer-name=register
-" noremap :ub :Unite buffer -buffer-name=buffer
-" nnoremap <C-u>m  :Unite file_mru<CR>
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
@@ -160,6 +141,42 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
+
+"------------------------------------------------------------
+" NERD-Tree.vim
+"------------------------------------------------------------
+let mapleader = ","
+nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>N :CD<CR>:NERDTree<CR>
+let NERDTreeShowHidden=1
+
+command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>')
+function! s:ChangeCurrentDir(directory, bang)
+    if a:directory == ''
+        lcd %:p:h
+    else
+        execute 'lcd' . a:directory
+    endif
+
+    if a:bang == ''
+        pwd
+    endif
+endfunction
+
+"------------------------------------------------------------
+" ctrlp.vim
+"------------------------------------------------------------
+NeoBundle 'kien/ctrlp.vim'
+let g:ctrlp_by_filename         = 1 " フルパスではなくファイル名のみで絞込み
+let g:ctrlp_jump_to_buffer      = 2 " タブで開かれていた場合はそのタブに切り替える
+let g:ctrlp_clear_cache_on_exit = 0 " 終了時キャッシュをクリアしない
+let g:ctrlp_mruf_max            = 500 " MRUの最大記録数
+let g:ctrlp_highlight_match     = [1, 'IncSearch'] " 絞り込みで一致した部分のハイライト
+let g:ctrlp_open_new_file       = 1 " 新規ファイル作成時にタブで開く
+let g:ctrlp_open_multi          = '10t' " 複数ファイルを開く時にタブで最大10まで開く
+nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+nnoremap <Leader>h :CtrlPMRUFiles<CR>
 
 " 環境設定系
 " オートインデント

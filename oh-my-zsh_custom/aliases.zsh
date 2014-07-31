@@ -11,4 +11,6 @@ alias dps='docker ps'
 p() { peco | while read LINE; do $@ $LINE; done }
 alias o='git ls-files | p open'
 alias e='ghq list -p | p cd'
+
 alias ssheuc='TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
+alias f='open .'

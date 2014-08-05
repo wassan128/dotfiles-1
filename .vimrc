@@ -47,6 +47,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'kana/vim-submode'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'glidenote/serverspec-snippets'
+NeoBundle 'terryma/vim-multiple-cursors'
 " PHP
 NeoBundle 'pasela/unite-fuel'
 " NeoBundle 'PDV--phpDocumentor-for-Vim'

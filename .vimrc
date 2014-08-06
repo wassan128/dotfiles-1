@@ -48,6 +48,7 @@ NeoBundle 'kana/vim-submode'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'glidenote/serverspec-snippets'
 NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'digitaltoad/vim-jade'
 " PHP
 NeoBundle 'pasela/unite-fuel'
 " NeoBundle 'PDV--phpDocumentor-for-Vim'
@@ -180,6 +181,8 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>h :CtrlPMRUFiles<CR>
 
 " 環境設定系
+" 折りたたみ
+set foldmethod=indent
 " オートインデント
 set autoindent
 " インデントのタイミング

@@ -1,11 +1,11 @@
 [user]
 [core]
-	autocrlf = input
-	editor = vim -c \"set fenc=utf-8\"
-	precomposeunicode = true
-	pager = lv
+    autocrlf = input
+    editor = vim -c \"set fenc=utf-8\"
+    precomposeunicode = true
+    pager = lv
 [push]
-	default = current
+    default = current
 [difftool "sourcetree"]
 	cmd = /opt/homebrew-cask/Caskroom/diffmerge/4.2.0.697/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -13,21 +13,28 @@
 	cmd = /opt/homebrew-cask/Caskroom/diffmerge/4.2.0.697/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 	trustExitCode = true
 [color]
-	ui = auto
-	diff = auto
-	status = auto
-	branch = auto
-	grep = auto
+    ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    grep = auto
 [merge]
     ff = false
 [alias]
-	st = status
-	co = checkout
-	ci = commit -v
-	di = diff
-	br = branch
-	puhs = push
-	psuh = push
-	pus = push
-	puh = push
-	pl = !git pull && git submodule update --init
+    st = status
+    co = checkout
+    ci = commit -v
+    di = diff
+    br = branch
+    puhs = push
+    psuh = push
+    pus = push
+    puh = push
+    pl = !git pull && git submodule update --init
+    p = pull
+    pu = push
+    puu = push -u
+    c = commit -v
+    o = checkout
+    b = checkout -b
+    r = remote

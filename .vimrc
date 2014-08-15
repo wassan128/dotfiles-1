@@ -48,6 +48,7 @@ NeoBundle 'kana/vim-submode'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'glidenote/serverspec-snippets'
 NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'digitaltoad/vim-jade'
 " PHP
 NeoBundle 'pasela/unite-fuel'
 " NeoBundle 'PDV--phpDocumentor-for-Vim'
@@ -180,6 +181,8 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>h :CtrlPMRUFiles<CR>
 
 " 環境設定系
+" 折りたたみ
+set foldmethod=indent
 " オートインデント
 set autoindent
 " インデントのタイミング
@@ -214,8 +217,7 @@ set backspace=eol,start
 set vb t_vb=
 set novisualbell
 " OSのクリップボードを使う
-set clipboard+=unnamed
-set clipboard=unnamed
+set clipboard+=unnamedplus,unnamed
 " 不可視文字を表示
 set list
 " 行番号を表示
@@ -499,7 +501,8 @@ let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
+" Override another plugins
+let g:neocomplete#force_overwrite_completefunc = 1
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -564,8 +567,7 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/snippets/snippets'
-
+let g:neosnippet#snippets_directory = '~/.vim/snippets, ~/.vim/bundle/serverspec-snippets'
 " Java用設定
 "SQLのJava文字リテラルへの整形(:Sqltoj, :Sqlfromj)
 function! SQLToJava()
@@ -590,7 +592,8 @@ autocmd FileType ruby     setlocal sw=2 sts=2 ts=2 et
 " :makeでRuby構文チェック
 au FileType ruby setlocal makeprg=ruby\ -c\ %
 au FileType ruby setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-
+autocmd BufReadPost,BufNewFile *_spec.rb set syntax=ruby.serverspec
+autocmd BufReadPost,BufNewFile *_spec.rb setlocal commentstring=#\ %s
 " Scala用設定
 " ファイルタイプの追加
 augroup filetypedetect
@@ -623,7 +626,7 @@ if has('syntax')
     " ZenkakuSpaceをカラーファイルで設定するなら次の行は削除
     autocmd ColorScheme       * call ZenkakuSpace()
     " 全角スペースのハイライト指定
-    autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+    autocmd VimEnter,WinEnter * match ZenkakuSpace /[　”’]/
   augroup END
   call ZenkakuSpace()
 endif

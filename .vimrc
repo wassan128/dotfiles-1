@@ -52,6 +52,7 @@ NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'kana/vim-metarw'
 NeoBundle 'mattn/vim-metarw-redmine'
+NeoBundle 'glidenote/rspec-result-syntax'
 " PHP
 NeoBundle 'pasela/unite-fuel'
 " NeoBundle 'PDV--phpDocumentor-for-Vim'
@@ -269,6 +270,25 @@ set mouse=a
 set ttymouse=xterm2
 " コマンドを画面最下部に表示する
 set showcmd
+
+" --------------------------------------------
+" serverspec
+" --------------------------------------------
+let g:quickrun_config = {}
+let g:quickrun_config['ruby.serverspec'] = {
+      \'command'                  : 'rspec',
+      \'cmdopt'                   : '-cfd',
+      \'args'                     : "%{line('.')}",
+      \'exec'                     : ['bundle exec %c %o %s:%a'],
+      \'outputter/buffer/filetype': 'rspec-result',
+      \'filetype'                 : 'rspec-result'
+      \}
+
+augroup Serverspec
+  autocmd!
+  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.serverspec
+augroup END
+
 " lightline.vim
 let g:lightline = {
         \ 'colorscheme': 'wombat',

@@ -5,7 +5,7 @@ if which rmtrash > /dev/null; then alias rm='rmtrash'; fi
 alias mv='mv -i'
 alias cp='cp -i'
 
-alias dsh='ssh boot2docker -t ". /home/docker/.profile; sudo docker-enter"'
+alias dsh='ssh coreos -t ". /home/core/.bashrc; sudo docker-enter"'
 alias dps='docker ps'
 
 p() { peco | while read LINE; do $@ $LINE; done }

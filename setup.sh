@@ -1,7 +1,6 @@
 #!/bin/bash
 
-git submodule update --init
-git submodule foreach 'git stash && git checkout master && git pull --ff origin master && git stash pop; echo'
+git pull --recurse-submodules --ff-only
 
 files=.*
 ignores=(

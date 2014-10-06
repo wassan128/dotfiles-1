@@ -2,7 +2,6 @@
 [core]
     autocrlf = input
     editor = vim -c \"set fenc=utf-8\"
-    precomposeunicode = true
     pager = lv
 [push]
     default = current

@@ -1,6 +1,8 @@
 #!/bin/bash
 
+git submodule foreach 'git stash'
 git pull --recurse-submodules --ff-only
+git submodule foreach 'git stash pop || :'
 
 files=.*
 ignores=(
@@ -11,7 +13,6 @@ ignores=(
   ".gitignore"
   ".gitmodules"
 )
-
 
 for file in ${files}
 do
@@ -25,17 +26,17 @@ do
   done
 
   # .hogehogeが存在しなければ、シンボリックリンクを作成
-  if [ ! -e "${homefile}" ]; then
+  if [ ! -e "${homefile}" ]
+  then
     echo "${file} not exist, make symbolic link to ${homefile}"
     ln -s "${filepath}" "${homefile}"
+  elif [ ! -L "${homefile}" ]
+  then
+    echo "${homefile} exists, but it's not symbolic link. DELETE this. Ignoring..."
   fi
 done
 
 # oh-my-zsh-*/を.oh-my-zsh/以下にシンボリックリンク
 ln -s ${PWD}/oh-my-zsh_custom/* "${HOME}"/dotfiles/.oh-my-zsh/custom 2> /dev/null
-ln -s ${PWD}/oh-my-zsh_themes/* "${HOME}"/dotfiles/.oh-my-zsh/themes 2> /dev/null
 # リンク切れのシンボリックリンクを削除
-for file in `find -L "${HOME}"/dotfiles/.oh-my-zsh/custom "${HOME}"/dotfiles/.oh-my-zsh/themes -type l`
-do
-  unlink ${file}
-done
+find -L "${HOME}"/dotfiles/.oh-my-zsh/custom -type l -exec unlink {} +

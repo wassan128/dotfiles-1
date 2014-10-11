@@ -29,7 +29,8 @@ function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo "%{%b%F{black}%K{magenta}%}⮀ "`basename $VIRTUAL_ENV`"%{%b%F{magenta}%K{magenta}%}⮀"
 }
 
-PROMPT_HOST='%{%b%F{gray}%K{black}%} %(?.%{%F{green}%}✔.%{%F{red}%}✘)%{%F{yellow}%} %n %{%F{black}%}'
+PROMPT_HOST='%{%b%F{gray}%K{black}%}%(?.%{%F{green}%}✔.%{%F{red}%}✘) %{%F{black}%}'
+[ "$DEFAULT_USER" = `whoami` ] || PROMPT_HOST='%{%b%F{gray}%K{black}%}%(?.%{%F{green}%}✔.%{%F{red}%}✘)%{%F{yellow}%} %n %{%F{black}%}'
 PROMPT_DIR='%{%F{black%} %~%  '
 PROMPT_SU='%(!.%{%k%F{blue}%K{black}%}⮀%{%F{yellow}%} ⚡ %{%k%F{black}%}.%{%k%F{blue}%})⮀%{%f%k%b%}'
 

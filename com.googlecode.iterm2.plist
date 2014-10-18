@@ -7052,16 +7052,21 @@
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>588 368 800 270 0 0 1680 1028 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>623 1455 796 474 -125 1050 1920 1058 </string>
+	<string>568 420 918 464 0 0 1680 1050 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>127 444 592 584 0 0 1680 1028 </string>
 	<key>NSWindow Frame com.apple.typography_panel_InconsolataForPowerline</key>
 	<string>479 724 260 42 0 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-125 1061 1914 1047 -125 1050 1920 1058 </string>
+	<string>276 544 570 452 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 11 1675 1017 0 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -7285,7 +7290,7 @@
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
-			<false/>
+			<true/>
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
@@ -7309,6 +7314,8 @@
 			<integer>80</integer>
 			<key>Command</key>
 			<string>zsh</string>
+			<key>Cursor Boost</key>
+			<real>0.0</real>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -7856,8 +7863,10 @@
 			<true/>
 			<key>Use Bright Bold</key>
 			<true/>
-			<key>Use HFS Plus Mapping</key>
+			<key>Use Cursor Guide</key>
 			<false/>
+			<key>Use HFS Plus Mapping</key>
+			<true/>
 			<key>Use Italic Font</key>
 			<false/>
 			<key>Use Non-ASCII Font</key>
@@ -11136,7 +11145,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-10-11T03:33:47Z</date>
+	<date>2014-10-17T10:22:17Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -11190,7 +11199,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20141006-nightly</string>
+	<string>2.9.20141016-nightly</string>
 	<key>kPreferenceKeyWindowStyle</key>
 	<integer>0</integer>
 </dict>

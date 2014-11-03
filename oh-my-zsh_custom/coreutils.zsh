@@ -1,7 +1,7 @@
 # https://github.com/korin/dotfiles/blob/master/.oh-my-zsh-custom/aliases.zsh
 if [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
-  export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-  export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+  export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
   alias ls=' ls -F --color=tty' #regular ls
   alias l.=' ls -dF .[a-zA-Z0-9]* --color=tty' #only show dotfiles
   alias ll=' ls -lhF --color=tty' #long listing

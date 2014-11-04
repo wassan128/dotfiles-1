@@ -18,7 +18,6 @@
     branch = auto
     grep = auto
 [merge]
-    ff = false
 [alias]
     st = status
     co = checkout

@@ -44,17 +44,8 @@ function _git_info() {
         fi
     fi
     echo "%{%F{$FG_COLOR}%}$(_git_prompt_info)%{$reset_color%}"
-  # else
-  #   echo "%{%K{blue}%}⮀"
   fi
 }
-
-# i would prefer 1 icon that shows the "most drastic" deviation from HEAD,
-# but lets see how this works out
-#ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[yellow]%}"
-#ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-#ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}%{$fg[yellow]%}*%{$fg[green]%}%{$reset_color%}"
-#ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"
 
 # elaborate exitcode on the right when >0
 return_code_enabled="%(?..%{$fg[red]%}%?↵ %{$reset_color%})"

@@ -26,14 +26,35 @@ local host="@${host_repr[$(hostname)]:-$(hostname)}%{$reset_color%}"
 # Compacted $PWD
 local pwd="%{$fg[blue]%}%c%{$reset_color%}"
 
-PROMPT='${time} ${user}${host} ${pwd} $(git_prompt_info) ${return_code}%(!.#.$) '
+PROMPT='${time} ${user}${host} ${pwd}$(_git_info) ${return_code}%(!.#.$) '
+
+function _git_prompt_info() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
+  echo " ${ref/refs\/heads\//}$(parse_git_dirty)"
+}
+
+function _git_info() {
+  if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
+    local FG_COLOR=green
+    if [[ -n $(parse_git_dirty) ]]; then
+      FG_COLOR=yellow
+    else
+        if [[ ! -z $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+            FG_COLOR=red
+        fi
+    fi
+    echo "%{%F{$FG_COLOR}%}$(_git_prompt_info)%{$reset_color%}"
+  # else
+  #   echo "%{%K{blue}%}⮀"
+  fi
+}
 
 # i would prefer 1 icon that shows the "most drastic" deviation from HEAD,
 # but lets see how this works out
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}%{$fg[yellow]%}*%{$fg[green]%}%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"
+#ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[yellow]%}"
+#ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+#ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}%{$fg[yellow]%}*%{$fg[green]%}%{$reset_color%}"
+#ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"
 
 # elaborate exitcode on the right when >0
 return_code_enabled="%(?..%{$fg[red]%}%?↵ %{$reset_color%})"

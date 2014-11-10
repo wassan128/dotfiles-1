@@ -1,6 +1,6 @@
 #!/bin/sh
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-_DATE=`date '+%y%m%d-%H:%M:%S'`
+_DATE=`date '+%y%m%d-%H-%M-%S'`
 
 tmux capture-pane -S -7000
 tmux show-buffer > /tmp/console-${_DATE}.log

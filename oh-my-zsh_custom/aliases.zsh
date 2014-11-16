@@ -22,3 +22,8 @@ pbconv() {
     pbpaste | pathconv | pbcopy
     echo `pbpaste`
 }
+
+alias date8='date +%Y%m%d'
+alias date6='date +%y%m%d'
+alias dateT='date +%Y%m%d-%H-%M-%S'
+alias datet='date +%y%m%d-%H-%M-%S'

@@ -7053,13 +7053,15 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>3362 506 459 270 2560 0 1920 1080 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>3083 308 916 512 2560 0 1920 1080 </string>
+	<string>3083 281 916 512 2560 0 1920 1080 </string>
+	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
+	<string>3212 679 616 174 2560 0 1920 1080 </string>
 	<key>NSWindow Frame SUUpdateAlertFrame</key>
 	<string>992 770 575 392 0 0 2560 1418 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>2715 474 592 584 2560 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>3168 510 570 377 2560 0 1920 1058 </string>
+	<string>3001 371 570 452 2560 0 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>926 622 890 626 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -7084,7 +7086,7 @@
 			<key>Allow Title Setting</key>
 			<true/>
 			<key>Ambiguous Double Width</key>
-			<true/>
+			<false/>
 			<key>Ansi 0 Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -7847,7 +7849,7 @@
 			<key>Tags</key>
 			<array/>
 			<key>Terminal Type</key>
-			<string>xterm-256color</string>
+			<string>xterm</string>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
@@ -11086,6 +11088,8 @@
 	<false/>
 	<key>PasteFromClipboard</key>
 	<false/>
+	<key>PasteTabToStringTabStopSize</key>
+	<integer>4</integer>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -11142,7 +11146,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-10-14T06:55:19Z</date>
+	<date>2014-11-12T12:24:54Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -11198,7 +11202,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20141010-nightly</string>
+	<string>2.9.20141103-nightly</string>
 	<key>kPreferenceKeyWindowStyle</key>
 	<integer>0</integer>
 </dict>

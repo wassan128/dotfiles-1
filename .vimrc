@@ -654,3 +654,6 @@ if has('syntax')
   call ZenkakuSpace()
 endif
 
+" .vimrc分割
+set rtp+=$HOME/dotfiles/.vim/
+runtime! conf.d/*.vim

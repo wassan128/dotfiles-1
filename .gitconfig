@@ -3,6 +3,7 @@
     autocrlf = input
     editor = vim -c \"set fenc=utf-8\"
     pager = lv
+	precomposeunicode = true
 [push]
     default = current
 [difftool "sourcetree"]

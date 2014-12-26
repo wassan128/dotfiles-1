@@ -1,1 +1,1 @@
-export DOCKER_HOST=tcp://127.0.0.1:2375
+`boot2docker shellinit > /dev/null 2>&1`

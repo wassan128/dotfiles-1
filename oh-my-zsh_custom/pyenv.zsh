@@ -1,1 +1,1 @@
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if type pyenv > /dev/null; then eval "$(pyenv init -)"; fi

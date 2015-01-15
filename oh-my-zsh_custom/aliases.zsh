@@ -1,7 +1,7 @@
 alias brew-cask-upgrade='for c in `brew cask list`; do ! brew cask info $c | grep -qF "Not installed" || brew cask install $c; done'
 alias brew-upgrade-all='brew update;  brew upgrade; brew-cask-upgrade; brew cleanup; brew cask cleanup'
 alias rm='rm -i'
-if which rmtrash > /dev/null; then alias rm='rmtrash'; fi
+if type rmtrash > /dev/null; then alias rm='rmtrash'; fi
 alias mv='mv -i'
 alias cp='cp -i'
 

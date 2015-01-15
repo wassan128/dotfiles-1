@@ -5,9 +5,6 @@ if which rmtrash > /dev/null; then alias rm='rmtrash'; fi
 alias mv='mv -i'
 alias cp='cp -i'
 
-alias dsh='boot2docker ssh -o LogLevel=FATAL -t "sudo docker-enter"'
-alias dps='docker ps'
-
 p() { peco | while read LINE; do $@ $LINE; done }
 alias o='git ls-files | p open'
 alias e='ghq list -p | p cd'

@@ -72,3 +72,8 @@ export PATH="$PATH:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+### FOR PROFILING
+# if (which zprof > /dev/null) ;then
+#   zprof | less
+# fi

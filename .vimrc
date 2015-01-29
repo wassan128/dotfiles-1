@@ -6,7 +6,7 @@ filetype off
 if has('vim_starting')
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-call neobundle#rc(expand('~/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundle 'Shougo/neobundle.vim'
 " 以下のプラグインをバンドル
 NeoBundle 'Shougo/unite.vim'
@@ -92,10 +92,12 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/rdark'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'kien/ctrlp.vim'
+call neobundle#end()
 let g:hybrid_use_iTerm_colors = 1
 colorscheme jellybeans
 " indentの深さに色を付ける
-NeoBundle 'nathanaelkane/vim-indent-guides'
 " ファイラー関連
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
@@ -172,7 +174,6 @@ endfunction
 "------------------------------------------------------------
 " ctrlp.vim
 "------------------------------------------------------------
-NeoBundle 'kien/ctrlp.vim'
 let g:ctrlp_by_filename         = 1 " フルパスではなくファイル名のみで絞込み
 let g:ctrlp_jump_to_buffer      = 2 " タブで開かれていた場合はそのタブに切り替える
 let g:ctrlp_clear_cache_on_exit = 0 " 終了時キャッシュをクリアしない

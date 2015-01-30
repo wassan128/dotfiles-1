@@ -4,6 +4,7 @@
     editor = vim -c \"set fenc=utf-8\"
     pager = lv
 	precomposeunicode = true
+	preloadindex = true
 [push]
     default = current
 [difftool "sourcetree"]
@@ -37,3 +38,5 @@
     o = checkout
     b = checkout -b
     r = remote
+    pr = pull-request
+    see = browse

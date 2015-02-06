@@ -25,8 +25,13 @@ alias date6='date +%y%m%d'
 alias dateT='date +%Y%m%d-%H-%M-%S'
 alias datet='date +%y%m%d-%H-%M-%S'
 
+alias pexec='parallel -j 24 --no-notice ssh -i ~/.ssh/id_production_all -c arcfour -o MACs=hmac-sha1-96 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=FATAL -o PasswordAuthentication=no -o ConnectTimeout=10 -l root {}'
+alias pexec_v='parallel -v -j 24 --no-notice ssh -i ~/.ssh/id_production_all -c arcfour -o MACs=hmac-sha1-96 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=FATAL -o PasswordAuthentication=no -o ConnectTimeout=10 -l root {}'
+alias pexec_vv='parallel -vv -j 24 --no-notice ssh -i ~/.ssh/id_production_all -c arcfour -o MACs=hmac-sha1-96 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=FATAL -o PasswordAuthentication=no -o ConnectTimeout=10 -l root {}'
+
 parallel_exec() {
     local _file=${1:?}
     shift
-    parallel -vv -j 24 --no-notice ssh -i ~/.ssh/id_production_all -c arcfour -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=FATAL -o PasswordAuthentication=no -o ConnectTimeout=10 -l root {} "\"$*\"" :::: $_file
+    pexec_vv "\"$*\"" :::: $_file
 }
+

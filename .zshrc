@@ -11,7 +11,6 @@ ZSH_THEME="dieter-mod"
 #ZSH_THEME="geoffgarside"
 #ZSH_THEME="skaro"
 #ZSH_THEME="agnoster-mod"
-DEFAULT_USER=`whoami`
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -51,7 +50,7 @@ DEFAULT_USER=`whoami`
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx)
+plugins=(aws brew bundler composer common-aliases git gitfast git-extras git-flow knife osx tmux tmuxinator vagrant)
 
 source $ZSH/oh-my-zsh.sh
 

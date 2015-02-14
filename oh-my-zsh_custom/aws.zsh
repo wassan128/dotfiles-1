@@ -1,3 +1,4 @@
+. /usr/local/share/zsh/site-functions/_aws
 sshec2() {
     while getopts :l OPT
     do

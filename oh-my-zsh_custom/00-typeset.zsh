@@ -3,4 +3,4 @@
 fpath=(/usr/local/share/zsh/site-functions /usr/local/share/zsh-completions $fpath)
 typeset -x path cdpath fpath manpath PATH
 autoload -Uz compinit
-compinit -Cu
+compinit -C

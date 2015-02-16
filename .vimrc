@@ -65,7 +65,6 @@ nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
 " vnoremap <C-P> :call PhpDocRange()<CR>
 NeoBundle 'tobyS/vmustache'
 NeoBundle 'SirVer/ultisnips'
-
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'bbatsov/rubocop'
@@ -73,6 +72,9 @@ NeoBundle 'bbatsov/rubocop'
 NeoBundle 'derekwyatt/vim-scala'
 " coffee-script syntax + 自動compile
 NeoBundle 'kchmck/vim-coffee-script'
+" Varnish vcl
+NeoBundle 'pld-linux/vim-syntax-vcl'
+au BufRead,BufNewFile *.vcl setf vcl
 " シンタックス系プラグインをバンドル
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'violetyk/neocomplete-php.vim'

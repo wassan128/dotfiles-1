@@ -8,3 +8,5 @@ alias -g H='`curl -sL https://api.github.com/users/2k0ri/repos | jq -r ".[].full
 alias -g LR='`git branch -a | peco --query "remotes/ " --prompt "GIT REMOTE BRANCH>" | head -n 1 | sed "s/remotes\/[^\/]*\/\(\S*\)/\1/"`'
 alias gd='git diff'
 alias gg='git log --graph'
+
+. /usr/local/share/zsh/site-functions/git-flow-completion.zsh

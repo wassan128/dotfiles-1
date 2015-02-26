@@ -35,3 +35,4 @@ parallel_exec() {
     pexec_vv "\"$*\"" :::: $_file
 }
 
+alias apachesort="env LC_ALL=C sort -t '[' -k 2.8,2.11n -k 2.4,2.6M -k 2.1,2.2n -k 2.13,2.14n -k 2.16,2.17n -k 2.19,2.20n"

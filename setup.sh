@@ -1,8 +1,6 @@
 #!/bin/bash
 
-git submodule foreach 'git stash'
-git pull --recurse-submodules --ff-only origin master
-git submodule foreach 'git stash pop || :'
+git pull --recurse-submodules origin master
 
 files=.*
 ignores=(

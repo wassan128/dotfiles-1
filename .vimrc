@@ -156,6 +156,7 @@ vnoremap : ;
 " NERD-Tree.vim
 "------------------------------------------------------------
 let mapleader = ","
+let g:NERDTreeWinPos = "right"
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>N :CD<CR>:NERDTree<CR>
 let NERDTreeShowHidden=1

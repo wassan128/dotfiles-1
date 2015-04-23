@@ -6971,6 +6971,8 @@
 	<false/>
 	<key>DisableFullscreenTransparency</key>
 	<false/>
+	<key>DoubleClickPerformsSmartSelection</key>
+	<true/>
 	<key>EnableRendezvous</key>
 	<false/>
 	<key>FocusFollowsMouse</key>
@@ -7024,7 +7026,7 @@
 	<key>NSFontPanelAttributes</key>
 	<string>1, 10</string>
 	<key>NSFontPanelPreviewHeight</key>
-	<real>76</real>
+	<real>79</real>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/dotfiles</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -7053,17 +7055,17 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>2987 412 201 309 2560 360 1920 1058 </string>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>3362 654 459 270 2560 0 1920 1058 </string>
+	<string>3362 1014 459 270 2560 360 1920 1058 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>3144 568 916 512 2560 0 1920 1080 </string>
+	<string>3269 947 918 452 2560 360 1920 1058 </string>
 	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
-	<string>972 934 616 174 0 0 2560 1418 </string>
+	<string>972 933 616 174 0 0 2560 1418 </string>
 	<key>NSWindow Frame SUUpdateAlertFrame</key>
 	<string>992 770 575 392 0 0 2560 1418 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
-	<string>2715 474 592 584 2560 0 1920 1058 </string>
+	<string>2640 474 592 584 2560 360 1280 698 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2619 547 570 452 2560 0 1920 1058 </string>
+	<string>2560 371 1914 1047 2560 360 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>926 622 890 626 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -7686,7 +7688,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Ricty-Regular 14</string>
+			<string>RictyForPowerline-Regular 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prevent Opening in a Tab</key>
@@ -11105,11 +11107,6 @@
 			<key>Action</key>
 			<string>kContextMenuPointerAction</string>
 		</dict>
-		<key>Button,2,1,,</key>
-		<dict>
-			<key>Action</key>
-			<string>kPasteFromClipboardPointerAction</string>
-		</dict>
 		<key>Gesture,ThreeFingerSwipeDown,,</key>
 		<dict>
 			<key>Action</key>
@@ -11154,7 +11151,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-12-03T09:47:22Z</date>
+	<date>2015-04-07T10:40:18Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -11173,6 +11170,8 @@
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
 	<integer>6</integer>
+	<key>TabStyle</key>
+	<integer>0</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>ThreeFingerEmulates</key>
@@ -11186,7 +11185,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1412065536</real>
+	<real>1424269056</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -11210,7 +11209,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20141202-nightly</string>
+	<string>2.9.20150405-nightly</string>
 	<key>kPreferenceKeyWindowStyle</key>
 	<integer>0</integer>
 </dict>

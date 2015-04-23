@@ -50,7 +50,7 @@ ZSH_THEME="dieter-mod"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(aws brew bundler composer git gitfast git-extras git-flow knife osx tmux tmuxinator vagrant)
+plugins=(aws brew composer git gitfast git-extras git-flow knife osx tmux tmuxinator vagrant)
 
 source $ZSH/oh-my-zsh.sh
 

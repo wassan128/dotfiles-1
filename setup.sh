@@ -37,4 +37,4 @@ done
 # oh-my-zsh-*/を.oh-my-zsh/以下にシンボリックリンク
 ln -s ${PWD}/oh-my-zsh_custom/*.zsh "${HOME}"/dotfiles/.oh-my-zsh/custom/ 2> /dev/null
 # リンク切れのシンボリックリンクを削除
-find -L "${HOME}"/dotfiles/.oh-my-zsh/custom -type l -exec unlink {} +
+find -L "${HOME}"/dotfiles/.oh-my-zsh/custom -type l -exec unlink {} \;

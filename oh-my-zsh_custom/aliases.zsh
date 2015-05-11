@@ -36,3 +36,15 @@ parallel_exec() {
 }
 
 alias apachesort="env LC_ALL=C sort -t '[' -k 2.8,2.11n -k 2.4,2.6M -k 2.1,2.2n -k 2.13,2.14n -k 2.16,2.17n -k 2.19,2.20n"
+
+passgen() {
+    while getopts l:ah OPT
+    do
+        case $OPT in
+            a) local _type='[:alnum:]' ;;
+            l) local _length=$OPTARG ;;
+            h) echo "$0 [-a] [-l length]" 1>&2 ; return 1 ;;
+        esac
+    done
+    cat /dev/urandom | LC_CTYPE=C tr -dc ${_type:-'[:print:]'} | head -c ${_length:-12}
+}

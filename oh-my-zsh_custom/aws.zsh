@@ -9,5 +9,5 @@ sshec2() {
                 ;;
         esac
     done
-    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=FATAL -l ec2-user $*
+    ssh -o IdentitiesOnly=yes -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=FATAL -l ec2-user $*
 }

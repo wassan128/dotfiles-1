@@ -7,95 +7,103 @@ if has('vim_starting')
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#begin(expand('~/.vim/bundle'))
-NeoBundle 'Shougo/neobundle.vim'
-" 以下のプラグインをバンドル
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-    \ 'windows' : 'make -f make_mingw32.mak',
-    \ 'cygwin' : 'make -f make_cygwin.mak',
-    \ 'mac' : 'make -f make_mac.mak',
-    \ 'unix' : 'make -f make_unix.mak',
-  \ },
-\ }
-NeoBundle 'VimClojure'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'open-browser.vim'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'tell-k/vim-browsereload-mac'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'taichouchou2/html5.vim'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'tpope/vim-endwise.git'
-NeoBundle 'ruby-matchit'
-NeoBundle 'vim-scripts/dbext.vim'
-NeoBundle 'taichouchou2/vim-rsense'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'alpaca-tc/alpaca_powertabline'
-NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'rhysd/clever-f.vim'
-NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'gcmt/wildfire.vim'
-NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'kana/vim-submode'
-NeoBundle 'chase/vim-ansible-yaml'
-NeoBundle 'glidenote/serverspec-snippets'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'digitaltoad/vim-jade'
-NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'kana/vim-metarw'
-NeoBundle 'mattn/vim-metarw-redmine'
-NeoBundle 'glidenote/rspec-result-syntax'
-" PHP
-NeoBundle 'pasela/unite-fuel'
-" NeoBundle 'PDV--phpDocumentor-for-Vim'
-NeoBundle 'tobyS/pdv'
-let g:pdv_template_dir = $HOME."/.vim/bundle/pdv/templates"
-"nnoremap <C-p> :call pdv#DocumentCurrentLine()<CR>
-nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
-" inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
-" nnoremap <C-P> :call PhpDocSingle()<CR>
-" vnoremap <C-P> :call PhpDocRange()<CR>
-NeoBundle 'tobyS/vmustache'
-NeoBundle 'SirVer/ultisnips'
-" Ruby
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'bbatsov/rubocop'
-" Scala
-NeoBundle 'derekwyatt/vim-scala'
-" coffee-script syntax + 自動compile
-NeoBundle 'kchmck/vim-coffee-script'
-" Varnish vcl
-NeoBundle 'pld-linux/vim-syntax-vcl'
-au BufRead,BufNewFile *.vcl setf vcl
-" シンタックス系プラグインをバンドル
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'violetyk/neocomplete-php.vim'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-" 実行プラグインをバンドル
-NeoBundle 'thinca/vim-quickrun'
-" 編集履歴管理
-NeoBundle "sjl/gundo.vim"
-" カラースキーム
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'vim-scripts/twilight'
-NeoBundle 'jonathanfilip/vim-lucius'
-NeoBundle 'jpo/vim-railscasts-theme'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'vim-scripts/Wombat'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'vim-scripts/rdark'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'kien/ctrlp.vim'
+if neobundle#has_cache()
+    NeoBundleLoadCache
+else
+    NeoBundle 'Shougo/neobundle.vim'
+    " 以下のプラグインをバンドル
+    NeoBundle 'Shougo/unite.vim'
+    NeoBundle 'Shougo/neomru.vim'
+    NeoBundle 'Shougo/vimproc', {
+    \ 'build' : {
+        \ 'windows' : 'make -f make_mingw32.mak',
+        \ 'cygwin' : 'make -f make_cygwin.mak',
+        \ 'mac' : 'make -f make_mac.mak',
+        \ 'unix' : 'make -f make_unix.mak',
+    \ },
+    \ }
+    NeoBundle 'VimClojure'
+    NeoBundle 'Shougo/vimshell'
+    NeoBundle 'jpalardy/vim-slime'
+    NeoBundle 'scrooloose/syntastic'
+    NeoBundle 'scrooloose/nerdtree'
+    NeoBundle 'open-browser.vim'
+    NeoBundle 'mattn/webapi-vim'
+    NeoBundle 'tell-k/vim-browsereload-mac'
+    NeoBundle 'hail2u/vim-css3-syntax'
+    NeoBundle 'taichouchou2/html5.vim'
+    NeoBundle 'kchmck/vim-coffee-script'
+    NeoBundle 'tpope/vim-endwise.git'
+    NeoBundle 'ruby-matchit'
+    NeoBundle 'vim-scripts/dbext.vim'
+    NeoBundle 'taichouchou2/vim-rsense'
+    NeoBundle 'tomtom/tcomment_vim'
+    NeoBundle 'thinca/vim-ref'
+    NeoBundle 'itchyny/lightline.vim'
+    NeoBundle 'alpaca-tc/alpaca_powertabline'
+    NeoBundle 'osyo-manga/vim-over'
+    NeoBundle 'rhysd/clever-f.vim'
+    NeoBundle 'junegunn/vim-easy-align'
+    NeoBundle 'gcmt/wildfire.vim'
+    NeoBundle 'mustache/vim-mustache-handlebars'
+    NeoBundle 'mattn/emmet-vim'
+    NeoBundle 'kana/vim-submode'
+    NeoBundle 'chase/vim-ansible-yaml'
+    NeoBundle 'glidenote/serverspec-snippets'
+    NeoBundle 'terryma/vim-multiple-cursors'
+    NeoBundle 'digitaltoad/vim-jade'
+    NeoBundle 'AndrewRadev/switch.vim'
+    NeoBundle 'kana/vim-metarw'
+    NeoBundle 'mattn/vim-metarw-redmine'
+    NeoBundle 'glidenote/rspec-result-syntax'
+    " PHP
+    NeoBundle 'pasela/unite-fuel'
+    " NeoBundle 'PDV--phpDocumentor-for-Vim'
+    NeoBundle 'tobyS/pdv'
+    let g:pdv_template_dir = $HOME."/.vim/bundle/pdv/templates"
+    "nnoremap <C-p> :call pdv#DocumentCurrentLine()<CR>
+    nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
+    " inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
+    " nnoremap <C-P> :call PhpDocSingle()<CR>
+    " vnoremap <C-P> :call PhpDocRange()<CR>
+    NeoBundle 'tobyS/vmustache'
+    NeoBundle 'SirVer/ultisnips'
+    " Ruby
+    NeoBundle 'vim-ruby/vim-ruby'
+    NeoBundle 'bbatsov/rubocop'
+    " Scala
+    NeoBundle 'derekwyatt/vim-scala'
+    " coffee-script syntax + 自動compile
+    NeoBundle 'kchmck/vim-coffee-script'
+    " Varnish vcl
+    NeoBundle 'pld-linux/vim-syntax-vcl'
+    au BufRead,BufNewFile *.vcl setf vcl
+    " シンタックス系プラグインをバンドル
+    NeoBundle 'Shougo/neocomplete.vim'
+    NeoBundle 'violetyk/neocomplete-php.vim'
+    NeoBundle 'Shougo/neosnippet'
+    NeoBundle 'Shougo/neosnippet-snippets'
+    " 実行プラグインをバンドル
+    NeoBundle 'thinca/vim-quickrun'
+    " 編集履歴管理
+    NeoBundle "sjl/gundo.vim"
+    " カラースキーム
+    NeoBundle 'nanotech/jellybeans.vim'
+    NeoBundle 'w0ng/vim-hybrid'
+    NeoBundle 'vim-scripts/twilight'
+    NeoBundle 'jonathanfilip/vim-lucius'
+    NeoBundle 'jpo/vim-railscasts-theme'
+    NeoBundle 'altercation/vim-colors-solarized'
+    NeoBundle 'vim-scripts/Wombat'
+    NeoBundle 'tomasr/molokai'
+    NeoBundle 'vim-scripts/rdark'
+    NeoBundle 'nathanaelkane/vim-indent-guides'
+    NeoBundle 'kien/ctrlp.vim'
+    " Elixir
+    NeoBundle 'elixir-lang/vim-elixir'
+
+    NeoBundleSaveCache
+endif
 call neobundle#end()
 let g:hybrid_use_iTerm_colors = 1
 colorscheme jellybeans

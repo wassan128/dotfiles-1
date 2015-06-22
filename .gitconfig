@@ -5,6 +5,7 @@
     pager = lv
 	precomposeunicode = true
 	preloadindex = true
+	safecrlf = true
 [push]
     default = current
 [difftool "sourcetree"]

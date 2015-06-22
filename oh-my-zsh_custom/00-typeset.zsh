@@ -2,6 +2,8 @@
 ## 重複パスを登録しない
 # fpath=(/usr/local/share/zsh/site-functions /usr/local/share/zsh-completions $fpath)
 # typeset -x path cdpath fpath manpath PATH
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 
 ## 重複パスを登録しない
 typeset -U path cdpath fpath manpath

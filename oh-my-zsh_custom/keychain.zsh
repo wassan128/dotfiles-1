@@ -6,5 +6,5 @@
 # }
 # 
 # trap cleanup EXIT
-keychain --nogui -q $HOME/.ssh/{id_rsa,id_production_all,id_stg_all}
+keychain --nogui -q $HOME/.ssh/{id_rsa,id_production_all,id_stg_all}(N)
 . $HOME/.keychain/$HOST-sh

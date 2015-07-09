@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git pull --recurse-submodules origin master
+git pull --recurse-submodules --ff-only origin master
 
 files=.*
 ignores=(

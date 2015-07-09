@@ -7,20 +7,18 @@ if has('vim_starting')
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#begin(expand('~/.vim/bundle'))
-if neobundle#has_cache()
-    NeoBundleLoadCache
-else
+if neobundle#load_cache()
     NeoBundle 'Shougo/neobundle.vim'
     " 以下のプラグインをバンドル
     NeoBundle 'Shougo/unite.vim'
     NeoBundle 'Shougo/neomru.vim'
     NeoBundle 'Shougo/vimproc', {
-    \ 'build' : {
-        \ 'windows' : 'make -f make_mingw32.mak',
-        \ 'cygwin' : 'make -f make_cygwin.mak',
-        \ 'mac' : 'make -f make_mac.mak',
-        \ 'unix' : 'make -f make_unix.mak',
-    \ },
+        \ 'build' : {
+            \ 'windows' : 'make -f make_mingw32.mak',
+            \ 'cygwin' : 'make -f make_cygwin.mak',
+            \ 'mac' : 'make -f make_mac.mak',
+            \ 'unix' : 'make -f make_unix.mak',
+        \ },
     \ }
     NeoBundle 'VimClojure'
     NeoBundle 'Shougo/vimshell'
@@ -101,7 +99,15 @@ else
     NeoBundle 'kien/ctrlp.vim'
     " Elixir
     NeoBundle 'elixir-lang/vim-elixir'
-
+    " golang
+    NeoBundle 'fatih/vim-go'
+    NeoBundle 'majutsushi/tagbar'
+    NeoBundle 'Shougo/unite.vim'
+    NeoBundle 'Shougo/unite-outline'
+    NeoBundle 'dgryski/vim-godef'
+    NeoBundle 'vim-jp/vim-go-extra'
+    " vim-ft-goは最新版のvimを使えない場合のみ
+    NeoBundle 'google/vim-ft-go'
     NeoBundleSaveCache
 endif
 call neobundle#end()

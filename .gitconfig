@@ -41,3 +41,5 @@
     r = remote
     pr = pull-request
     see = browse
+    m = merge
+    mn = merge --no-ff

@@ -1,12 +1,3 @@
-" for Neobundle {{{
-NeoBundle 'fatih/vim-go'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'dgryski/vim-godef'
-NeoBundle 'vim-jp/vim-go-extra'
-" vim-ft-goは最新版のvimを使えない場合のみ
-NeoBundle 'google/vim-ft-go'
 set rtp^=$GOPATH/src/github.com/nsf/gocode/vim
 if $GOROOT != ''
   set rtp+=$GOROOT/misc/vim

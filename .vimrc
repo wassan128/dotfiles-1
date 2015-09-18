@@ -110,7 +110,8 @@ if neobundle#load_cache()
     NeoBundle 'google/vim-ft-go'
     " PowerShell
     NeoBundle 'PProvost/vim-ps1'
-
+    " Terraform
+    NeoBundle 'bkad/vim-terraform'
     NeoBundleSaveCache
 endif
 call neobundle#end()

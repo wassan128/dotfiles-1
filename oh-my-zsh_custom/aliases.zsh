@@ -19,7 +19,7 @@ alias be='bundle exec'
 alias wconv='iconv -f UTF-8-MAC -t UTF-8'
 alias pathconv="sed -r -e 's/^R:/\\/Volumes\\/system_public/' -e 's/^Y:/\\/Volumes\\/system/' -e 's/^P:/\\/Volumes\\/biz_public/' -e 's/^Q:/\\/Volumes\\/kanri_public/' -e 's/\\\\/\\//g' | wconv"
 
-kill-sessions() { echo $@ | tr ' ' '\n' | xargs -t -I{} tmux kill-session -t {} }
+kill-sessions() { echo $@ | tr ' ' '\n' | xargs -t -I{} tmux kill-session -t {} ; }
 
 pbconv() {
     pbpaste | pathconv | pbcopy
@@ -55,3 +55,7 @@ passgen() {
     done
     cat /dev/urandom | LC_CTYPE=C tr -dc ${_type:-'[:print:]'} | head -c ${_length:-12}
 }
+
+alias sshe="ssh -o IdentitiesOnly=yes -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=FATAL -l ec2-user"
+alias sshc="ssh -o IdentitiesOnly=yes -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=FATAL -l centos"
+alias sshu="ssh -o IdentitiesOnly=yes -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=FATAL -l ubuntu"

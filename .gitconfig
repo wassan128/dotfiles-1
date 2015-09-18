@@ -1,6 +1,6 @@
 [user]
 [core]
-    autocrlf = input
+	autocrlf = false
     editor = vim -c \"set fenc=utf-8\"
     pager = lv
 	precomposeunicode = true
@@ -43,3 +43,10 @@
     see = browse
     m = merge
     mn = merge --no-ff
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[user]
+	name = Kei Kori
+	email = kori@aucfan.com

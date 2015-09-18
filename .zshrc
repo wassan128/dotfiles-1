@@ -77,5 +77,10 @@ export PATH="$PATH:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # if (which zprof > /dev/null) ;then
 #   zprof | less
 # fi
-
-source /Users/K/.iterm2_shell_integration.zsh
+# enhancd
+if [ -f "${HOME}/.iterm2_shell_integration.zsh" ]; then
+    source "${HOME}/.iterm2_shell_integration.zsh"
+fi
+if [ -f "${HOME}/.enhancd/zsh/enhancd.zsh" ]; then
+    source "${HOME}/.enhancd/zsh/enhancd.zsh"
+fi

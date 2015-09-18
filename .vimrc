@@ -108,6 +108,9 @@ if neobundle#load_cache()
     NeoBundle 'vim-jp/vim-go-extra'
     " vim-ft-goは最新版のvimを使えない場合のみ
     NeoBundle 'google/vim-ft-go'
+    " PowerShell
+    NeoBundle 'PProvost/vim-ps1'
+
     NeoBundleSaveCache
 endif
 call neobundle#end()

@@ -77,3 +77,5 @@ export PATH="$PATH:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # if (which zprof > /dev/null) ;then
 #   zprof | less
 # fi
+
+source /Users/K/.iterm2_shell_integration.zsh

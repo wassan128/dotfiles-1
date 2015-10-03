@@ -7000,11 +7000,7 @@
 	<key>HighlightTabLabels</key>
 	<true/>
 	<key>HotKeyBookmark</key>
-<<<<<<< Updated upstream
 	<string>3D3968BB-FA30-4B50-9B87-EB08210D4E59</string>
-=======
-	<string>228221F4-B6AA-4B8D-BD8C-BAE750064FA0</string>
->>>>>>> Stashed changes
 	<key>HotKeyTogglesWindow</key>
 	<false/>
 	<key>Hotkey</key>
@@ -11382,11 +11378,7 @@
 				<real>0.81568628549575806</real>
 			</dict>
 			<key>Guid</key>
-<<<<<<< Updated upstream
 			<string>3D3968BB-FA30-4B50-9B87-EB08210D4E59</string>
-=======
-			<string>228221F4-B6AA-4B8D-BD8C-BAE750064FA0</string>
->>>>>>> Stashed changes
 			<key>Hide After Opening</key>
 			<false/>
 			<key>Horizontal Spacing</key>
@@ -11903,22 +11895,18 @@
 			<string>/Users/K</string>
 		</dict>
 	</array>
-<<<<<<< Updated upstream
 	<key>NoSyncLastTipTime</key>
 	<real>458366436.86325401</real>
-=======
 	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
->>>>>>> Stashed changes
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
 	<key>NoSyncSuppressAnnyoingBellOffer</key>
 	<true/>
-<<<<<<< Updated upstream
 	<key>NoSyncTipsDisabled</key>
 	<true/>
 	<key>NoSyncTipsToNotShow</key>
@@ -11928,8 +11916,6 @@
 		<string>0002</string>
 		<string>0003</string>
 	</array>
-=======
->>>>>>> Stashed changes
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>

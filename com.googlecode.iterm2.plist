@@ -7067,29 +7067,20 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSColorPanel</key>
-	<string>2987 412 201 309 2560 360 1920 1058 </string>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>3362 1014 459 270 2560 360 1920 1058 </string>
+	<string>588 368 800 270 0 0 1680 1028 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>1029 666 606 456 0 0 2560 1418 </string>
-	<string>1029 666 606 456 0 0 2560 1418 </string>
-	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
-	<string>972 934 616 174 0 0 2560 1418 </string>
-	<key>NSWindow Frame SUUpdateAlertFrame</key>
-	<string>992 770 575 392 0 0 2560 1418 </string>
+	<string>711 592 606 456 0 0 1920 1057 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
-	<string>228 834 592 584 0 0 2560 1418 </string>
+	<string>127 443 592 584 0 0 1680 1027 </string>
+	<key>NSWindow Frame com.apple.typography_panel_InconsolataForPowerline</key>
+	<string>479 724 260 42 0 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 372 2560 1046 0 0 2560 1418 </string>
+	<string>0 11 1920 1046 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 11 1675 1017 0 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>688 726 810 577 0 0 2560 1418 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
-	<string>1657 437 810 577 0 0 2560 1418 </string>
-	<key>NSWindow Frame iTerm Window 4</key>
-	<string>322 204 810 577 0 0 2560 1418 </string>
+	<string>275 127 730 502 0 0 1680 1028 </string>
 	<key>NeverWarnAboutShortLivedSessions_1CDF2379-5CEC-41AF-8073-3325ADB44E10</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_7288BDE0-721C-448F-B3F8-21B41005973E</key>
@@ -7313,7 +7304,7 @@
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
-			<real>2</real>
+			<real>2.3932391826923078</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -7718,7 +7709,7 @@
 			<key>Rows</key>
 			<integer>65</integer>
 			<key>Screen</key>
-			<integer>1</integer>
+			<integer>-1</integer>
 			<key>Scrollback Lines</key>
 			<integer>1000</integer>
 			<key>Scrollback With Status Bar</key>
@@ -7877,7 +7868,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.040190458579881662</real>
+			<real>0.027604937130177514</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
@@ -11897,10 +11888,6 @@
 	</array>
 	<key>NoSyncLastTipTime</key>
 	<real>458366436.86325401</real>
-	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
-	<true/>
-	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
-	<integer>0</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -11963,7 +11950,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/kori/dotfiles</string>
+	<string>/Users/K/dotfiles</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -11985,7 +11972,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-08-11T09:20:29Z</date>
+	<date>2015-08-02T10:55:28Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -12019,7 +12006,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1431577088</real>
+	<real>1429840640</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -12043,7 +12030,9 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20150810-nightly</string>
+	<string>2.9.20150729-nightly</string>
+	<key>kCommandHistoryHasEverBeenUsed</key>
+	<true/>
 	<key>kPreferenceKeyWindowStyle</key>
 	<integer>0</integer>
 </dict>

@@ -106,12 +106,25 @@ if neobundle#load_cache()
     NeoBundle 'Shougo/unite-outline'
     NeoBundle 'dgryski/vim-godef'
     NeoBundle 'vim-jp/vim-go-extra'
+    " Rust
+    NeoBundle 'rust-lang/rust.vim'
+    NeoBundleLazy 'phildawes/racer', {
+            \   'build' : {
+            \     'mac'  : 'cargo build --release',
+            \     'unix' : 'cargo build --release',
+            \   },
+            \   'autoload' : {
+            \     'filetypes' : 'rust',
+            \   },
+            \ }
+    NeoBundle 'rhysd/rust-doc.vim'
     " vim-ft-goは最新版のvimを使えない場合のみ
     NeoBundle 'google/vim-ft-go'
     " PowerShell
     NeoBundle 'PProvost/vim-ps1'
     " Terraform
     NeoBundle 'bkad/vim-terraform'
+
     NeoBundleSaveCache
 endif
 call neobundle#end()

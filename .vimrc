@@ -106,6 +106,8 @@ if neobundle#load_cache()
     NeoBundle 'Shougo/unite-outline'
     NeoBundle 'dgryski/vim-godef'
     NeoBundle 'vim-jp/vim-go-extra'
+    " vim-ft-goは最新版のvimを使えない場合のみ
+    NeoBundle 'google/vim-ft-go'
     " Rust
     NeoBundle 'rust-lang/rust.vim'
     NeoBundleLazy 'phildawes/racer', {
@@ -118,12 +120,14 @@ if neobundle#load_cache()
             \   },
             \ }
     NeoBundle 'rhysd/rust-doc.vim'
-    " vim-ft-goは最新版のvimを使えない場合のみ
-    NeoBundle 'google/vim-ft-go'
+    " Crystal
+    NeoBundle 'rhysd/vim-crystal'
     " PowerShell
     NeoBundle 'PProvost/vim-ps1'
     " Terraform
     NeoBundle 'bkad/vim-terraform'
+    " toml
+    NeoBundle 'cespare/vim-toml'
 
     NeoBundleSaveCache
 endif

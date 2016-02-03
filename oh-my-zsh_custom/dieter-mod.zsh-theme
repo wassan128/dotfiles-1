@@ -21,12 +21,12 @@ local user="%(!.%{$fg[blue]%}.%{$fg[blue]%})%n%{$reset_color%}"
 
 # Hostname part.  compressed and colorcoded per host_repr array
 # if not found, regular hostname in default color
-local host="@${host_repr[$(hostname)]:-$(hostname)}%{$reset_color%}"
+local host="${host_repr[$(hostname)]:-$(hostname)}%{$reset_color%}"
 
 # Compacted $PWD
 local pwd="%{$fg[blue]%}%c%{$reset_color%}"
 
-PROMPT='${time} ${user}${host} ${pwd}$(_git_info) ${return_code}%(!.#.$) '
+PROMPT='${time} ${host} ${pwd}$(_git_info) ${return_code}%(!.#.$) '
 
 function _git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"

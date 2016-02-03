@@ -12,13 +12,14 @@ if neobundle#load_cache()
     " 以下のプラグインをバンドル
     NeoBundle 'Shougo/unite.vim'
     NeoBundle 'Shougo/neomru.vim'
-    NeoBundle 'Shougo/vimproc', {
-        \ 'build' : {
-            \ 'windows' : 'make -f make_mingw32.mak',
-            \ 'cygwin' : 'make -f make_cygwin.mak',
-            \ 'mac' : 'make -f make_mac.mak',
-            \ 'unix' : 'make -f make_unix.mak',
-        \ },
+    NeoBundle 'Shougo/vimproc.vim', {
+    \ 'build' : {
+    \     'windows' : 'tools\\update-dll-mingw',
+    \     'cygwin' : 'make -f make_cygwin.mak',
+    \     'mac' : 'make',
+    \     'linux' : 'make',
+    \     'unix' : 'gmake',
+    \    },
     \ }
     NeoBundle 'VimClojure'
     NeoBundle 'Shougo/vimshell'
@@ -128,6 +129,9 @@ if neobundle#load_cache()
     NeoBundle 'bkad/vim-terraform'
     " toml
     NeoBundle 'cespare/vim-toml'
+    " TypeScript
+    NeoBundle 'leafgarland/typescript-vim'
+    NeoBundle 'Quramy/tsuquyomi'
 
     NeoBundleSaveCache
 endif

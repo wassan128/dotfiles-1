@@ -48,3 +48,10 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[merge]
+	tool = diffconflicts
+	conflictstyle = diff3
+[mergetool "diffconflicts"]
+	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = true
+	keepBackup = false

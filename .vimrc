@@ -35,7 +35,6 @@ if neobundle#load_cache()
     NeoBundle 'tpope/vim-endwise.git'
     NeoBundle 'ruby-matchit'
     NeoBundle 'vim-scripts/dbext.vim'
-    NeoBundle 'taichouchou2/vim-rsense'
     NeoBundle 'tomtom/tcomment_vim'
     NeoBundle 'thinca/vim-ref'
     NeoBundle 'itchyny/lightline.vim'

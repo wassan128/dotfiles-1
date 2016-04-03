@@ -290,10 +290,12 @@ set shiftwidth=4
 set softtabstop=0
 " シンタックスハイライト
 syntax on
-" エンコード
-set encoding=utf8
-" ファイルエンコード
-set fileencodings=utf-8,euc-jp,cp932,sjis,iso-2022-jp
+if !has('nvim')
+  " エンコード
+  set encoding=utf8
+  " ファイルエンコード
+  set fileencodings=utf-8,euc-jp,cp932,sjis,iso-2022-jp
+endif
 " スクロールする時に下が見えるようにする
 set scrolloff=5
 " .swapファイルを作らない
@@ -308,7 +310,11 @@ set backspace=eol,start
 set vb t_vb=
 set novisualbell
 " OSのクリップボードを使う
-set clipboard+=unnamedplus,unnamed
+if has('nvim') || has('unnamedplus')
+  set clipboard+=unnamedplus
+else
+  set clipboard+=unnamedplus,unnamed
+endif
 " 不可視文字を表示
 set list
 " 行番号を表示
@@ -541,11 +547,6 @@ endif
 " ?{pattern}の入力中は「?」をタイプすると自動で「\?」が 入力されるようになる
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
-if has('unnamedplus')
-    set clipboard& clipboard+=unnamedplus
-else
-    set clipboard& clipboard+=unnamed,autoselect
-endif
 
 "表示行単位で行移動する
 nnoremap <silent> j gj

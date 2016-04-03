@@ -2,7 +2,9 @@
 
 git pull --recurse-submodules --ff-only origin master
 
-files=.*
+[[ -d "${HOME}/.config" ]] || mkdir "${HOME}/.config"
+
+files="$(ls -d .* .config/*)"
 ignores=(
   "."
   ".."
@@ -10,6 +12,7 @@ ignores=(
   ".DS_Store"
   ".gitignore"
   ".gitmodules"
+  ".config"
 )
 
 for file in ${files}
@@ -20,23 +23,23 @@ do
   # ignores は省略
   for ignore in ${ignores[@]}
   do
-    test $file == ${ignore} && continue 2
+    [[ "${file}" = "${ignore}" ]] && continue 2
   done
 
   # .hogehogeが存在しなければ、シンボリックリンクを作成
-  if [ ! -e "${homefile}" ]
+  if [[ ! -e "${homefile}" ]]
   then
     echo "${file} not exist, make symbolic link to ${homefile}"
     ln -s "${filepath}" "${homefile}"
-  elif [ ! -L "${homefile}" ]
+  elif [[ ! -L "${homefile}" ]]
   then
     echo "${homefile} exists, but it's not symbolic link. DELETE this. Ignoring..."
   fi
 done
 
 # oh-my-zsh-*/を.oh-my-zsh/以下にシンボリックリンク
-ln -s ${PWD}/oh-my-zsh_custom/*.zsh "${HOME}"/dotfiles/.oh-my-zsh/custom/ 2> /dev/null
-ln -s ${PWD}/oh-my-zsh_custom/*.zsh-theme "${HOME}"/dotfiles/.oh-my-zsh/custom/ 2> /dev/null
+ln -s ${PWD}/oh-my-zsh_custom/*.zsh "${HOME}/dotfiles/.oh-my-zsh/custom/" 2> /dev/null
+ln -s ${PWD}/oh-my-zsh_custom/*.zsh-theme "${HOME}/dotfiles/.oh-my-zsh/custom/" 2> /dev/null
 # リンク切れのシンボリックリンクを削除
 find -L "${HOME}"/dotfiles/.oh-my-zsh/custom -type l -exec unlink {} \;
-[ -L com.googlecode.iterm2.plist ] || ln -s com.googlecode.iterm2.plist{.$(uname -n),}
+[[ -L com.googlecode.iterm2.plist ]] || ln -s com.googlecode.iterm2.plist{.$(uname -n),}

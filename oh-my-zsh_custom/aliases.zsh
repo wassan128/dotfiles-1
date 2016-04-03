@@ -66,3 +66,44 @@ alias dstat-mem='dstat -Tclm'
 alias dstat-cpu='dstat -Tclr'
 alias dstat-net='dstat -Tclnd'
 alias dstat-disk='dstat -Tcldr'
+
+tarcp() {
+    local dst=${@[$#]} # last argument
+    if [[ ! -d "$dst" ]]; then
+        echo "destination is not directory"
+        return 1
+    fi
+    for src in "${@:1:${#}-1}" # arguments w/o last one
+    do
+        if [[ -f "$src" ]]; then
+            pv "$src" > "$dst/${src##*/}"
+            _exit=("${pipestatus[@]:-${PIPESTATUS[@]}}")
+        elif [[ -d "$src" ]]; then
+            # calculate size
+            if [[ -z "$NOCALC" ]]; then
+                local calc=" -s $(du -bs "$src" | awk '{print $1}')"
+            fi
+
+            mkdir "$dst/${src##*/}" 2> /dev/null
+            (cd "$src" && tar cf - .) | eval "pv$calc" | (cd "$dst/${src##*/}" && tar xpf -)
+            _exit=("${pipestatus[@]:-${PIPESTATUS[@]}}")
+            unset calc
+        fi
+
+        # delete
+        if [[ -n "$DELETE" ]]; then
+            for i in "${_exit[@]}"
+            do
+                [[ $i -eq 0 ]] || _failed=1
+            done
+            if [[ -z "$_failed" ]]; then
+                rm "$src" &
+            else
+                echo "$src failed" >&2
+            fi
+        fi
+        unset _exit
+    done
+    wait
+}
+alias tarmv='DELETE=1 tarcp'

@@ -10,14 +10,15 @@ on_i = 1
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+on_ft = 'snippet'
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
-on_source = ['unite.vim']
+on_source = 'unite.vim'
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
-on_ft = ['snippet']
+on_ft = 'snippet'
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
@@ -30,7 +31,11 @@ on_i = 1
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
-depends = ['neosnippet-snippets']
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_source = 'neosnippet'
 on_i = 1
 
 # language-specific
@@ -38,9 +43,9 @@ on_i = 1
 # toml
 [[plugins]]
 repo = 'cespare/vim-toml'
-on_ft = ['toml']
+on_ft = 'toml'
 
 # go
 [[plugins]]
 repo = 'fatih/vim-go'
-on_ft = ['go']
+on_ft = 'go'

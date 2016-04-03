@@ -1,38 +1,43 @@
 " dein settings {{{
 set nocompatible
+
+set rtp+=$HOME/.config/nvim/
+runtime! dein.rc.vim
+
 " dein.vimのディレクトリ
-let s:dein_dir = expand('~/.config/nvim')
-let s:dein_repo_dir = expand('~/.cache/dein.vim')
-
-" なければgit clone
-if !isdirectory(s:dein_repo_dir)
-  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-endif
-execute 'set runtimepath^=' . s:dein_repo_dir
-
-call dein#begin(s:dein_dir)
-
-" 管理するプラグインを記述したファイル
-let s:toml = s:dein_dir . '/dein.toml'
-let s:lazy_toml = s:dein_dir . '/dein_lazy.toml'
-
-" 読み込み、キャッシュは :call dein#clear_cache() で消せます
-if dein#load_state([expand('<sfile>', s:toml, s:lazy_toml)])
-  call dein#load_toml(s:toml, {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-endif
-
-call dein#end()
-call dein#save_state()
-
-" vimprocだけは最初にインストールしてほしい
-" if dein#check_install(['vimproc'])
-"   call dein#install(['vimproc'])
+" let s:dein_dir = expand('~/.config/nvim')
+" let s:dein_repo_dir = expand('~/.cache/dein.vim')
+" 
+" " なければgit clone
+" if !isdirectory(s:dein_repo_dir)
+"   execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 " endif
-" その他インストールしていないものはこちらに入れる
-if dein#check_install()
-  call dein#install()
-endif
+" execute 'set runtimepath^=' . s:dein_repo_dir
+" 
+" let s:toml = s:dein_dir . '/dein.toml'
+" let s:toml_lazy = s:dein_dir . '/dein_lazy.toml'
+" 
+" call dein#begin(s:dein_repo_dir, [expand('<sfile>'), s:toml, s:toml_lazy])
+" 
+" call dein#load_state(s:dein_repo_dir)
+" " if !dein#load_state(s:dein_repo_dir)
+" "   finish
+" " endif
+" 
+" call dein#load_toml(s:toml, {'lazy': 0})
+" call dein#load_toml(s:toml_lazy, {'lazy': 1})
+" 
+" call dein#end()
+" call dein#save_state()
+" 
+" " vimprocだけは最初にインストールしてほしい
+" " if dein#check_install(['vimproc'])
+" "   call dein#install(['vimproc'])
+" " endif
+" if has('vim_starting') && dein#check_install()
+"   " Installation check.
+"   call dein#install()
+" endif
 
 " 一旦ファイルタイプ関連を無効化
 filetype off
@@ -174,6 +179,7 @@ endif
 "     NeoBundleSaveCache
 " endif
 " call neobundle#end()
+
 let g:hybrid_use_iTerm_colors = 1
 colorscheme jellybeans
 " indentの深さに色を付ける
@@ -214,14 +220,14 @@ nnoremap tm :<C-u>q<CR>
 nnoremap tX :<C-u>bd<CR>
 nnoremap tb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap tB :<C-u>Unite buffer -buffer-name=file<CR>
-call submode#enter_with('bufmove', 'n', '', 't>', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', 't<', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', 't+', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', 't-', '<C-w>-')
-call submode#map('bufmove', 'n', '', '>', '<C-w>>')
-call submode#map('bufmove', 'n', '', '<', '<C-w><')
-call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+" call submode#enter_with('bufmove', 'n', '', 't>', '<C-w>>')
+" call submode#enter_with('bufmove', 'n', '', 't<', '<C-w><')
+" call submode#enter_with('bufmove', 'n', '', 't+', '<C-w>+')
+" call submode#enter_with('bufmove', 'n', '', 't-', '<C-w>-')
+" call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+" call submode#map('bufmove', 'n', '', '<', '<C-w><')
+" call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+" call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
 " コロンとセミコロンを入れ替え
 nnoremap ; :
@@ -251,19 +257,19 @@ function! s:ChangeCurrentDir(directory, bang)
     endif
 endfunction
 
-"------------------------------------------------------------
-" ctrlp.vim
-"------------------------------------------------------------
-let g:ctrlp_by_filename         = 1 " フルパスではなくファイル名のみで絞込み
-let g:ctrlp_jump_to_buffer      = 2 " タブで開かれていた場合はそのタブに切り替える
-let g:ctrlp_clear_cache_on_exit = 0 " 終了時キャッシュをクリアしない
-let g:ctrlp_mruf_max            = 500 " MRUの最大記録数
-let g:ctrlp_highlight_match     = [1, 'IncSearch'] " 絞り込みで一致した部分のハイライト
-let g:ctrlp_open_new_file       = 1 " 新規ファイル作成時にタブで開く
-let g:ctrlp_open_multi          = '10t' " 複数ファイルを開く時にタブで最大10まで開く
-nnoremap <Leader>p :CtrlP<CR>
-nnoremap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>h :CtrlPMRUFiles<CR>
+" "------------------------------------------------------------
+" " ctrlp.vim
+" "------------------------------------------------------------
+" let g:ctrlp_by_filename         = 1 " フルパスではなくファイル名のみで絞込み
+" let g:ctrlp_jump_to_buffer      = 2 " タブで開かれていた場合はそのタブに切り替える
+" let g:ctrlp_clear_cache_on_exit = 0 " 終了時キャッシュをクリアしない
+" let g:ctrlp_mruf_max            = 500 " MRUの最大記録数
+" let g:ctrlp_highlight_match     = [1, 'IncSearch'] " 絞り込みで一致した部分のハイライト
+" let g:ctrlp_open_new_file       = 1 " 新規ファイル作成時にタブで開く
+" let g:ctrlp_open_multi          = '10t' " 複数ファイルを開く時にタブで最大10まで開く
+" nnoremap <Leader>p :CtrlP<CR>
+" nnoremap <Leader>b :CtrlPBuffer<CR>
+" nnoremap <Leader>h :CtrlPMRUFiles<CR>
 
 " 環境設定系
 " 折りたたみ
@@ -354,114 +360,114 @@ endif
 " コマンドを画面最下部に表示する
 set showcmd
 
-" --------------------------------------------
-" serverspec
-" --------------------------------------------
-let g:quickrun_config = {}
-let g:quickrun_config['ruby.serverspec'] = {
-      \'command'                  : 'rspec',
-      \'cmdopt'                   : '-cfd',
-      \'args'                     : "%{line('.')}",
-      \'exec'                     : ['bundle exec %c %o %s:%a'],
-      \'outputter/buffer/filetype': 'rspec-result',
-      \'filetype'                 : 'rspec-result'
-      \}
-
-augroup Serverspec
-  autocmd!
-  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.serverspec
-augroup END
-
-" lightline.vim
-let g:lightline = {
-        \ 'colorscheme': 'wombat',
-        \ 'mode_map': {'c': 'NORMAL'},
-        \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
-        \   'right': [ [ 'syntastic', 'lineinfo' ],
-        \              [ 'percent' ],
-        \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
-        \ },
-        \ 'component_expand': {
-        \   'syntastic': 'SyntasticStatuslineFlag'
-        \ },
-        \ 'component_type': {
-        \   'syntastic': 'error'
-        \ },
-        \ 'component_function': {
-        \   'modified': 'MyModified',
-        \   'readonly': 'MyReadonly',
-        \   'fugitive': 'MyFugitive',
-        \   'filename': 'MyFilename',
-        \   'fileformat': 'MyFileformat',
-        \   'filetype': 'MyFiletype',
-        \   'fileencoding': 'MyFileencoding',
-        \   'mode': 'MyMode'
-        \ },
-        \ 'component': {
-        \   'readonly': '%{&readonly?"\u2b64":""}',
-        \ },
-        \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
-        \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" },
-        \ }
-
-function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! MyReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
-endfunction
-
-function! MyFilename()
-  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != MyModified() ? ' ' . MyModified() : '')
-endfunction
-
-function! MyFugitive()
-  try
-    if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-      return fugitive#head()
-    endif
-  catch
-  endtry
-  return ''
-endfunction
-
-function! MyFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! MyFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! MyFileencoding()
-  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! MyMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-let g:syntastic_mode_map = { 'mode': 'passive' }
-augroup AutoSyntastic
-  autocmd!
-  autocmd BufWritePost *.c,*.cpp call s:syntastic()
-augroup END
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
-endfunction
-set laststatus=2
-
-" カラー設定
-if !has('nvim')
-  set t_Co=256
-endif
+" " --------------------------------------------
+" " serverspec
+" " --------------------------------------------
+" let g:quickrun_config = {}
+" let g:quickrun_config['ruby.serverspec'] = {
+"       \'command'                  : 'rspec',
+"       \'cmdopt'                   : '-cfd',
+"       \'args'                     : "%{line('.')}",
+"       \'exec'                     : ['bundle exec %c %o %s:%a'],
+"       \'outputter/buffer/filetype': 'rspec-result',
+"       \'filetype'                 : 'rspec-result'
+"       \}
+" 
+" augroup Serverspec
+"   autocmd!
+"   autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.serverspec
+" augroup END
+" 
+" " lightline.vim
+" let g:lightline = {
+"         \ 'colorscheme': 'wombat',
+"         \ 'mode_map': {'c': 'NORMAL'},
+"         \ 'active': {
+"         \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+"         \   'right': [ [ 'syntastic', 'lineinfo' ],
+"         \              [ 'percent' ],
+"         \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+"         \ },
+"         \ 'component_expand': {
+"         \   'syntastic': 'SyntasticStatuslineFlag'
+"         \ },
+"         \ 'component_type': {
+"         \   'syntastic': 'error'
+"         \ },
+"         \ 'component_function': {
+"         \   'modified': 'MyModified',
+"         \   'readonly': 'MyReadonly',
+"         \   'fugitive': 'MyFugitive',
+"         \   'filename': 'MyFilename',
+"         \   'fileformat': 'MyFileformat',
+"         \   'filetype': 'MyFiletype',
+"         \   'fileencoding': 'MyFileencoding',
+"         \   'mode': 'MyMode'
+"         \ },
+"         \ 'component': {
+"         \   'readonly': '%{&readonly?"\u2b64":""}',
+"         \ },
+"         \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
+"         \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" },
+"         \ }
+" 
+" function! MyModified()
+"   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+" endfunction
+" 
+" function! MyReadonly()
+"   return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+" endfunction
+" 
+" function! MyFilename()
+"   return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+"         \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+"         \  &ft == 'unite' ? unite#get_status_string() :
+"         \  &ft == 'vimshell' ? vimshell#get_status_string() :
+"         \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+"         \ ('' != MyModified() ? ' ' . MyModified() : '')
+" endfunction
+" 
+" function! MyFugitive()
+"   try
+"     if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+"       return fugitive#head()
+"     endif
+"   catch
+"   endtry
+"   return ''
+" endfunction
+" 
+" function! MyFileformat()
+"   return winwidth(0) > 70 ? &fileformat : ''
+" endfunction
+" 
+" function! MyFiletype()
+"   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+" endfunction
+" 
+" function! MyFileencoding()
+"   return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+" endfunction
+" 
+" function! MyMode()
+"   return winwidth(0) > 60 ? lightline#mode() : ''
+" endfunction
+" let g:syntastic_mode_map = { 'mode': 'passive' }
+" augroup AutoSyntastic
+"   autocmd!
+"   autocmd BufWritePost *.c,*.cpp call s:syntastic()
+" augroup END
+" function! s:syntastic()
+"   SyntasticCheck
+"   call lightline#update()
+" endfunction
+" set laststatus=2
+" 
+" " カラー設定
+" if !has('nvim')
+"   set t_Co=256
+" endif
 
 " w!! でスーパーユーザーとして保存（sudoが使える環境限定）
 cmap w!! w !sudo tee > /dev/null %
@@ -559,186 +565,186 @@ nnoremap <c-h> <c-w>h
 noremap [Prefix]j <c-f><cr><cr>
 noremap [Prefix]k <c-b><cr><cr>
 
-" PHP用設定
-" PHP辞書ファイル指定
-autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
-" :makeでPHP構文チェック
-au FileType php setlocal makeprg=php\ -l\ %
-au FileType php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-" PHPの関数やクラスの折りたたみ
-let php_folding = 0
-" 文字列の中のSQLをハイライト
-let php_sql_query = 1
-" Baselibメソッドのハイライト
-let php_baselib = 1
-" HTMLもハイライト
-let php_htmlInStrings = 1
-" <? を無効にする→ハイライト除外にする
-let php_noShortTags = 1
-" ] や ) の対応エラーをハイライト
-let php_parent_error_close = 1
-let php_parent_error_open = 1
-" SQLのPHP文字リテラルへの整形(:Sqltop, :Sqlfromp)
-function! SQLToPHP()
-%s/^\(.\+\)$/"\1 " \./g
-
-normal G$
-execute "normal ?.&lt;CR&gt;"
-normal xxggVG
-echo "Convert to PHP String is finished."
-endfunction
-command! Sqltop :call SQLToPHP()
-function! SQLFromPHP()
-%s/^"\(.\+\) " *\.*$/\1/g
-
-normal ggVG
-echo "Convert from PHP String is finished."
-endfunction
-command! Sqlfromp :call SQLFromPHP()
-" ハイライト色設定
-highlight Pmenu ctermbg=4
-highlight PmenuSel ctermbg=1
-highlight PMenuSbar ctermbg=4
-
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" Override another plugins
-let g:neocomplete#force_overwrite_completefunc = 1
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'perl' : $HOME . '/.vim/dict/perl.dict',
-    \ 'php' : $HOME . '/.vim/dict/php.dict',
-    \ 'scala' : $HOME . '/.vim/dict/scala.dict'
-\ }
-
-" for neocomplete-php
-let g:neocomplete_php_locale = 'ja'
-
-" Neosnippet設定
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
-" Perl用設定
-autocmd BufNewFile,BufRead *.psgi   set filetype=perl
-autocmd BufNewFile,BufRead *.t      set filetype=perl
-" coffee-script設定
-" vimにcoffeeファイルタイプを認識させる
-au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
-" インデントを設定
-autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
-
-" Enable snipMate compatibility feature.↲
-let g:neosnippet#enable_snipmate_compatibility = 1
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory = '~/.vim/snippets, ~/.vim/bundle/serverspec-snippets'
-" Java用設定
-"SQLのJava文字リテラルへの整形(:Sqltoj, :Sqlfromj)
-function! SQLToJava()
-%s/^\(.\+\)$/"\1 " \+/g
-
-normal G$
-execute "normal ?+\&lt;CR&gt;"
-normal xxggVG
-echo "Convert to Java String is finished."
-endfunction
-command! Sqltoj :call SQLToJava()
-function! SQLFromJava()
-%s/^"\(.\+\) " *+*$/\1/g
-
-normal ggVG
-echo "Convert from Java String is finished."
-endfunction
-command! Sqlfromj :call SQLFromJava()
-
-" Ruby用設定
-autocmd FileType ruby     setlocal sw=2 sts=2 ts=2 et
-" :makeでRuby構文チェック
-au FileType ruby setlocal makeprg=ruby\ -c\ %
-au FileType ruby setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-autocmd BufReadPost,BufNewFile *_spec.rb set syntax=ruby.serverspec
-autocmd BufReadPost,BufNewFile *_spec.rb setlocal commentstring=#\ %s
-" Scala用設定
-" ファイルタイプの追加
-augroup filetypedetect
-autocmd! BufNewFile,BufRead *.scala setfiletype scala
-autocmd! BufNewFile,BufRead *.sbt setfiletype scala
-augroup END
-autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
-
-" 行末、行の最初への移動のキーマップ設定
-nmap <C-a> 0
-nmap <C-e> $
-imap <C-a> <C-o>0
-imap <C-e> <C-o>$
-
-" Ctrl+dで$、Ctrl+aで@
-" inoremap <C-d> $
-" inoremap <C-a> @
-
-" \ + rでスクリプト実行
-nmap <Leader>r <plug>(quickrun)
-
-" 全角スペースのハイライトを設定
-function! ZenkakuSpace()
-  highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=darkgrey
-endfunction
-
-if has('syntax')
-  augroup ZenkakuSpace
-    autocmd!
-    " ZenkakuSpaceをカラーファイルで設定するなら次の行は削除
-    autocmd ColorScheme       * call ZenkakuSpace()
-    " 全角スペースのハイライト指定
-    autocmd VimEnter,WinEnter * match ZenkakuSpace /[　”’]/
-  augroup END
-  call ZenkakuSpace()
-endif
-
-" .vimrc分割
-set rtp+=$HOME/dotfiles/.vim/
-runtime! conf.d/*.vim
+" " PHP用設定
+" " PHP辞書ファイル指定
+" autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
+" " :makeでPHP構文チェック
+" au FileType php setlocal makeprg=php\ -l\ %
+" au FileType php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
+" " PHPの関数やクラスの折りたたみ
+" let php_folding = 0
+" " 文字列の中のSQLをハイライト
+" let php_sql_query = 1
+" " Baselibメソッドのハイライト
+" let php_baselib = 1
+" " HTMLもハイライト
+" let php_htmlInStrings = 1
+" " <? を無効にする→ハイライト除外にする
+" let php_noShortTags = 1
+" " ] や ) の対応エラーをハイライト
+" let php_parent_error_close = 1
+" let php_parent_error_open = 1
+" " SQLのPHP文字リテラルへの整形(:Sqltop, :Sqlfromp)
+" function! SQLToPHP()
+" %s/^\(.\+\)$/"\1 " \./g
+" 
+" normal G$
+" execute "normal ?.&lt;CR&gt;"
+" normal xxggVG
+" echo "Convert to PHP String is finished."
+" endfunction
+" command! Sqltop :call SQLToPHP()
+" function! SQLFromPHP()
+" %s/^"\(.\+\) " *\.*$/\1/g
+" 
+" normal ggVG
+" echo "Convert from PHP String is finished."
+" endfunction
+" command! Sqlfromp :call SQLFromPHP()
+" " ハイライト色設定
+" highlight Pmenu ctermbg=4
+" highlight PmenuSel ctermbg=1
+" highlight PMenuSbar ctermbg=4
+" 
+" " Disable AutoComplPop.
+" let g:acp_enableAtStartup = 0
+" " Use neocomplete.
+" let g:neocomplete#enable_at_startup = 1
+" " Use smartcase.
+" let g:neocomplete#enable_smart_case = 1
+" " Set minimum syntax keyword length.
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
+" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" " Override another plugins
+" let g:neocomplete#force_overwrite_completefunc = 1
+" " Enable omni completion.
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" 
+" " Define dictionary.
+" let g:neocomplete#sources#dictionary#dictionaries = {
+"     \ 'default' : '',
+"     \ 'perl' : $HOME . '/.vim/dict/perl.dict',
+"     \ 'php' : $HOME . '/.vim/dict/php.dict',
+"     \ 'scala' : $HOME . '/.vim/dict/scala.dict'
+" \ }
+" 
+" " for neocomplete-php
+" let g:neocomplete_php_locale = 'ja'
+" 
+" " Neosnippet設定
+" " Plugin key-mappings.
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k>     <Plug>(neosnippet_expand_target)
+" 
+" " SuperTab like snippets behavior.
+" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)"
+" \: pumvisible() ? "\<C-n>" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)"
+" \: "\<TAB>"
+" 
+" " For snippet_complete marker.
+" if has('conceal')
+"   set conceallevel=2 concealcursor=i
+" endif
+" 
+" " Perl用設定
+" autocmd BufNewFile,BufRead *.psgi   set filetype=perl
+" autocmd BufNewFile,BufRead *.t      set filetype=perl
+" " coffee-script設定
+" " vimにcoffeeファイルタイプを認識させる
+" au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+" " インデントを設定
+" autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
+" 
+" " Enable snipMate compatibility feature.↲
+" let g:neosnippet#enable_snipmate_compatibility = 1
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k>     <Plug>(neosnippet_expand_target)
+" " SuperTab like snippets behavior.
+" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)"
+" \: pumvisible() ? "\<C-n>" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)"
+" \: "\<TAB>"
+" 
+" " For snippet_complete marker.
+" if has('conceal')
+"   set conceallevel=2 concealcursor=i
+" endif
+" " Tell Neosnippet about the other snippets
+" let g:neosnippet#snippets_directory = '~/.vim/snippets, ~/.vim/bundle/serverspec-snippets'
+" " Java用設定
+" "SQLのJava文字リテラルへの整形(:Sqltoj, :Sqlfromj)
+" function! SQLToJava()
+" %s/^\(.\+\)$/"\1 " \+/g
+" 
+" normal G$
+" execute "normal ?+\&lt;CR&gt;"
+" normal xxggVG
+" echo "Convert to Java String is finished."
+" endfunction
+" command! Sqltoj :call SQLToJava()
+" function! SQLFromJava()
+" %s/^"\(.\+\) " *+*$/\1/g
+" 
+" normal ggVG
+" echo "Convert from Java String is finished."
+" endfunction
+" command! Sqlfromj :call SQLFromJava()
+" 
+" " Ruby用設定
+" autocmd FileType ruby     setlocal sw=2 sts=2 ts=2 et
+" " :makeでRuby構文チェック
+" au FileType ruby setlocal makeprg=ruby\ -c\ %
+" au FileType ruby setlocal errorformat=%m\ in\ %f\ on\ line\ %l
+" autocmd BufReadPost,BufNewFile *_spec.rb set syntax=ruby.serverspec
+" autocmd BufReadPost,BufNewFile *_spec.rb setlocal commentstring=#\ %s
+" " Scala用設定
+" " ファイルタイプの追加
+" augroup filetypedetect
+" autocmd! BufNewFile,BufRead *.scala setfiletype scala
+" autocmd! BufNewFile,BufRead *.sbt setfiletype scala
+" augroup END
+" autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+" 
+" " 行末、行の最初への移動のキーマップ設定
+" nmap <C-a> 0
+" nmap <C-e> $
+" imap <C-a> <C-o>0
+" imap <C-e> <C-o>$
+" 
+" " Ctrl+dで$、Ctrl+aで@
+" " inoremap <C-d> $
+" " inoremap <C-a> @
+" 
+" " \ + rでスクリプト実行
+" nmap <Leader>r <plug>(quickrun)
+" 
+" " 全角スペースのハイライトを設定
+" function! ZenkakuSpace()
+"   highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=darkgrey
+" endfunction
+" 
+" if has('syntax')
+"   augroup ZenkakuSpace
+"     autocmd!
+"     " ZenkakuSpaceをカラーファイルで設定するなら次の行は削除
+"     autocmd ColorScheme       * call ZenkakuSpace()
+"     " 全角スペースのハイライト指定
+"     autocmd VimEnter,WinEnter * match ZenkakuSpace /[　”’]/
+"   augroup END
+"   call ZenkakuSpace()
+" endif
+" 
+" " .vimrc分割
+" set rtp+=$HOME/dotfiles/.vim/
+" runtime! conf.d/*.vim

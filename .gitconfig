@@ -6,13 +6,14 @@
 	precomposeunicode = true
 	preloadindex = true
 	safecrlf = true
+	excludesfile = /Users/kori/.gitignore_global
 [push]
     default = current
 [difftool "sourcetree"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.2.4/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [color]
     ui = auto

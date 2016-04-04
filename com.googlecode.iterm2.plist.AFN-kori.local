@@ -7025,12 +7025,10 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
-	<key>NSFontPanelAttributes</key>
-	<string>1, 10</string>
-	<key>NSFontPanelPreviewHeight</key>
-	<real>79</real>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/dotfiles</string>
+	<key>NSNavPanelExpandedSizeForOpenMode</key>
+	<string>{712, 459}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -7056,28 +7054,17 @@
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
-	<key>NSWindow Frame NSColorPanel</key>
-	<string>2987 412 201 309 2560 360 1920 1058 </string>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>3362 1014 459 270 2560 360 1920 1058 </string>
+	<string>2049 113 445 103 0 0 2560 1417 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>1028 700 606 456 0 0 2560 1418 </string>
-	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
-	<string>972 934 616 174 0 0 2560 1418 </string>
-	<key>NSWindow Frame SUUpdateAlertFrame</key>
-	<string>992 770 575 392 0 0 2560 1418 </string>
-	<key>NSWindow Frame UKCrashReporter</key>
-	<string>228 834 592 584 0 0 2560 1418 </string>
+	<string>269 223 606 456 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-1920 347 1920 1071 -1920 360 1920 1058 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>926 622 890 626 0 0 2560 1440 </string>
-	<key>NSWindow Frame iTerm Window 2</key>
-	<string>688 726 810 577 0 0 2560 1418 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
-	<string>1657 437 810 577 0 0 2560 1418 </string>
-	<key>NSWindow Frame iTerm Window 4</key>
-	<string>322 204 810 577 0 0 2560 1418 </string>
+	<string>2560 365 1920 1052 2560 360 1920 1057 </string>
 	<key>NeverWarnAboutShortLivedSessions_1CDF2379-5CEC-41AF-8073-3325ADB44E10</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_7288BDE0-721C-448F-B3F8-21B41005973E</key>
@@ -11883,16 +11870,12 @@
 			<string>/Users/kori</string>
 		</dict>
 	</array>
-	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
-	<true/>
-	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
-	<integer>0</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
-	<key>NoSyncSuppressAnnyoingBellOffer</key>
-	<true/>
+	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
+	<real>481423058.29548001</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -11951,8 +11934,6 @@
 	<integer>8</integer>
 	<key>RightOption</key>
 	<integer>3</integer>
-	<key>SUAutomaticallyUpdate</key>
-	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -11962,7 +11943,9 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-10-18T23:11:59Z</date>
+	<date>2016-04-04T00:40:47Z</date>
+	<key>SUSendProfileInfo</key>
+	<false/>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -11995,8 +11978,6 @@
 	</array>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
-	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1431577088</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -12020,7 +12001,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20151018-nightly</string>
+	<string>2.9.20160403-nightly</string>
 	<key>kCommandHistoryHasEverBeenUsed</key>
 	<true/>
 	<key>kPreferenceKeyWindowStyle</key>

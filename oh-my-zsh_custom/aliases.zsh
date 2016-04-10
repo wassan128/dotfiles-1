@@ -1,3 +1,4 @@
+alias sudo='sudo ' # inrehit aliases
 alias brew-cask-upgrade='for c in `brew cask list`; do ! brew cask info $c | grep -qF "Not installed" || brew cask install $c; done'
 alias brew-cask-clean-outdated="for c in /opt/homebrew-cask/Caskroom/*; do IFS=\$'\t\n' vl=(\$(ls -t \$c)) && for v in \"\${vl[@]:1}\"; do echo \"\$c/\$v\"; rm \"\$c/\$v\"; done; done"
 alias brew-upgrade-all='brew update;  brew upgrade; brew-cask-upgrade; brew cleanup; brew cask cleanup; brew-cask-clean-outdated'

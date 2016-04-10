@@ -12,6 +12,9 @@ depends = 'context_filetype.vim'
 if = "has('nvim')"
 on_i = 1
 hook_source = '''
+  if !has("python3")
+    execute "!/usr/local/bin/pip3 install neovim"
+  endif
   let g:deoplete#enable_at_startup = 1
   source ~/.config/nvim/deoplete.rc.vim
 '''

@@ -1,7 +1,7 @@
 [user]
 [core]
 	autocrlf = false
-    editor = vim -c \"set fenc=utf-8\"
+    editor = nvim -c \"set fenc=utf-8\"
     pager = lv
 	precomposeunicode = true
 	preloadindex = true

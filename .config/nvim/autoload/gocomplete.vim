@@ -1,0 +1,1 @@
+/Users/K/.cache/vim-plug/gocode/nvim/autoload/gocomplete.vim

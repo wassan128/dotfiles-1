@@ -1,8 +1,73 @@
-" dein settings {{{
-set nocompatible
+" Shougo/deoplete.nvim
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
 
-set rtp+=$HOME/.config/nvim/
-runtime! dein.rc.vim
+call plug#begin('~/.cache/vim-plug')
+  Plug 'nanotech/jellybeans.vim'
+  Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+  Plug 'fatih/vim-go', { 'for': 'go' }
+  " Plug 'flazz/vim-colorschemes'
+  Plug 'itchyny/landscape.vim'
+  Plug 'gcmt/wildfire.vim'
+  Plug 'h1mesuke/vim-alignta', { 'on': 'Alignta' }
+  Plug 'junegunn/vim-easy-align', { 'on': '<Plug>(EasyAlign)' }
+  Plug 'kana/vim-niceblock'
+  Plug 'kana/vim-operator-replace', { 'on': '<Plug>(operator-replace)' }
+  Plug 'kana/vim-operator-user'
+  " Plug 'kana/vim-textobj-user'
+  Plug 'othree/html5.vim', { 'for': 'html' }
+  Plug 'scrooloose/nerdcommenter', { 'for': [ 'vim', 'go', 'php', 'sh'] }
+  Plug 't9md/vim-quickhl', { 'on': '<Plug>(quickhl-manual-this)' }
+  Plug 'thinca/vim-quickrun', { 'on': 'QuickRun' }
+  " Plug 'thinca/vim-ref'
+  " Plug 'tpope/vim-fugitive', { 'on': ['Gdiff', 'Glog' ] }
+  " Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-surround'
+  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } | Plug 'zchee/deoplete-go', { 'for': 'go' }
+  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } | Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
+  Plug 'Shougo/unite.vim', { 'on': 'Unite', 'for': 'unite' } | Plug 'Shougo/neoyank.vim'
+  Plug 'Shougo/neomru.vim'
+  Plug 'nsf/gocode', {  'for': 'go', 'rtp': 'nvim', 'do': '~/.cache/vim-plug/gocode/nvim/symlink.sh' }
+  Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTree']}
+  Plug 'scrooloose/syntastic', { 'for': [ 'go', 'php' ] }
+  Plug 'cespare/vim-toml', { 'for': 'toml' }
+  Plug 'PProvost/vim-ps1', { 'for': 'ps1' }
+  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+  Plug 'hashivim/vim-terraform' ", { 'for': [ 'terraform' ] }
+  Plug 'hashivim/vim-packer', { 'for': 'json' }
+  Plug 'hashivim/vim-vagrant', { 'for': 'ruby' }
+call plug#end()
+
+" Shougo/deoplete.nvim
+let g:deoplete#enable_at_startup = 1
+" hashivim/vim-terraform
+let g:terraform_fmt_on_save = 1
+" golang
+au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4 nolist
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+" thinka/vim-quickrun
+let g:quickrun_config={'_': {
+\   'split': 'vertical',
+\   "outputter/buffer/split": ":rightbelow 8sp",
+\   "runner" : "vimproc",
+\   "runner/vimproc/updatetime" : 40,
+\   "outputter/buffer/close_on_empty": 1,
+\}}
+let g:quickrun_config['markdown'] = {'outputter': 'browser'}
+nnoremap <silent> <C-q> :QuickRun<CR>
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+
+" " dein settings {{{
+" set nocompatible
+" 
+" set rtp+=$HOME/.config/nvim/
+" runtime! dein.rc.vim
 
 " dein.vimのディレクトリ
 " let s:dein_dir = expand('~/.config/nvim')
@@ -192,7 +257,15 @@ nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+" カーソル位置の単語をgrep検索
+nnoremap <silent> ,kg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
 " タブ関連 http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
 nnoremap t <Nop>
 nnoremap tj <C-w>j

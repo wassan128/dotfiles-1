@@ -30,16 +30,19 @@ call plug#begin('~/.cache/vim-plug')
   Plug 'Shougo/unite.vim', { 'on': 'Unite', 'for': 'unite' } | Plug 'Shougo/neoyank.vim'
   Plug 'Shougo/neomru.vim'
   Plug 'nsf/gocode', {  'for': 'go', 'rtp': 'nvim', 'do': '~/.cache/vim-plug/gocode/nvim/symlink.sh' }
-  Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTree']}
+  Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTree'] }
   Plug 'scrooloose/syntastic', { 'for': [ 'go', 'php' ] }
   Plug 'cespare/vim-toml', { 'for': 'toml' }
   Plug 'PProvost/vim-ps1', { 'for': 'ps1' }
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-  Plug 'hashivim/vim-terraform' ", { 'for': [ 'terraform' ] }
+  Plug 'hashivim/vim-terraform' ", { 'for': [ 'terraform', 'tf', 'tfvars', 'tfstate', 'hcl' ] }
   Plug 'hashivim/vim-packer', { 'for': 'json' }
   Plug 'hashivim/vim-vagrant', { 'for': 'ruby' }
 call plug#end()
 
+" vim-airline/vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 " Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
 " hashivim/vim-terraform

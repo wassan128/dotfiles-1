@@ -37,7 +37,7 @@ call plug#begin('~/.cache/vim-plug')
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
   Plug 'hashivim/vim-terraform' ", { 'for': [ 'terraform', 'tf', 'tfvars', 'tfstate', 'hcl' ] }
   Plug 'hashivim/vim-packer', { 'for': 'json' }
-  Plug 'hashivim/vim-vagrant', { 'for': 'ruby' }
+  Plug 'hashivim/vim-vagrant' ", { 'for': ['Vagrantfile', 'ruby'] }
 call plug#end()
 
 " vim-airline/vim-airline

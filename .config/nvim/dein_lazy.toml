@@ -64,6 +64,38 @@ on_i = 1
 repo = 'gcmt/wildfire.vim'
 
 [[plugins]]
+repo = 'itchyny/landscape.vim'
+
+[[plugins]]
+repo = 'h1mesuke/vim-alignta'
+on_cmd = 'Alignta'
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+on_map = '<Plug>(operator-replace)'
+
+[[plugins]]
+repo = 'kana/vim-niceblock'
+
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+on_map = '<Plug>(operator-replace)'
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+on_ft = ['vim', 'go', 'php', 'sh']
+
+[[plugins]]
+repo = 't9md/vim-quickhl'
+on_map = '<Plug>(quickhl-manual-this)'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
 repo = 'thinca/vim-quickrun'
 on_cmd = 'QuickRun'
 hook_add = '''

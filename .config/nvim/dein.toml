@@ -11,13 +11,11 @@ repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
 repo = 'nanotech/jellybeans.vim'
 hook_add = '''
-  let g:hybrid_use_iTerm_colors = 1
   " autocmd VimEnter * colorscheme jellybeans
 '''
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
 # hook_add = '''
-#   let g:hybrid_use_iTerm_colors = 1
 #   set background=dark
 #   " カラースキーマの適用はsource後じゃないと出来ないので遅延セット
 #   autocmd VimEnter * colorscheme hybrid

@@ -1,70 +1,27 @@
-" Shougo/deoplete.nvim
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
+" dein.vim {{{
+let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+let s:dein_dir = s:cache_home . '/dein.vim'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if !isdirectory(s:dein_repo_dir)
+  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+endif
+let &runtimepath = s:dein_repo_dir .",". &runtimepath
+" プラグイン読み込み＆キャッシュ作成
+let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
+let s:toml_lazy_file = fnamemodify(expand('<sfile>'), ':h').'/dein_lazy.toml'
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file, s:toml_lazy_file])
+  call dein#load_toml(s:toml_file)
+  call dein#load_toml(s:toml_lazy_file, {'lazy': 1})
+  call dein#end()
+  call dein#save_state()
+endif
+" 不足プラグインの自動インストール
+if has('vim_starting') && dein#check_install()
+  call dein#install()
+endif
+" }}}
 
-call plug#begin('~/.cache/vim-plug')
-  Plug 'nanotech/jellybeans.vim'
-  Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-  Plug 'fatih/vim-go', { 'for': 'go' }
-  " Plug 'flazz/vim-colorschemes'
-  Plug 'itchyny/landscape.vim'
-  Plug 'gcmt/wildfire.vim'
-  Plug 'h1mesuke/vim-alignta', { 'on': 'Alignta' }
-  Plug 'junegunn/vim-easy-align', { 'on': '<Plug>(EasyAlign)' }
-  Plug 'kana/vim-niceblock'
-  Plug 'kana/vim-operator-replace', { 'on': '<Plug>(operator-replace)' }
-  Plug 'kana/vim-operator-user'
-  " Plug 'kana/vim-textobj-user'
-  Plug 'othree/html5.vim', { 'for': 'html' }
-  Plug 'scrooloose/nerdcommenter', { 'for': [ 'vim', 'go', 'php', 'sh'] }
-  Plug 't9md/vim-quickhl', { 'on': '<Plug>(quickhl-manual-this)' }
-  Plug 'thinca/vim-quickrun', { 'on': 'QuickRun' }
-  " Plug 'thinca/vim-ref'
-  " Plug 'tpope/vim-fugitive', { 'on': ['Gdiff', 'Glog' ] }
-  " Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-surround'
-  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } | Plug 'zchee/deoplete-go', { 'for': 'go' }
-  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } | Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
-  Plug 'Shougo/unite.vim', { 'on': 'Unite', 'for': 'unite' } | Plug 'Shougo/neoyank.vim'
-  Plug 'Shougo/neomru.vim'
-  Plug 'nsf/gocode', {  'for': 'go', 'rtp': 'nvim', 'do': '~/.cache/vim-plug/gocode/nvim/symlink.sh' }
-  Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTree'] }
-  Plug 'scrooloose/syntastic', { 'for': [ 'go', 'php' ] }
-  Plug 'cespare/vim-toml', { 'for': 'toml' }
-  Plug 'PProvost/vim-ps1', { 'for': 'ps1' }
-  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-  Plug 'hashivim/vim-terraform' ", { 'for': [ 'terraform', 'tf', 'tfvars', 'tfstate', 'hcl' ] }
-  Plug 'hashivim/vim-packer', { 'for': 'json' }
-  Plug 'hashivim/vim-vagrant' ", { 'for': ['Vagrantfile', 'ruby'] }
-call plug#end()
-
-" vim-airline/vim-airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-" Shougo/deoplete.nvim
-let g:deoplete#enable_at_startup = 1
-" hashivim/vim-terraform
-let g:terraform_fmt_on_save = 1
-" golang
-au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4 nolist
-let g:go_fmt_command = "goimports"
-let g:go_fmt_fail_silently = 1
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-
-" thinka/vim-quickrun
-let g:quickrun_config={'_': {
-\   'split': 'vertical',
-\   "outputter/buffer/split": ":rightbelow 8sp",
-\   "runner" : "vimproc",
-\   "runner/vimproc/updatetime" : 40,
-\   "outputter/buffer/close_on_empty": 1,
-\}}
-let g:quickrun_config['markdown'] = {'outputter': 'browser'}
-nnoremap <silent> <C-q> :QuickRun<CR>
-nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 " " dein settings {{{
 " set nocompatible
@@ -106,6 +63,82 @@ nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() 
 "   " Installation check.
 "   call dein#install()
 " endif
+" " }}}
+
+
+" " vim-plug {{{
+" " Shougo/deoplete.nvim
+" function! DoRemote(arg)
+"   UpdateRemotePlugins
+" endfunction
+" 
+" call plug#begin('~/.cache/vim-plug')
+"   Plug 'nanotech/jellybeans.vim'
+"   Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+"   Plug 'fatih/vim-go', { 'for': 'go' }
+"   " Plug 'flazz/vim-colorschemes'
+"   Plug 'itchyny/landscape.vim'
+"   Plug 'gcmt/wildfire.vim'
+"   Plug 'h1mesuke/vim-alignta', { 'on': 'Alignta' }
+"   Plug 'junegunn/vim-easy-align', { 'on': '<Plug>(EasyAlign)' }
+"   Plug 'kana/vim-niceblock'
+"   Plug 'kana/vim-operator-replace', { 'on': '<Plug>(operator-replace)' }
+"   Plug 'kana/vim-operator-user'
+"   " Plug 'kana/vim-textobj-user'
+"   Plug 'othree/html5.vim', { 'for': 'html' }
+"   Plug 'scrooloose/nerdcommenter', { 'for': [ 'vim', 'go', 'php', 'sh'] }
+"   Plug 't9md/vim-quickhl', { 'on': '<Plug>(quickhl-manual-this)' }
+"   Plug 'thinca/vim-quickrun', { 'on': 'QuickRun' }
+"   " Plug 'thinca/vim-ref'
+"   " Plug 'tpope/vim-fugitive', { 'on': ['Gdiff', 'Glog' ] }
+"   " Plug 'tpope/vim-fugitive'
+"   Plug 'tpope/vim-surround'
+"   Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+"   Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } | Plug 'zchee/deoplete-go', { 'for': 'go' }
+"   Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } | Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
+"   Plug 'Shougo/unite.vim', { 'on': 'Unite', 'for': 'unite' } | Plug 'Shougo/neoyank.vim'
+"   Plug 'Shougo/neomru.vim'
+"   Plug 'nsf/gocode', {  'for': 'go', 'rtp': 'nvim', 'do': '~/.cache/vim-plug/gocode/nvim/symlink.sh' }
+"   Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTree'] }
+"   Plug 'scrooloose/syntastic', { 'for': [ 'go', 'php' ] }
+"   Plug 'cespare/vim-toml', { 'for': 'toml' }
+"   Plug 'PProvost/vim-ps1', { 'for': 'ps1' }
+"   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+"   Plug 'hashivim/vim-terraform' ", { 'for': [ 'terraform', 'tf', 'tfvars', 'tfstate', 'hcl' ] }
+"   Plug 'hashivim/vim-packer', { 'for': 'json' }
+"   Plug 'hashivim/vim-vagrant' ", { 'for': ['Vagrantfile', 'ruby'] }
+" call plug#end()
+" }}}
+
+" " vim-airline/vim-airline
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts = 1
+" set laststatus=2
+
+" " Shougo/deoplete.nvim
+" let g:deoplete#enable_at_startup = 1
+" " hashivim/vim-terraform
+" let g:terraform_fmt_on_save = 1
+" " golang
+" au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4 nolist
+" let g:go_fmt_command = "goimports"
+" let g:go_fmt_fail_silently = 1
+" let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" 
+" " thinka/vim-quickrun
+" let g:quickrun_config={'_': {
+" \   'split': 'vertical',
+" \   "outputter/buffer/split": ":rightbelow 8sp",
+" \   "runner" : "vimproc",
+" \   "runner/vimproc/updatetime" : 40,
+" \   "outputter/buffer/close_on_empty": 1,
+" \}}
+" let g:quickrun_config['markdown'] = {'outputter': 'browser'}
+" nnoremap <silent> <C-q> :QuickRun<CR>
+" nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+
+" ----------------------------------------------------------------------------------------------------------
 
 " 一旦ファイルタイプ関連を無効化
 filetype off

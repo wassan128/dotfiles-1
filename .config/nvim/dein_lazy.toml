@@ -4,40 +4,51 @@ if = "has('lua')"
 on_i = 1
 
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
 if = "has('nvim')"
 on_i = 1
-hook_source = '''
-  if !has("python3")
-    execute "!/usr/local/bin/pip3 install neovim"
-  endif
-  let g:deoplete#enable_at_startup = 1
-  source ~/.config/nvim/deoplete.rc.vim
+hook_post_update = 'UpdateRemotePlugins'
+hook_add = 'let g:deoplete#enable_at_startup = 1'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+# hook_add = '''
+#   if !exists('g:context_filetype#filetypes')
+#     let g:context_filetype#filetypes = {}
+#   endif
+# '''
+
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+hook_add = '''
+  cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>' : 's'
 '''
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
-on_ft = 'snippet'
+on_cmd = ['NERDTreeToggle', 'NERDTree']
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
-on_source = 'unite.vim'
+depends = 'Shougo/unite.vim'
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
-on_ft = 'snippet'
-
-[[plugins]]
-repo = 'jiangmiao/auto-pairs'
-on_i = 1
+on_ft = ['snippet', 'unite']
+on_cmd = ['Unite', 'UniteResume']
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
-on_path = '.*'
+depends = 'Shougo/unite.vim'
+on_ft = ['snippet', 'unite']
+on_cmd = ['Unite', 'UniteResume']
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
 on_i = 1
 
 [[plugins]]
@@ -46,10 +57,39 @@ on_i = 1
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
-on_source = 'neosnippet'
+depends = 'neosnippet'
 on_i = 1
 
+[[plugins]]
+repo = 'gcmt/wildfire.vim'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_cmd = 'QuickRun'
+hook_add = '''
+  let g:quickrun_config={'_': {
+  \   'split': 'vertical',
+  \   "outputter/buffer/split": ":rightbelow 8sp",
+  \   "runner" : "vimproc",
+  \   "runner/vimproc/updatetime" : 40,
+  \   "outputter/buffer/close_on_empty": 1,
+  \}}
+  let g:quickrun_config['markdown'] = {'outputter': 'browser'}
+  nnoremap <silent> <C-q> :QuickRun<CR>
+  nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+'''
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+on_ft = ['go', 'php']
+
+# ----------------------------------------
 # language-specific
+
+# html
+[[plugins]]
+repo = 'othree/html5.vim'
+on_ft = 'html'
 
 # toml
 [[plugins]]
@@ -71,6 +111,18 @@ repo = 'zchee/deoplete-go'
 depends = 'deoplete.nvim'
 on_i = 1
 on_ft = 'go'
+[[plugins]]
+repo = 'nsf/gocode'
+rtp = 'nvim'
+on_ft = 'go'
+build = '~/.cache/dein.vim/repos/github.com/nsf/gocode/nvim/symlink.sh'
+hook_add = '''
+  au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4 nolist
+  let g:go_fmt_command = 'goimports'
+  let g:go_fmt_fail_silently = 1
+  let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+  let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+'''
 
 # C/C++
 [[plugins]]
@@ -87,3 +139,21 @@ on_ft = 'ps1'
 [[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = 'rust'
+
+# Terraform, HCL
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+on_ft = ['tf', 'tfvars', 'tfstate', 'hcl']
+hook_add = '''
+  let g:terraform_fmt_on_save = 1
+'''
+
+# Packer
+[[plugins]]
+repo = 'hashivim/vim-packer'
+on_ft = 'json'
+
+# Vagrant
+[[plugins]]
+repo = 'hashivim/vim-vagrant'
+on_ft = ['Vagrantfile', 'ruby']

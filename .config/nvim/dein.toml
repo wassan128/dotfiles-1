@@ -6,29 +6,42 @@ repo = 'Shougo/vimproc'
 build = 'make'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
 repo = 'nanotech/jellybeans.vim'
-hook_add = '''
-  " autocmd VimEnter * colorscheme jellybeans
-'''
+# hook_add = '''
+# autocmd VimEnter * colorscheme jellybeans
+# '''
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
 # hook_add = '''
-#   set background=dark
-#   " カラースキーマの適用はsource後じゃないと出来ないので遅延セット
-#   autocmd VimEnter * colorscheme hybrid
+# set background=dark
+# " カラースキーマの適用はsource後じゃないと出来ないので遅延セット
+# autocmd VimEnter * colorscheme hybrid
 # '''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline_powerline_fonts = 1
-  set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+set laststatus=2
 '''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 depends = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+
+[[plugins]]
+repo = 'gcmt/wildfire.vim'

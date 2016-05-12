@@ -463,7 +463,7 @@ set smartcase
 " インクリメンタルサーチを行う
 set incsearch
 " 検索結果をハイライト表示
-:set hlsearch
+set hlsearch
 " コマンド、検索パターンを10000個まで履歴に残す
 set history=10000
 " マウスモード有効
@@ -660,20 +660,20 @@ cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 "表示行単位で行移動する
 nnoremap <silent> j gj
 nnoremap <silent> k gk
-"インサートモードでも移動
-inoremap <c-d> <delete>
-inoremap <c-j> <down>
-inoremap <c-k> <up>
-inoremap <c-h> <left>
-inoremap <c-l> <right>
-"画面切り替え
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-nnoremap <c-h> <c-w>h
-"<space>j, <space>kで画面送り
-noremap [Prefix]j <c-f><cr><cr>
-noremap [Prefix]k <c-b><cr><cr>
+" "インサートモードでも移動
+" inoremap <c-d> <delete>
+" inoremap <c-j> <down>
+" inoremap <c-k> <up>
+" inoremap <c-h> <left>
+" inoremap <c-l> <right>
+" "画面切り替え
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+" nnoremap <c-l> <c-w>l
+" nnoremap <c-h> <c-w>h
+" "<space>j, <space>kで画面送り
+" noremap [Prefix]j <c-f><cr><cr>
+" noremap [Prefix]k <c-b><cr><cr>
 
 " " PHP用設定
 " " PHP辞書ファイル指定
@@ -827,14 +827,14 @@ noremap [Prefix]k <c-b><cr><cr>
 " autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 " 
 " " 行末、行の最初への移動のキーマップ設定
-" nmap <C-a> 0
-" nmap <C-e> $
-" imap <C-a> <C-o>0
-" imap <C-e> <C-o>$
+nmap <C-a> 0
+nmap <C-e> $
+imap <C-a> <C-o>0
+imap <C-e> <C-o>$
 " 
 " " Ctrl+dで$、Ctrl+aで@
-" " inoremap <C-d> $
-" " inoremap <C-a> @
+inoremap <C-d> $
+inoremap <C-a> @
 " 
 " " \ + rでスクリプト実行
 " nmap <Leader>r <plug>(quickrun)

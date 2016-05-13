@@ -38,10 +38,4 @@ depends = 'Shougo/context_filetype.vim'
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
-repo = 'kana/vim-operator-user'
-
-[[plugins]]
-repo = 'junegunn/vim-easy-align'
-
-[[plugins]]
 repo = 'gcmt/wildfire.vim'

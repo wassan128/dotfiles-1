@@ -399,12 +399,10 @@ set shiftwidth=4
 set softtabstop=0
 " シンタックスハイライト
 syntax on
-if !has('nvim')
-  " エンコード
-  set encoding=utf8
-  " ファイルエンコード
-  set fileencodings=utf-8,euc-jp,cp932,sjis,iso-2022-jp
-endif
+" エンコード
+set encoding=utf8
+" ファイルエンコード
+set fileencodings=utf-8,euc-jp,cp932,sjis,iso-2022-jp
 " スクロールする時に下が見えるようにする
 set scrolloff=5
 " .swapファイルを作らない

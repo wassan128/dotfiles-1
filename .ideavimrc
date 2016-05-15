@@ -67,6 +67,7 @@ set incsearch  " インクリメンタルサーチ
 " edit settings {{{
 set showmatch      " 括弧の対応をハイライト
 set backspace=indent,eol,start
+set clipboard+=unnamed
 set clipboard=unnamed
 set pastetoggle=<F12>
 set guioptions+=a

@@ -824,13 +824,13 @@ nnoremap <silent> k gk
 " augroup END
 " autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 " 
-" " 行末、行の最初への移動のキーマップ設定
+" 行末、行の最初への移動のキーマップ設定
 nmap <C-a> 0
 nmap <C-e> $
 imap <C-a> <C-o>0
 imap <C-e> <C-o>$
-" 
-" " Ctrl+dで$、Ctrl+aで@
+
+" Ctrl+dで$、Ctrl+aで@
 inoremap <C-d> $
 inoremap <C-a> @
 " 

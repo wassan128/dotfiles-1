@@ -67,7 +67,7 @@ endif
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
-depends = 'Shougo/neosnippet'
+depends = 'neosnippet'
 on_i = 1
 
 [[plugins]]

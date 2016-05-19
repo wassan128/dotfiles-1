@@ -1,14 +1,14 @@
 [user]
 [core]
 	autocrlf = false
-    editor = nvim -c \"set fenc=utf-8\"
-    pager = lv
+	editor = nvim -c \"set fenc=utf-8\"
+	pager = lv
 	precomposeunicode = true
 	preloadindex = true
 	safecrlf = true
 	excludesfile = /Users/kori/.gitignore_global
 [push]
-    default = current
+	default = current
 [difftool "sourcetree"]
 	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -16,35 +16,37 @@
 	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 	trustExitCode = true
 [color]
-    ui = auto
-    diff = auto
-    status = auto
-    branch = auto
-    grep = auto
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	grep = auto
 [merge]
 [alias]
-    st = status
-    co = checkout
-    ci = commit -v
-    di = diff
-    br = branch
-    puhs = push
-    psuh = push
-    pus = push
-    puh = push
-    pl = !git pull && git submodule update --init
-    p = pull
-    pu = push
-    puu = push -u
-    c = commit -v
-    o = checkout
-    t = checkout -t
-    b = checkout -b
-    r = remote
-    pr = pull-request
-    see = browse
-    m = merge
-    mn = merge --no-ff
+	st = status
+	co = checkout
+	ci = commit -v
+	di = diff
+	br = branch
+	puhs = push
+	psuh = push
+	pus = push
+	puh = push
+	pl = !git pull && git submodule update --init
+	p = pull
+	pu = push
+	puu = push -u
+	c = commit -v
+	o = checkout
+	t = checkout -t
+	b = checkout -b
+	r = remote
+	pr = pull-request
+	see = browse
+	m = merge
+	mn = merge --no-ff
+	ag = !git ls-files | xargs ag
+	g = "!git ls-files | xargs ag --pager=\"less -FR\" --nogroup --color-match=0\\;31 --color-path=0\\;0 --no-numbers"
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f

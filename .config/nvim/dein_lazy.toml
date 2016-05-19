@@ -91,6 +91,10 @@ endif
 '''
 
 [[plugins]]
+repo = 'rking/ag.vim'
+on_cmd = ['Ag', 'AgAdd', 'AgFromSearch', 'LAg', 'LAgAdd', 'AgFile', 'AgHelp']
+
+[[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 depends = 'neosnippet'
 on_i = 1

@@ -46,7 +46,7 @@
 	m = merge
 	mn = merge --no-ff
 	ag = !git ls-files | xargs ag
-	g = "!git ls-files | xargs ag --pager=\"less -FR\" --nogroup --color-match=0\\;31 --color-path=0\\;0 --no-numbers"
+	g = "!git ls-files | xargs ag --pager=\"less -F -R\" --nogroup --color-match=0\\;31 --color-path=0\\;0 --no-numbers"
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f

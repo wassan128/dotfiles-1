@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git pull --recurse-submodules --ff-only origin master
+git submodule update --remote
 
 [[ -d "${HOME}/.config" ]] || mkdir "${HOME}/.config"
 

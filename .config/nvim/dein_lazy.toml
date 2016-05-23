@@ -23,6 +23,7 @@ on_cmd = ['NERDTreeToggle', 'NERDTree']
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 depends = 'unite.vim'
+on_cmd = ['Unite', 'UniteResume']
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
@@ -113,7 +114,7 @@ on_map = '<Plug>(operator'
 
 [[plugins]]
 repo = 'kana/vim-operator-replace'
-depends = 'kana/vim-operator-user'
+depends = 'vim-operator-user'
 on_map = '<Plug>(operator-replace)'
 hook_add = '''
   nmap s <Plug>(operator-replace)
@@ -172,8 +173,12 @@ on_ft = ['go', 'php']
 repo = 'othree/html5.vim'
 on_ft = 'html'
 [[plugins]]
-repo = 'mattn/emmet-vim' # emmet: <c-z>
-on_ft = ['html', 'css']
+repo = 'mattn/emmet-vim' # emmet: <c-e>,
+on_ft = ['html', 'css', 'php', 'markdown']
+on_map = ['<plug>(user_emmet_', '<plug>(emmet-']
+hook_add = '''
+let g:user_emmet_leader_key='<C-E>'
+'''
 [[plugins]]
 repo = 'Valloric/MatchTagAlways'
 on_ft = ['html', 'xhtml', 'xml', 'jinja']

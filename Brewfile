@@ -353,3 +353,14 @@ cask 'vox-preferences-pane'
 cask 'wireshark'
 cask 'xmind'
 cask 'xtrafinder'
+mas "Microsoft Remote Desktop", id: 715768417
+mas "Dash", id: 449589707
+mas "Keynote", id: 409183694
+mas "VOX", id: 461369673
+mas "OneDrive", id: 823766827
+mas "Xcode", id: 497799835
+mas "Veertu", id: 1024069033
+mas "Todoist", id: 585829637
+mas "Deckset", id: 847496013
+mas "LINE", id: 539883307
+mas "Memory Clean", id: 451444120

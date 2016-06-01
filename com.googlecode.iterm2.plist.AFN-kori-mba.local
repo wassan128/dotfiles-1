@@ -7064,7 +7064,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 364 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 67 1440 810 0 0 1440 877 </string>
+	<string>0 11 1440 866 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_1CDF2379-5CEC-41AF-8073-3325ADB44E10</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_7288BDE0-721C-448F-B3F8-21B41005973E</key>
@@ -7639,7 +7639,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>56</integer>
+			<integer>60</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>

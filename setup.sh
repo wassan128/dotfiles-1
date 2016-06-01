@@ -42,5 +42,6 @@ ln -s ${PWD}/oh-my-zsh_custom/*.zsh "${HOME}/dotfiles/.oh-my-zsh/custom/" 2> /de
 ln -s ${PWD}/oh-my-zsh_custom/*.zsh-theme "${HOME}/dotfiles/.oh-my-zsh/custom/" 2> /dev/null
 # リンク切れのシンボリックリンクを削除
 find -L "${HOME}"/dotfiles/.oh-my-zsh/custom -type l -exec unlink {} \;
-[[ -f com.googlecode.iterm2.plist && ! -L com.googlecode.iterm2.plist ]] || mv -f com.googlecode.iterm2.plist{,.$(uname -n)}
-[[ -f com.googlecode.iterm2.plist ]] || ln com.googlecode.iterm2.plist{.$(uname -n),}
+# iterm2.plistを更新、ハードリンク張替え
+mv -f com.googlecode.iterm2.plist{,.$(uname -n)}
+ln com.googlecode.iterm2.plist{.$(uname -n),}

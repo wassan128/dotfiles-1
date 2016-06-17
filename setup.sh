@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git submodule update --remote
+git submodule foreach git pull origin master
 
 [[ -d "${HOME}/.config" ]] || mkdir "${HOME}/.config"
 

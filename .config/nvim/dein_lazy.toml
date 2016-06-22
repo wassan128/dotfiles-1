@@ -262,3 +262,8 @@ on_ft = 'json'
 [[plugins]]
 repo = 'hashivim/vim-vagrant'
 on_ft = ['Vagrantfile', 'ruby']
+
+# fluentd
+[[plugins]]
+repo = 'yoppi/fluentd.vim'
+on_ft = ['conf', 'fluentd']

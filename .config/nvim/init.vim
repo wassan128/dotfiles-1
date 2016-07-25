@@ -402,7 +402,7 @@ syntax on
 " エンコード
 set encoding=utf8
 " ファイルエンコード
-set fileencodings=euc-jp,cp932,sjis,iso-2022-jp,utf-8
+set fileencodings=utf-8,euc-jp,cp932,sjis,iso-2022-jp
 " スクロールする時に下が見えるようにする
 set scrolloff=5
 " .swapファイルを作らない

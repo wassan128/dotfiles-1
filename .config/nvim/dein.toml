@@ -39,3 +39,6 @@ repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'gcmt/wildfire.vim'
+
+[[plugins]]
+repo = 'sudo.vim'

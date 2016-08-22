@@ -267,3 +267,8 @@ on_ft = ['Vagrantfile', 'ruby']
 [[plugins]]
 repo = 'yoppi/fluentd.vim'
 on_ft = ['conf', 'fluentd']
+
+# coffee
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+on_ft = ['coffee']

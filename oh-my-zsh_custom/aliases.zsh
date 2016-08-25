@@ -9,6 +9,7 @@ alias cp='cp -i'
 alias tree='tree -NC'
 alias tailf='tail -f'
 alias uu="cd ..; ls -l"
+alias shrestart="exec $SHELL -l"
 
 p() { peco | while read LINE; do $@ $LINE; done }
 alias o='git ls-files | p open'

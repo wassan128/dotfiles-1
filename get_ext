@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os.path
+import sys
+import mimetypes
+import subprocess
+
+argv = sys.argv
+argc = len(argv)
+
+if (argc != 2):
+    sys.stderr.write("wrong argments: {0}\n".format(argv[0]))
+    quit(1)
+
+filename = argv[1]
+
+# check MIME_TYPE by file command
+filepath = os.path.abspath(filename)
+cmd = "/usr/bin/file -ib {0}".format(filepath)
+sp = subprocess.Popen(cmd,
+                      stdout=subprocess.PIPE,
+                      shell=True)
+res = sp.stdout.readlines()
+filetype = res[0].split(";")[0]
+
+
+if not filetype:
+    # check MIME_TYPE by mimetypes module
+    filetype = mimetypes.guess_type(filename)[0]
+    if not filetype:
+        sys.stderr.write("MIME TYPE is None\n")
+        quit(1)
+
+fileext = mimetypes.guess_extension(filetype)
+if fileext:
+    print "{0}".format(fileext)
+    quit(0)
+else:
+    sys.stderr.write("MIME TYPE is None\n")
+    quit(1)

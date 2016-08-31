@@ -2,6 +2,7 @@ tap 'alerque/tap'
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
+tap 'code-hex/pget'
 tap 'gapple/services'
 tap 'homebrew/apache'
 tap 'homebrew/binary'
@@ -14,6 +15,7 @@ tap 'homebrew/versions'
 tap 'homebrew/x11'
 tap 'komagata/mycask'
 tap 'neovim/neovim'
+tap 'osx-cross/avr'
 tap 'peco/peco'
 tap 'sanemat/font'
 tap 'tkengo/highway'
@@ -27,20 +29,25 @@ brew 'openssl', args: ['universal']
 brew 'ansible'
 brew 'apache-spark'
 brew 'apr'
+brew 'readline'
+brew 'xz', args: ['universal']
 brew 'sphinx-doc'
+brew 'icu4c'
+brew 'sqlite', args: ['universal']
+brew 'gdbm', args: ['universal']
+brew 'python'
+brew 'python3'
+brew 'postgresql'
 brew 'cmake'
 brew 'mysql'
 brew 'unixodbc'
 brew 'freetds'
-brew 'readline'
-brew 'icu4c'
-brew 'sqlite', args: ['universal']
 brew 'apr-util'
-brew 'xz', args: ['universal']
 brew 'aria2'
 brew 'intltool'
 brew 'gettext'
 brew 'libffi'
+brew 'pcre'
 brew 'glib'
 brew 'dbus'
 brew 'libpng', args: ['universal']
@@ -48,7 +55,6 @@ brew 'freetype', args: ['universal']
 brew 'fontconfig', args: ['universal']
 brew 'pixman'
 brew 'cairo'
-brew 'pcre'
 brew 'git', args: ['with-blk-sha1', 'with-brewed-curl', 'with-brewed-openssl', 'with-gettext', 'with-pcre', 'with-persistent-https']
 brew 'gobject-introspection'
 brew 'at-spi2-core'
@@ -60,8 +66,6 @@ brew 'avro-tools'
 brew 'aws-elasticbeanstalk'
 brew 'awscli'
 brew 'node'
-brew 'gdbm', args: ['universal']
-brew 'python'
 brew 'azure-cli'
 brew 'bash'
 brew 'bats'
@@ -91,6 +95,9 @@ brew 'curl'
 brew 'libsodium'
 brew 'zeromq'
 brew 'czmq'
+brew 'libusb', args: ['universal']
+brew 'libusb-compat', args: ['universal']
+brew 'dfu-programmer'
 brew 'dnsmasq'
 brew 'docbook'
 brew 'docker'
@@ -101,7 +108,10 @@ brew 'docker-machine-driver-xhyve'
 brew 'harfbuzz'
 brew 'pango'
 brew 'graphviz'
+brew 'qt5'
+brew 'llvm'
 brew 'doxygen'
+brew 'duck'
 brew 'e2fsprogs'
 brew 'libtool', args: ['universal']
 brew 'jpeg', args: ['universal']
@@ -113,6 +123,7 @@ brew 'libtasn1', args: ['universal']
 brew 'nettle'
 brew 'gnutls'
 brew 'little-cms2', args: ['universal']
+brew 'webp', args: ['universal']
 brew 'imagemagick'
 brew 'emacs', args: ['with-cocoa']
 brew 'embulk'
@@ -139,12 +150,13 @@ brew 'ghq'
 brew 'gibo'
 brew 'gist'
 brew 'git-flow'
+brew 'glassfish'
 brew 'libxml2', args: ['with-python']
 brew 'gnome-doc-utils'
-brew 'jasper', args: ['universal']
 brew 'libepoxy'
-brew 'gsettings-desktop-schemas'
 brew 'hicolor-icon-theme'
+brew 'gsettings-desktop-schemas'
+brew 'jasper', args: ['universal']
 brew 'gtk+3'
 brew 'gnome-icon-theme'
 brew 'gnu-indent', args: ['with-default-names']
@@ -154,8 +166,12 @@ brew 'gnu-time'
 brew 'gnu-which', args: ['with-default-names']
 brew 'goaccess'
 brew 'gperftools'
+brew 'gradle'
 brew 'gtk+'
+brew 'h2'
 brew 'hadoop'
+brew 'lzo'
+brew 'hbase', service_restart: true
 brew 'html-xml-utils'
 brew 'htop-osx'
 brew 'httpie'
@@ -163,35 +179,36 @@ brew 'hub', args: ['HEAD']
 brew 'unar'
 brew 'ievms'
 brew 'ifstat'
+brew 'javarepl'
 brew 'jetty'
 brew 'jmeter', args: ['with-plugins']
 brew 'oniguruma'
 brew 'jq'
+brew 'zookeeper', service_restart: true
+brew 'kafka', service_restart: true
 brew 'keychain'
 brew 'kubernetes-cli'
 brew 'ldns'
+brew 'lesspipe', args: ['with-syntax-highlighting']
 brew 'lftp'
 brew 'libarchive'
 brew 'libev'
 brew 'libevent'
 brew 'libgpg-error'
 brew 'libgcrypt'
-brew 'libusb', args: ['universal']
-brew 'libusb-compat', args: ['universal']
 brew 'libgphoto2', args: ['universal']
 brew 'libicns', args: ['universal']
+brew 'libmagic'
 brew 'libpcl'
 brew 'popt'
 brew 'librsync'
 brew 'libsmi'
 brew 'libvo-aacenc'
 brew 'libxslt'
-brew 'llvm', args: ['with-clang']
 brew 'lua'
 brew 'luajit'
 brew 'lv'
 brew 'lzip'
-brew 'python3'
 brew 'macvim', args: ['with-lua', 'with-luajit', 'with-override-system-vim', 'with-python3']
 brew 'mas'
 brew 'maven'
@@ -211,6 +228,8 @@ brew 'nkf'
 brew 'nmap'
 brew 'ossp-uuid'
 brew 'p7zip'
+brew 'packer'
+brew 'pandoc'
 brew 'parallel'
 brew 'parquet-tools'
 brew 'peco'
@@ -221,7 +240,6 @@ brew 'portaudio'
 brew 'pssh'
 brew 'pv'
 brew 'qt'
-brew 'qt5'
 brew 're2c'
 brew 'reattach-to-user-namespace'
 brew 'redis'
@@ -236,18 +254,22 @@ brew 'scrollkeeper'
 brew 'selenium-server-standalone'
 brew 'siege'
 brew 'sl'
+brew 'source-highlight'
 brew 'spdylay'
 brew 'squid'
 brew 'ssh-copy-id'
 brew 'sshrc'
 brew 'subversion'
 brew 'sysbench'
+brew 'teensy_loader_cli'
+brew 'terraform'
 brew 'the_platinum_searcher'
 brew 'the_silver_searcher'
 brew 'tig'
 brew 'tmux'
 brew 'tomcat', args: ['with-fulldocs']
 brew 'tomcat-native', args: ['with-apr']
+brew 'tor', service_restart: true
 brew 'trafficserver', args: ['HEAD', 'with-spdy']
 brew 'tree'
 brew 'unison'
@@ -268,8 +290,10 @@ brew 'zsh'
 brew 'zsh-completions'
 brew 'zsh-history-substring-search'
 brew 'zsh-syntax-highlighting'
+brew 'code-hex/pget/pget'
 brew 'homebrew/dupes/zlib'
 brew 'homebrew/apache/httpd24', args: ['with-mpm-worker']
+brew 'homebrew/dupes/apple-gcc42'
 brew 'homebrew/dupes/diffutils'
 brew 'homebrew/dupes/ed', args: ['with-default-names']
 brew 'homebrew/dupes/expect', args: ['with-threads']
@@ -293,28 +317,31 @@ brew 'homebrew/php/composer'
 brew 'homebrew/versions/bison27'
 brew 'homebrew/x11/xclip'
 brew 'neovim/neovim/neovim', args: ['HEAD']
+brew 'osx-cross/avr/avr-binutils'
+brew 'osx-cross/avr/avr-gcc'
+brew 'osx-cross/avr/avr-libc'
 brew 'sanemat/font/ricty', args: ['disable-fullwidth', 'powerline', 'vim-powerline']
 brew 'tkengo/highway/highway'
 cask 'adobe-air'
 cask 'alfred'
 cask 'avira-antivirus'
-cask 'azure-cli'
 cask 'bettertouchtool'
 cask 'boot2docker'
 cask 'cacoo-ninja'
 cask 'chefdk'
 cask 'clipmenu'
 cask 'cyberduck'
+cask 'datagrip-eap'
 cask 'diffmerge'
-cask 'dockertoolbox'
 cask 'dropbox'
-cask 'eclipse-java'
 cask 'elasticwolf'
+cask 'evernote'
 cask 'filezilla'
 cask 'firefox'
 cask 'flash'
 cask 'freemind'
 cask 'gas-mask'
+cask 'gimp'
 cask 'github-desktop'
 cask 'google-chrome'
 cask 'google-chrome-dev'
@@ -343,8 +370,6 @@ cask 'nndd'
 cask 'onyx'
 cask 'opera'
 cask 'owncloud'
-cask 'packer'
-cask 'pandoc'
 cask 'real-vnc'
 cask 'sequel-pro'
 cask 'serf'
@@ -357,15 +382,16 @@ cask 'sts'
 cask 'switchresx'
 cask 'tableau'
 cask 'tableau-public'
-cask 'terraform'
+cask 'td-agent'
+cask 'teensy'
 cask 'the-unarchiver'
 cask 'tigervnc-viewer'
 cask 'timer'
 cask 'toggldesktop'
+cask 'tuntap'
 cask 'unity'
 cask 'vagrant'
 cask 'virtualbox'
-cask 'virtualbox-extension-pack'
 cask 'visual-studio-code'
 cask 'vivaldi'
 cask 'vnc-viewer'
@@ -375,13 +401,12 @@ cask 'wireshark'
 cask 'xmind'
 cask 'xtrafinder'
 mas 'Microsoft Remote Desktop', id: 715768417
-mas 'Dash', id: 449589707
-mas 'Keynote', id: 409183694
-mas 'VOX', id: 461369673
-mas 'OneDrive', id: 823766827
-mas 'Xcode', id: 497799835
-mas 'Veertu', id: 1024069033
 mas 'Todoist', id: 585829637
 mas 'Deckset', id: 847496013
+mas 'OneDrive', id: 823766827
+mas 'Xcode', id: 497799835
 mas 'LINE', id: 539883307
+mas 'Keynote', id: 409183694
+mas 'Dash', id: 449589707
+mas 'Veertu', id: 1024069033
 mas 'Memory Clean', id: 451444120

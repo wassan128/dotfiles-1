@@ -272,3 +272,8 @@ on_ft = ['conf', 'fluentd']
 [[plugins]]
 repo = 'kchmck/vim-coffee-script'
 on_ft = ['coffee']
+
+# handlebars
+[[plugins]]
+repo = 'mustache/vim-mustache-handlebars'
+on_ft = ['mustache', 'handlebars']

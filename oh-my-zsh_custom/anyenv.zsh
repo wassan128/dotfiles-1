@@ -51,6 +51,7 @@ exenv() {
 }
 export GOENV_ROOT="$HOME/.anyenv/envs/goenv"
 export PATH="$HOME/.anyenv/envs/goenv/bin:$PATH"
+export PATH="$HOME/.anyenv/envs/goenv/shims:$PATH"
 export JENV_ROOT="$HOME/.anyenv/envs/jenv"
 export PATH="$HOME/.anyenv/envs/jenv/bin:$PATH"
 export PATH="$HOME/.anyenv/envs/jenv/shims:${PATH}"
@@ -73,6 +74,7 @@ jenv() {
 }
 export NDENV_ROOT="$HOME/.anyenv/envs/ndenv"
 export PATH="$HOME/.anyenv/envs/ndenv/bin:$PATH"
+export PATH="$HOME/.anyenv/envs/ndenv/shims:$PATH"
 source "$HOME/.anyenv/envs/ndenv/libexec/../completions/ndenv.zsh"
 ndenv() {
   typeset command
@@ -90,6 +92,7 @@ ndenv() {
 }
 export PHPENV_ROOT="$HOME/.anyenv/envs/phpenv"
 export PATH="$HOME/.anyenv/envs/phpenv/bin:$PATH"
+export PATH="$HOME/.anyenv/envs/phpenv/shims:$PATH"
 export PHPENV_SHELL=zsh
 phpenv() {
   local command
@@ -166,6 +169,7 @@ rbenv() {
 }
 export SCALAENV_ROOT="$HOME/.anyenv/envs/scalaenv"
 export PATH="$HOME/.anyenv/envs/scalaenv/bin:$PATH"
+export PATH="$HOME/.anyenv/envs/scalaenv/shims:$PATH"
 export SCALAENV_SHELL=zsh
 source "$HOME/.anyenv/envs/scalaenv/libexec/../completions/scalaenv.zsh"
  scalaenv() {

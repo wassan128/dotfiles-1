@@ -49,29 +49,6 @@ exenv() {
     command exenv "$command" "$@";;
   esac
 }
-export GOENV_ROOT="$HOME/.anyenv/envs/goenv"
-export PATH="$HOME/.anyenv/envs/goenv/bin:$PATH"
-export PATH="$HOME/.anyenv/envs/goenv/shims:$PATH"
-export JENV_ROOT="$HOME/.anyenv/envs/jenv"
-export PATH="$HOME/.anyenv/envs/jenv/bin:$PATH"
-export PATH="$HOME/.anyenv/envs/jenv/shims:${PATH}"
-source "$HOME/.anyenv/envs/jenv/libexec/../completions/jenv.zsh"
-export JENV_LOADED=1
-unset JAVA_HOME
-jenv() {
-  typeset command
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  enable-plugin|rehash|shell|shell-options)
-    eval `jenv "sh-$command" "$@"`;;
-  *)
-    command jenv "$command" "$@";;
-  esac
-}
 export NDENV_ROOT="$HOME/.anyenv/envs/ndenv"
 export PATH="$HOME/.anyenv/envs/ndenv/bin:$PATH"
 export PATH="$HOME/.anyenv/envs/ndenv/shims:$PATH"
@@ -167,26 +144,6 @@ rbenv() {
     command rbenv "$command" "$@";;
   esac
 }
-export SCALAENV_ROOT="$HOME/.anyenv/envs/scalaenv"
-export PATH="$HOME/.anyenv/envs/scalaenv/bin:$PATH"
-export PATH="$HOME/.anyenv/envs/scalaenv/shims:$PATH"
-export SCALAENV_SHELL=zsh
-source "$HOME/.anyenv/envs/scalaenv/libexec/../completions/scalaenv.zsh"
- scalaenv() {
-  local command
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-    rehash|shell)
-      eval "`scalaenv "sh-$command" "$@"`";;
-    * )
-      command scalaenv "$command" "$@";;
-  esac
-}
-
 export PATH="$HOME/.anyenv/envs/pyenv/plugins/pyenv-virtualenv/shims:${PATH}";
 export PYENV_VIRTUALENV_INIT=1;
 _pyenv_virtualenv_hook() {

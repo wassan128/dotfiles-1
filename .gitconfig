@@ -6,7 +6,7 @@
 	precomposeunicode = true
 	preloadindex = true
 	safecrlf = true
-	excludesfile = /Users/kori/.gitignore_global
+	excludesfile = /Users/K/.gitignore_global
 [push]
 	default = current
 [difftool "sourcetree"]
@@ -66,4 +66,6 @@
 	compactionHeuristic = true
 [user]
 	name = Kei Kori
-	email = kori@aucfan.com
+	email = esc13245@gmail.com
+[commit]
+	template = /Users/K/.stCommitMsg

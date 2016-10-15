@@ -11,9 +11,7 @@ alias tailf='tail -f'
 alias uu="cd ..; ls -l"
 alias shrestart="exec $SHELL -l"
 
-mvnc() {
-    MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xverify:none" mvn $@ -T24
-}
+mvnc() { MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xverify:none" mvn $@ -T24 }
 
 p() { peco | while read LINE; do $@ $LINE; done }
 alias o='git ls-files | p open'

@@ -7070,11 +7070,13 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>269 945 606 456 0 0 2560 1417 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>3210 859 620 392 2560 360 1920 1057 </string>
+	<string>3210 858 620 392 2560 360 1920 1057 </string>
+	<key>NSWindow Frame SharedPreferences</key>
+	<string>2863 540 796 473 2560 360 1920 1057 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>230 833 592 584 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2560 365 1920 1052 2560 360 1920 1057 </string>
+	<string>2560 363 1920 1054 2560 360 1920 1057 </string>
 	<key>NeverWarnAboutShortLivedSessions_1CDF2379-5CEC-41AF-8073-3325ADB44E10</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_7288BDE0-721C-448F-B3F8-21B41005973E</key>
@@ -11893,7 +11895,7 @@
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>481423058.29548001</real>
 	<key>OnlyWhenMoreTabs</key>
-	<true/>
+	<false/>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenBookmark</key>
@@ -11953,7 +11955,7 @@
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
-	<true/>
+	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<false/>
 	<key>RightCommand</key>
@@ -11969,7 +11971,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-08-04T10:09:39Z</date>
+	<date>2016-09-29T08:33:23Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -12029,7 +12031,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.20160729-nightly</string>
+	<string>3.0.20160918-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

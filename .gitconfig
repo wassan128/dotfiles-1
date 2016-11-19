@@ -64,8 +64,5 @@
 	diff = diff-highlight | less
 [diff]
 	compactionHeuristic = true
-[user]
-	name = Kei Kori
-	email = esc13245@gmail.com
 [commit]
 	template = /Users/K/.stCommitMsg

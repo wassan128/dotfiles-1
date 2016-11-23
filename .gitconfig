@@ -1,12 +1,10 @@
-[user]
 [core]
-	autocrlf = false
+	autocrlf = input
 	editor = nvim -c \"set fenc=utf-8\"
 	pager = lv
 	precomposeunicode = true
 	preloadindex = true
 	safecrlf = true
-	excludesfile = /Users/K/.gitignore_global
 [push]
 	default = current
 [difftool "sourcetree"]
@@ -64,5 +62,6 @@
 	diff = diff-highlight | less
 [diff]
 	compactionHeuristic = true
-[commit]
-	template = /Users/K/.stCommitMsg
+[user]
+	name = Kei Kori
+	email = esc13245@gmail.com

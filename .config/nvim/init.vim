@@ -418,7 +418,7 @@ set vb t_vb=
 set novisualbell
 " OSのクリップボードを使う
 if has('nvim') || has('unnamedplus')
-  set clipboard+=unnamedplus
+  set clipboard+=unnamedplus,unnamed
 else
   set clipboard+=unnamedplus,unnamed
 endif

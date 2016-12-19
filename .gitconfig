@@ -1,6 +1,5 @@
-[user]
 [core]
-	autocrlf = true
+	autocrlf = input
 	editor = nvim -c \"set fenc=utf-8\"
 	pager = lv
 	precomposeunicode = true
@@ -63,6 +62,3 @@
 	diff = diff-highlight | less
 [diff]
 	compactionHeuristic = true
-[user]
-	name = Kei Kori
-	email = kori@aucfan.com

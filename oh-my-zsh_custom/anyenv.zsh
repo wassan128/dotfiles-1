@@ -149,6 +149,9 @@ if [ -d "$HOME/.anyenv/envs/pyenv" ]; then
         return $ret
         };
     fi
+    export CRYPTOGRAPHY_OSX_NO_LINK_FLAGS=1
+    export LDFLAGS="/usr/local/opt/openssl/lib/libssl.a /usr/local/opt/openssl/lib/libcrypto.a"
+    export CFLAGS="$CFLAGS -I/usr/local/opt/openssl/include"
 fi
 if [ -d "$HOME/.anyenv/envs/rbenv" ]; then
     export RBENV_ROOT="$HOME/.anyenv/envs/rbenv"

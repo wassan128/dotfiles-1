@@ -1,0 +1,5 @@
+pane	0	0	:vim	1	:*	0	:/	0	ruby	:/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby -W0 /usr/local/Homebrew/Library/Homebrew/brew.rb upgrade
+pane	0	0	:vim	1	:*	1	:/	0	zsh	:
+pane	0	0	:vim	1	:*	2	:/	1	nvim	:nvim /Users/kori/.tmux.conf
+window	0	0	1	:*	7b06,238x53,0,0[238x26,0,0,0,238x26,0,27{119x26,0,27,2,118x26,120,27,5}]
+state	0	

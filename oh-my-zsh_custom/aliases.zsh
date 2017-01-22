@@ -1,5 +1,9 @@
 alias sudo='sudo -E ' # inrehit environments and aliases
-alias brew-cask-upgrade='brew cask install --force $(brew cask list | grep -v '\''\(!\)'\'')'
+# alias brew-cask-upgrade='brew cask install --force $(brew cask list | grep -v '\''\(!\)'\'')'
+brew-cask-upgrade(){
+    [[ "$1" = "-f" ]] && FORCE_INSTALL_LATEST=1
+    for app in $(brew cask list); do cver="$(brew cask info "${app}" | head -n 1 | awk '{print $2}')"; ivers=$(ls -1 "/usr/local/Caskroom/${app}/.metadata/" | tr '\n' ' ' | sed -e 's/ $//'); aivers=(${ivers}); nvers=$(echo ${#aivers[@]}); if [[ "${cver}" = "latest" ]]; then echo "[!] ${app}: ${ivers} == ${cver}"; [[ -n "$FORCE_INSTALL_LATEST" ]] && brew cask install "${app}" --force; continue; elif [[ ${nvers} -eq 1 ]]; then echo "${ivers}" | grep -q "^${cver}$" && continue; fi; echo "[+] ${app}: ${ivers} -> ${cver}"; brew cask uninstall "${app}" --force; brew cask install "${app}"; done
+}
 alias brew-upgrade-all='brew update;  brew upgrade; brew-cask-upgrade; brew cleanup; brew cask cleanup'
 alias rm='rm -i'
 if type rmtrash > /dev/null; then alias rm='rmtrash'; fi
@@ -9,6 +13,7 @@ alias tree='tree -NC'
 alias tailf='tail -f'
 alias uu="cd ..; ls -l"
 alias shrestart="exec $SHELL -l"
+alias mnt="/opt/iscsi.sh; /opt/nfs.sh"
 
 mvnc() { MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xverify:none" mvn $@ -T24 }
 

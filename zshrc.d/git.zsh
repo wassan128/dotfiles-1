@@ -1,5 +1,5 @@
 export GIT_MERGE_AUTOEDIT=no
-
+alias git=hub
 alias g='git'
 alias -g R='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
 alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
@@ -13,4 +13,3 @@ alias gst='git status'
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
 . /usr/local/share/zsh/site-functions/git-flow-completion.zsh
-hub.zsh

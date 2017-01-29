@@ -1,86 +1,43 @@
-# Path to you roh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="ys"
-#ZSH_THEME="dieter"
-ZSH_THEME="dieter-mod"
-#ZSH_THEME="geoffgarside"
-#ZSH_THEME="skaro"
-#ZSH_THEME="agnoster-mod"
+bindkey -e
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+zplug "yous/vanilli.sh"
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+zplug "mollifier/anyframe"
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ":anyframe:selector:" use fzf
 
-# Uncomment this to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+zplug "mollifier/cd-gitroot"
 
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
+zplug "rupa/z", use:"*.sh"
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
+zplug "b4b4r07/enhancd", use:init.sh
+export ENHANCD_COMMAND=ed
+export ENHANCD_FILTER=ENHANCD_FILTER=fzy:fzf:peco
 
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+zplug "zsh-users/zsh-history-substring-search", hook-build:"__zsh_version 4.3", defer:2
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-completions"
 
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
+zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+zplug "yous/lime"
+export LIME_DIR_DISPLAY_COMPONENTS=2
 
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# zplug "~/dotfiles/zshrc.d", from:local
+for f in ~/dotfiles/zshrc.d/*.zsh; do
+  source $f
+done
 
-# Uncomment following line if you want to  shown in the command execution time stamp
-# in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
-# yyyy-mm-dd
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# plugins=(brew composer git gitfast git-extras git-flow knife osx tmux tmuxinator vagrant)
-plugins=(osx)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-export PATH="$PATH:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-### FOR PROFILING
-# if (which zprof > /dev/null) ;then
-#   zprof | less
-# fi
-# enhancd
-if [ -f "${HOME}/.iterm2_shell_integration.zsh" ]; then
-    source "${HOME}/.iterm2_shell_integration.zsh"
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
 fi
-if [ -f "${HOME}/.enhancd/zsh/enhancd.zsh" ]; then
-    source "${HOME}/.enhancd/zsh/enhancd.zsh"
-fi
+zplug load

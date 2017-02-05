@@ -25,8 +25,8 @@ zplug "zsh-users/zsh-completions"
 zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-zplug "yous/lime"
-export LIME_DIR_DISPLAY_COMPONENTS=2
+# zplug "yous/lime"
+# export LIME_DIR_DISPLAY_COMPONENTS=2
 
 # zplug "~/dotfiles/zshrc.d", from:local
 for f in ~/dotfiles/zshrc.d/*.zsh; do

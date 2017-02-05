@@ -5,6 +5,8 @@
 	precomposeunicode = true
 	preloadindex = true
 	safecrlf = true
+	fscache = true
+	ignoreStat = true
 [push]
 	default = current
 [difftool "sourcetree"]

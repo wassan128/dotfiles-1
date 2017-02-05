@@ -5,12 +5,12 @@
 # will be on the right edge.
 # The exit code visual cues will only display once.
 # (i.e. they will be reset, even if you hit enter a few times on empty command prompts)
-autoload -Uz colors
-colors
+autoload -Uz colors && colors
+setopt prompt_subst
 typeset -A host_repr
 
 # translate hostnames into shortened, colorcoded strings
-host_repr=('dieter-ws-a7n8x-arch' "%{$fg_bold[green]%}ws" 'dieter-p4sci-arch' "%{$fg_bold[blue]%}p4")
+host_repr=('k-macos.local' "%{$fg[black]%}k" 'afn-kori.local' "%{$fg[green]%}afn")
 
 # local time, color coded by last return code
 time_enabled="%(?.%{$fg[green]%}.%{$fg[red]%})%*%{$reset_color%}"
@@ -63,6 +63,7 @@ function accept-line-or-clear-warning () {
 	fi
 	zle accept-line
 }
-PROMPT="${time} ${host} ${pwd}$(_git_info) ${return_code}%(!.#.$) "
+PROMPT='${time} ${host} ${pwd}$(_git_info) ${return_code}%(!.#.$) '
 zle -N accept-line-or-clear-warning
 bindkey '^M' accept-line-or-clear-warning
+unfunction git_compare_version

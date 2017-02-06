@@ -8,9 +8,10 @@
 autoload -Uz colors && colors
 setopt prompt_subst
 typeset -A host_repr
+ZSH_THEME_GIT_PROMPT_DIRTY='*'
 
 # translate hostnames into shortened, colorcoded strings
-host_repr=('k-macos.local' "%{$fg[black]%}k" 'afn-kori.local' "%{$fg[green]%}afn")
+host_repr=('k-macos.local' "%{$fg[black]%}k" 'AFN-kori.local' "%{$fg[black]%}AFN")
 
 # local time, color coded by last return code
 time_enabled="%(?.%{$fg[green]%}.%{$fg[red]%})%*%{$reset_color%}"

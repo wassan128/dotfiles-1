@@ -15,14 +15,13 @@ zplug "rupa/z", use:"*.sh"
 zplug "b4b4r07/enhancd", use:init.sh
 export ENHANCD_FILTER=fzy:fzf:peco
 
-# zplug "zsh-users/zsh-history-substring-search", hook-build:"__zsh_version 4.3", defer:2
-source /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-history-substring-search", hook-build:"__zsh_version 4.3", defer:2, on:"zsh-users/zsh-syntax-highlighting"
 
 zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+zplug "aperezdc/zsh-fzy", as:command, use:fzy-tmux
 
 # zplug "yous/lime"
 # export LIME_DIR_DISPLAY_COMPONENTS=2

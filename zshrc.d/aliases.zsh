@@ -12,10 +12,10 @@ alias uu="cd ..; ls -l"
 alias shrestart="exec $SHELL -l"
 alias mnt="/opt/iscsi.sh; /opt/nfs.sh"
 mvnc() { MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xverify:none" mvn $@ -T24 }
-p() { fzf | while read LINE; do $@ $LINE; done }
+p() { fzy | while read LINE; do $@ $LINE; done }
 alias o='git ls-files | p open'
-# alias e='ghq list -p | p cd'
-alias e=anyframe-widget-cd-ghq-repository
+alias e='ghq list -p | p cd'
+# alias e=anyframe-widget-cd-ghq-repository
 alias ssheuc='TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
 alias f='open .'
 alias be='bundle exec'

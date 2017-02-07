@@ -23,10 +23,9 @@ zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 zplug "aperezdc/zsh-fzy", as:command, use:fzy-tmux
 
-# zplug "yous/lime"
-# export LIME_DIR_DISPLAY_COMPONENTS=2
-
-zplug "~/dotfiles/zshrc.d", from:local
+for f in ~/dotfiles/zshrc.d/*.zsh; do
+  source $f
+done
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

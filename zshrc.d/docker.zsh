@@ -3,4 +3,5 @@ alias d='docker'
 dsh(){docker exec -it "${@:-$(docker ps -qla)}" bash;}
 alias dps='docker ps'
 alias dc=docker-compose
+alias dce='docker-compose exec'
 alias dm=docker-machine

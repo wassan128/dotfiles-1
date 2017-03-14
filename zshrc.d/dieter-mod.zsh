@@ -11,7 +11,7 @@ typeset -A host_repr
 ZSH_THEME_GIT_PROMPT_DIRTY='*'
 
 # translate hostnames into shortened, colorcoded strings
-host_repr=('k-macos.local' "%{$fg[black]%}k" 'AFN-kori.local' "%{$fg[black]%}AFN")
+host_repr=('k-macos.local' "%{$fg[black]%}k" 'AFN-kori.local' "%{$fg[black]%}AFN" 'arch' "%{$fg[cyan]%}arch")
 
 # local time, color coded by last return code
 time_enabled="%(?.%{$fg[green]%}.%{$fg[red]%})%*%{$reset_color%}"

@@ -37,12 +37,6 @@ do
   fi
 done
 
-# oh-my-zsh-*/を.oh-my-zsh/以下にシンボリックリンク
-ln -s ${PWD}/oh-my-zsh_custom/*.zsh "${HOME}/dotfiles/.oh-my-zsh/custom/" 2> /dev/null
-ln -s ${PWD}/oh-my-zsh_custom/*.zsh-theme "${HOME}/dotfiles/.oh-my-zsh/custom/" 2> /dev/null
-# リンク切れのシンボリックリンクを削除
-find -L "${HOME}"/dotfiles/.oh-my-zsh/custom -type l -exec unlink {} \;
-
 # iterm2.plistを更新、ハードリンク張替え
 if ! cmp -s com.googlecode.iterm2.plist{,.$(uname -n)}; then 
     mv -f com.googlecode.iterm2.plist{,.$(uname -n)}

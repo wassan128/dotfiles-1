@@ -26,6 +26,10 @@ zplug "aperezdc/zsh-fzy", as:command, use:fzy-tmux
 for f in ~/dotfiles/zshrc.d/*.zsh; do
   source $f
 done
+# OS specific
+for f in ~/dotfiles/zshrc.d.$(uname)/*.zsh; do
+  source $f
+done
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

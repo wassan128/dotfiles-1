@@ -67,10 +67,10 @@ let g:deoplete#enable_camel_case = 1
 
 " deoplete-clang "{{{
 " libclang shared library path
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
 
 " clang builtin header path
-let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
+let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/lib/clang'
 
 " libclang default compile flags
 let g:deoplete#sources#clang#flags = ['-x', 'c++', '-std=c++11']

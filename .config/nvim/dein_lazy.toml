@@ -231,7 +231,7 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 # C/C++
 [[plugins]]
-repo = 'zchee/deoplete-clang'
+repo = 'tweekmonster/deoplete-clang2'
 depends = 'deoplete.nvim'
 on_ft = ['c', 'cpp']
 

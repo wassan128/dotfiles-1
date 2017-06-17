@@ -1,1 +1,1 @@
-/Users/K/.cache/vim-plug/gocode/nvim/autoload/gocomplete.vim
+/Users/k/.cache/dein.vim/repos/github.com/nsf/gocode/nvim/autoload/gocomplete.vim

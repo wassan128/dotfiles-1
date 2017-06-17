@@ -1,3 +1,4 @@
+let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
 " dein.vim {{{
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein.vim'

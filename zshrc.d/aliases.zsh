@@ -10,7 +10,7 @@ alias tailf='tail -f'
 alias talif=tailf
 alias uu="cd ..; ls -l"
 alias shrestart="exec $SHELL -l"
-alias mnt="/opt/iscsi.sh; /opt/nfs.sh"
+alias mnt="/opt/nfs.sh; /opt/iscsi.sh"
 mvnc() { MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xverify:none" mvn $@ -T24 }
 p() { fzy | while read LINE; do $@ $LINE; done }
 alias o='git ls-files | p open'

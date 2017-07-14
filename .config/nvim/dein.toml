@@ -32,4 +32,4 @@ repo = 'Shougo/context_filetype.vim'
 repo = 'gcmt/wildfire.vim'
 
 [[plugins]]
-repo = 'sudo.vim'
+repo = 'vim-scripts/sudo.vim'

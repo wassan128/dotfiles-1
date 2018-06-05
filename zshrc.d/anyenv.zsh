@@ -121,6 +121,7 @@ if [ -d "$HOME/.anyenv/envs/pyenv" ]; then
     export PATH="$HOME/.anyenv/envs/pyenv/bin:$PATH"
     export PATH="$HOME/.anyenv/envs/pyenv/shims:${PATH}"
     export PYENV_SHELL=zsh
+    export PYTHON_CONFIGURE_OPTS="--enable-framework"
     source "$HOME/.anyenv/envs/pyenv/libexec/../completions/pyenv.zsh"
     pyenv() {
     local command
@@ -172,5 +173,50 @@ if [ -d "$HOME/.anyenv/envs/rbenv" ]; then
     *)
         command rbenv "$command" "$@";;
     esac
+    }
+fi
+if [ -d "$HOME/.anyenv/envs/jenv" ]; then
+    export JENV_ROOT="/Users/kkori/.anyenv/envs/jenv"
+    export PATH="/Users/kkori/.anyenv/envs/jenv/bin:$PATH"
+    export PATH="/Users/kkori/.anyenv/envs/jenv/shims:${PATH}"
+    source "/Users/kkori/.anyenv/envs/jenv/libexec/../completions/jenv.zsh"
+    jenv rehash 2>/dev/null
+    export JENV_LOADED=1
+    unset JAVA_HOME
+    jenv() {
+      typeset command
+      command="$1"
+      if [ "$#" -gt 0 ]; then
+        shift
+      fi
+
+      case "$command" in
+      enable-plugin|rehash|shell|shell-options)
+        eval `jenv "sh-$command" "$@"`;;
+      *)
+        command jenv "$command" "$@";;
+      esac
+    }
+fi
+if [ -d "$HOME/.anyenv/envs/scalaenv" ]; then
+    export SCALAENV_ROOT="/Users/kkori/.anyenv/envs/scalaenv"
+    export PATH="/Users/kkori/.anyenv/envs/scalaenv/bin:$PATH"
+    export PATH="/Users/kkori/.anyenv/envs/scalaenv/shims:${PATH}"
+    export SCALAENV_SHELL=zsh
+    source '/Users/kkori/.anyenv/envs/scalaenv/libexec/../completions/scalaenv.zsh'
+    scalaenv rehash 2> /dev/null
+     scalaenv() {
+      local command
+      command="$1"
+      if [ "$#" -gt 0 ]; then
+        shift
+      fi
+
+      case "$command" in
+        rehash|shell)
+          eval "`scalaenv "sh-$command" "$@"`";;
+        * )
+          command scalaenv "$command" "$@";;
+      esac
     }
 fi

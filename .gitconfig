@@ -5,13 +5,14 @@
 	precomposeunicode = true
 	preloadindex = true
 	safecrlf = true
+	excludesfile = /Users/kkori/.gitignore_global
 [push]
 	default = current
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 	trustExitCode = true
 [color]
 	ui = auto
@@ -25,7 +26,7 @@
 	co = checkout
 	ci = commit -v
 	di = diff
-	br = branch
+	br = branch --sort=-authordate
 	puhs = push
 	psuh = push
 	pus = push
@@ -34,12 +35,13 @@
 	p = pull
 	pu = push
 	puu = push -u
+	put = push --tags
 	c = commit -v
 	o = checkout
 	t = checkout -t
 	b = checkout -b
 	r = remote
-	pr = pull-request
+	pur = pull-request
 	see = browse
 	m = merge
 	mn = merge --no-ff
@@ -50,8 +52,8 @@
 	smudge = git-lfs smudge %f
 	required = true
 [merge]
-	tool = diffconflicts
 	conflictstyle = diff3
+	tool = diffconflicts
 [mergetool "diffconflicts"]
 	cmd = diffconflicts nvim $BASE $LOCAL $REMOTE $MERGED
 	trustExitCode = true
@@ -62,5 +64,17 @@
 	diff = diff-highlight | less
 [diff]
 	compactionHeuristic = true
+	tool = diffmerge
 [ghq]
 	root = ~/src
+[user]
+	name = kkori
+	email = kkori@yahoo-corp.jp
+[commit]
+	template = /Users/kkori/.stCommitMsg
+[difftool]
+	prompt = false
+[difftool "diffmerge"]
+	path = /Applications/DiffMerge.app/Contents/Resources/diffmerge.sh
+[mergetool]
+	keepBackup = false

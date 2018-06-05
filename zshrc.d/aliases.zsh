@@ -1,6 +1,6 @@
 alias sudo='sudo -E ' # inrehit environments and aliases
 brew-cask-upgrade(){ for app in $(brew cask list); do local latest="$(brew cask info "${app}" | awk 'NR==1{print $2}')"; local versions=($(ls -1 "/usr/local/Caskroom/${app}/.metadata/")); local current=$(echo ${versions} | awk '{print $NF}'); if [[ "${latest}" = "latest" ]]; then echo "[!] ${app}: ${current} == ${latest}"; [[ "$1" = "-f" ]] && brew cask install "${app}" --force; continue; elif [[ "${current}" = "${latest}" ]]; then continue; fi; echo "[+] ${app}: ${current} -> ${latest}"; brew cask uninstall "${app}" --force; brew cask install "${app}"; done; }
-alias brew-upgrade-all='brew update;  brew upgrade; brew-cask-upgrade; brew cleanup; brew cask cleanup'
+alias brew-upgrade-all='brew update; brew upgrade; brew cask upgrade; brew cleanup; brew cask cleanup'
 alias rm='rm -i'
 if type rmtrash > /dev/null; then alias rm='rmtrash'; fi
 alias mv='mv -i'

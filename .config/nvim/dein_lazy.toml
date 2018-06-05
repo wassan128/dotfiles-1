@@ -22,8 +22,13 @@ on_cmd = ['NERDTreeToggle', 'NERDTree']
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
-depends = 'unite.vim'
-on_cmd = ['Unite', 'UniteResume']
+depends = ['unite.vim', 'denite.nvim']
+on_cmd = ['Unite', 'UniteResume', 'Denite']
+
+[[plugins]]
+repo = 'nixprime/cpsm'
+depends = 'denite.nvim'
+build = 'env PY3=ON ./install.sh'
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
@@ -56,10 +61,47 @@ endif
 '''
 
 [[plugins]]
+repo = 'Shougo/denite.nvim'
+on_ft = ['snippet', 'denite']
+on_cmd = ['Denite', 'DeviteCursorWord']
+hook_add = '''
+" grep検索
+nnoremap <silent> ,g  :<C-u>Denite grep:. -buffer-name=search-buffer<CR>
+
+" カーソル位置の単語をgrep検索
+nnoremap <silent> ,cg :<C-u>Denite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+
+" grep検索結果の再呼出
+" nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+'''
+hook_post_source = '''
+" @see https://blog.scimpr.com/2018/04/15/vim8%E3%81%A7denite-nvim%E3%82%92%E3%81%A4%E3%81%8B%E3%81%86/
+" call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+" denite/insert モードのときは，UpDownで移動できるようにする
+call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>')
+call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>')
+" denite/insert モードのときは、RightLeftで過去の履歴
+call denite#custom#map('insert', '<Right>', '<denite:assign_next_matched_text>')
+call denite#custom#map('insert', '<Left>', '<denite:assign_previous_matched_text>')
+ 
+" tabopen や vsplit のキーバインドを割り当て
+call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>')
+call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>')
+call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>')
+'''
+
+[[plugins]]
 repo = 'Shougo/neoyank.vim'
 depends = 'unite.vim'
 on_ft = ['snippet', 'unite']
-on_cmd = ['Unite', 'UniteResume']
+on_cmd = ['Unite', 'UniteResume', 'Denite']
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
@@ -277,3 +319,8 @@ on_ft = ['coffee']
 [[plugins]]
 repo = 'mustache/vim-mustache-handlebars'
 on_ft = ['mustache', 'handlebars']
+
+# jinja2
+[[plugins]]
+repo = 'lepture/vim-jinja'
+on_ft = 'jinja'

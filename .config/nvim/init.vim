@@ -1,3 +1,4 @@
+let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
 " dein.vim {{{
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein.vim'
@@ -135,8 +136,8 @@ endif
 " \   "outputter/buffer/close_on_empty": 1,
 " \}}
 " let g:quickrun_config['markdown'] = {'outputter': 'browser'}
-" nnoremap <silent> <C-q> :QuickRun<CR>
-" nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+nnoremap <silent> <C-q> :QuickRun<CR>
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 " ----------------------------------------------------------------------------------------------------------
 

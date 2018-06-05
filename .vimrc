@@ -231,6 +231,8 @@ nnoremap <Leader>h :CtrlPMRUFiles<CR>
 set foldmethod=indent
 " オートインデント
 set autoindent
+" 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
+set smartindent
 " インデントのタイミング
 set indentkeys=!^F,o,O,0<Bar>,0=where
 " Shift+Tabでアンインデント

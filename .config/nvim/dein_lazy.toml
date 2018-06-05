@@ -20,64 +20,31 @@ cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandL
 repo = 'scrooloose/nerdtree'
 on_cmd = ['NERDTreeToggle', 'NERDTree']
 
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-depends = ['unite.vim', 'denite.nvim']
-on_cmd = ['Unite', 'UniteResume', 'Denite']
-
-[[plugins]]
-repo = 'nixprime/cpsm'
-depends = 'denite.nvim'
-build = 'env PY3=ON ./install.sh'
-
-[[plugins]]
-repo = 'Shougo/unite.vim'
-on_ft = ['snippet', 'unite']
-on_cmd = ['Unite', 'UniteResume']
-hook_add = '''
-" @see http://blog.monochromegane.com/blog/2013/09/18/ag-and-unite/
-" insert modeで開始
-" let g:unite_enable_start_insert = 1
-
-" 大文字小文字を区別しない
-let g:unite_enable_ignore_case = 1
-let g:unite_enable_smart_case = 1
-
-" grep検索
-nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-
-" カーソル位置の単語をgrep検索
-nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-
-" grep検索結果の再呼出
-nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
-
-" unite grep に ag(The Silver Searcher) を使う
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
-endif
-'''
-
+# http://wakame.hatenablog.jp/?page=1494098253
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-on_ft = ['snippet', 'denite']
-on_cmd = ['Denite', 'DeviteCursorWord']
+on_cmd = ['Denite', 'DeniteCursorWord']
 hook_add = '''
-" grep検索
-nnoremap <silent> ,g  :<C-u>Denite grep:. -buffer-name=search-buffer<CR>
-
-" カーソル位置の単語をgrep検索
-nnoremap <silent> ,cg :<C-u>Denite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-
-" grep検索結果の再呼出
-" nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+" file_rec
+nnoremap <silent> ,c :<C-u>Denite file_rec<CR>
+" file_mru
+nnoremap <silent> ,t :<C-u>Denite file_mru<CR>
+" neoyank
+nnoremap <silent> ,y :<C-u>Denite neoyank<CR>
+" カーソル以下の単語をgrep
+nnoremap <silent> ,G <C-u>DeniteCursorWord grep -buffer-name=search line<CR><C-R><C-W><CR>
+" 普通にgrep
+nnoremap <silent> ,g :<C-u>Denite -auto_preview -buffer-name=search -mode=normal grep<CR>
+" 前回の検索結果
+nnoremap <silent> ,r :<C-u>Denite -buffer-name=search -resume -mode=normal<CR>
+" search
+nnoremap <silent> ,/ :<C-u>Denite -buffer-name=search -auto-resize line<CR>
 '''
 hook_post_source = '''
 " @see https://blog.scimpr.com/2018/04/15/vim8%E3%81%A7denite-nvim%E3%82%92%E3%81%A4%E3%81%8B%E3%81%86/
-" call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
-call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
+call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git'])
+call denite#custom#var('grep', 'command', ['rg'])
 call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
@@ -98,10 +65,20 @@ call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>')
 '''
 
 [[plugins]]
+repo = 'nixprime/cpsm'
+on_source = 'denite.nvim'
+# on_cmd = ['Denite', 'DeniteCursorWord']
+build = 'env PY3=ON ./install.sh'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = 'denite.nvim'
+# on_cmd = ['Denite file_mru']
+
+[[plugins]]
 repo = 'Shougo/neoyank.vim'
-depends = 'unite.vim'
-on_ft = ['snippet', 'unite']
-on_cmd = ['Unite', 'UniteResume', 'Denite']
+on_source = 'denite.nvim'
+# on_cmd = ['Denite neoyank']
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
